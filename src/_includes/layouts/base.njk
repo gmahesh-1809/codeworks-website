@@ -1,0 +1,60 @@
+{%- set noindex = noindex or site.noindex -%}
+{%- set canonical = page.url | absoluteUrl(site.url + "/") if page.url else "" -%}
+{%- set ogImage = (ogImage or "/assets/images/og-default.png") | absoluteUrl(site.url + "/") -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+{%- if canonical and not noindex %}
+<link rel="canonical" href="{{ canonical }}">
+{%- endif %}
+{%- if noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:title" content="{{ ogTitle or title }}">
+<meta property="og:description" content="{{ description }}">
+{%- if canonical %}
+<meta property="og:url" content="{{ canonical }}">
+{%- endif %}
+<meta property="og:image" content="{{ ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f1f6f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#09151b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<script>try{var t=localStorage.getItem("cw-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+{%- if organizationSchema %}
+<script type="application/ld+json">{{ schema.organization | dump | safe }}</script>
+{%- endif %}
+</head>
+<body>
+<a class="cw-skip" href="#main">Skip to content</a>
+<div style="background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;padding:16px;box-sizing:border-box;overflow-x:clip;min-height:100vh">
+<div style="max-width:1240px;margin:0 auto">
+{% include "partials/header.njk" %}
+<main id="main" tabindex="-1">
+{{ content | safe }}
+</main>
+{% include "partials/footer.njk" %}
+</div>
+</div>
+<script src="/assets/js/main.js" defer></script>
+{%- for s in scripts %}
+<script src="/assets/js/{{ s }}" defer></script>
+{%- endfor %}
+</body>
+</html>

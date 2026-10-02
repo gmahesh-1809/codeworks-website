@@ -1,0 +1,23 @@
+{
+  "name": "codeworks-site",
+  "version": "1.0.0",
+  "description": "Codeworks corporate website (Eleventy static site)",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "serve": "eleventy --serve --port=8080",
+    "test:visual": "node tests/visual.cjs",
+    "test": "node tests/functional.cjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "pixelmatch": "^5.3.0",
+    "playwright-core": "^1.63.0",
+    "pngjs": "^7.0.0"
+  },
+  "private": true
+}

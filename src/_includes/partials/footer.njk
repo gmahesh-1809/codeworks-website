@@ -1,0 +1,17 @@
+{%- set heading = "font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fd0ee" -%}
+<footer class="cw-foot" style="margin-top:12px;background:var(--deep);color:#fff;border-radius:32px;padding:clamp(32px,5vw,64px);font-family:'DM Sans',sans-serif">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:40px 32px">
+    <div class="cw-fbrand" style="min-width:min(100%,260px)">
+      <a href="/" aria-label="Codeworks home" style="display:inline-block;padding:6px 0;line-height:0"><img src="/assets/images/codeworks-logo-dark.svg" alt="Codeworks" width="512" height="74" style="height:32px;width:auto;display:block"></a>
+      <p style="margin:24px 0 0;font-size:17px;line-height:1.55;color:#b6c8d1;max-width:36ch">Enterprise software platforms for businesses where technology is central to operations.</p>
+      <a class="cw-fmail" href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+    <nav aria-label="Company"><div style="{{ heading }}">Company</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/company/">Who We Are</a><a class="cw-fl" href="/technology/">Technology</a><a class="cw-fl" href="/services/">Services</a><a class="cw-fl" href="/contact/">Contact</a></div></nav>
+    <nav aria-label="Products"><div style="{{ heading }}">Products</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/products/">All Products</a>{% for p in nav.products %}<a class="cw-fl" href="{{ p.url }}">{{ p.name }}</a>{% endfor %}</div></nav>
+    <nav aria-label="Resources"><div style="{{ heading }}">Resources</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column">{% for r in nav.resources %}<a class="cw-fl" href="/resources/#{{ r.key }}">{{ r.name }}</a>{% endfor %}</div></nav>
+  </div>
+  <div class="cw-fbot"><div class="cw-flegal"><span>© {{ site.year }} {{ site.legalName or "Codeworks" }}</span><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div><a href="/contact/">Talk to Us →</a></div>
+</footer>
