@@ -4,8 +4,8 @@ layout: layouts/base.njk
 <section style="padding:clamp(40px,5vw,72px) clamp(8px,2.5vw,32px) clamp(32px,4vw,48px)">
   <div style="font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text)">Legal</div>
   <h1 style="margin:16px 0 0;font:800 clamp(40px,5.2vw,72px)/1.02 'Bricolage Grotesque';letter-spacing:-0.04em;max-width:16ch;text-wrap:balance">{{ heading }}</h1>
-  <p style="margin:18px 0 0;color:var(--ink-2);font-size:clamp(17px,1.6vw,20px)">Last updated {{ updated }}</p>
-</section>
+{% if updated %}  <p style="margin:18px 0 0;color:var(--ink-2);font-size:clamp(17px,1.6vw,20px)">Last updated {{ updated }}</p>
+{% endif %}</section>
 <section class="cw-prose" style="background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:clamp(24px,4vw,56px)">
 {{ content | safe }}
 </section>

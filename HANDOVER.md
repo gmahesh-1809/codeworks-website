@@ -62,17 +62,11 @@ Placeholders still in the legal pages:
 
 | File | Placeholder |
 |---|---|
-| `src/privacy/index.md` | date of legal review (`updated:`) |
-| `src/privacy/index.md` | any other systems (e.g. a CRM) that enquiries are copied into |
-| `src/privacy/index.md` | retention period for enquiries |
 | `src/privacy/index.md` | name and email of the grievance officer (Digital Personal Data Protection Act 2023) |
-| `src/terms/index.md` | date of legal review (`updated:`) |
-| `src/terms/index.md` | registered trademarks, if any |
-| `src/terms/index.md` | liability wording reviewed by counsel |
 
 Already confirmed: the governing courts are **Mumbai, Maharashtra**. The build prints `Unresolved [TO CONFIRM] placeholders on: …` until every item is filled in.
 
-#### 3.2 Lawyer review
+#### 3.2 Content review
 - [ ] **Privacy Policy and Terms.** These are drafts written from how the site actually works: no cookies, no analytics, enquiries stored in Google Workspace, hosting on GitHub Pages. They are not legal advice.
 - [ ] **Marketing claims that need evidence or softer wording:**
   - "Cuts credit investigation turnaround time by 60%" (Products page, Drishti page)

@@ -7,10 +7,9 @@ export default {
   url: (process.env.SITE_URL || "https://www.codeworks.ind.in") + prefix,
   email: "sales@codeworks.ind.in",
   locale: "en_IN",
-  // TODO(legal): registered company name, CIN and registered office address.
+  // TODO(legal): registered company name.
   legalName: "Codeworks",
-  cin: "",
-  registeredOffice: "",
+  registeredOffice: "Navi Mumbai, Maharashtra",
   // Google Apps Script web-app URL for the contact form (see apps-script/README.md).
   // While empty, the form falls back to opening the visitor's email program.
   formEndpoint: "",
