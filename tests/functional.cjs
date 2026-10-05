@@ -52,6 +52,20 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   await page.focus('#tab-agents'); await page.keyboard.press('ArrowLeft');
   check('arrow key moves to Overview and updates the URL', await visible('#panel-overview') && page.url().endsWith('#overview'));
 
+  // Drishti agents: autoplay advances; Pause stops it; Play resumes; cards are plain list items.
+  await page.goto(BASE + '/products/drishti/#agents');
+  await page.mouse.move(5, 5);
+  const agOn = () => page.evaluate(() => [...document.querySelectorAll('.cw-ag')].findIndex(c => c.classList.contains('on')));
+  const ag0 = await agOn(); await page.waitForTimeout(2500);
+  check('drishti agents advance automatically', await agOn() === (ag0 + 1) % 4);
+  await page.click('#panel-agents .cw-pp');
+  const agP = await agOn(); await page.waitForTimeout(2500);
+  check('Pause stops the agents', await agOn() === agP && await page.getAttribute('#panel-agents .cw-pp', 'aria-label') === 'Play');
+  await page.click('#panel-agents .cw-pp'); await page.waitForTimeout(2500);
+  check('Play resumes the agents', await agOn() === (agP + 1) % 4 && await page.getAttribute('#panel-agents .cw-pp', 'aria-label') === 'Pause');
+  check('agent cards are list items, not buttons', await page.locator('#panel-agents li.cw-ag').count() === 4 && await page.locator('#panel-agents button.cw-ag').count() === 0);
+  check('drishti page has section headings', await page.locator('main h2').count() >= 2);
+
   // Resources: hash from footer link while already on the page.
   await page.goto(BASE + '/resources/');
   await page.click('.cw-foot a[href$="#case-studies"]');
