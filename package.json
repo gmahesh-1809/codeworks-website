@@ -10,7 +10,8 @@
     "build": "eleventy",
     "serve": "eleventy --serve --port=8080",
     "test:visual": "node tests/visual.cjs",
-    "test": "node tests/functional.cjs"
+    "test": "node tests/functional.cjs",
+    "og-images": "node scripts/og-images.cjs"
   },
   "type": "module",
   "devDependencies": {

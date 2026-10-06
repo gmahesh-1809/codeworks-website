@@ -13,6 +13,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("absoluteUrl", (path, base) => base.replace(/\/$/, "") + "/" + String(path).replace(/^\//, ""));
   // CSP source for an inline script: 'sha256-…' of its exact text (see the Content-Security-Policy meta in base.njk).
   eleventyConfig.addFilter("cspHash", (text) => `'sha256-${createHash("sha256").update(String(text)).digest("base64")}'`);
+  // The item in a list of data objects whose key matches, e.g. products | findByKey(active).
+  eleventyConfig.addFilter("findByKey", (list, key) => (list || []).find((x) => x.key === key));
   eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
 
   // Legal pages contain "[TO CONFIRM: ...]" placeholders until the company details are filled in.

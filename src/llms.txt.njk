@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+{#- Plain text, not HTML: output that may contain "&" is marked | safe so it isn't HTML-escaped.
+    Plain-text summary of the site for AI tools (the llms.txt convention, llmstxt.org). Products come from _data/products.js. #}
+# {{ site.name }}
+
+> {{ site.name }} ({{ site.url | replace("https://", "") }}) is an Indian technology product company that builds high-volume software platforms for banks, NBFCs, insurers and other enterprises where technology is central to operations. Its platforms combine configurable business rules, deterministic calculation and AI reasoning, so decisions can be traced and audited.
+
+Contact: {{ site.email }}
+
+## Products
+{% for p in products %}
+- [{{ p.name }}]({{ site.url }}{{ p.url }}): {{ p.subtitle | replace("&amp;", "&") | safe }}. Built for: {{ p.audienceType }}. Highlights: {{ p.highlights | join("; ") | replace("&amp;", "&") | safe }}.
+{%- endfor %}
+
+## Company
+- [About {{ site.name }}]({{ site.url }}/company/): who the company is, its 30+ years of carrier-grade engineering and the industries it serves
+- [Technology]({{ site.url }}/technology/): how the platforms move data through business rules and AI reasoning to traceable, auditable decisions
+- [Services]({{ site.url }}/services/): product engineering, data and AI, modernisation and build–operate–transfer services
+- [Contact]({{ site.url }}/contact/): schedule a demo or an architecture review
+
+## Optional
+- [Resources]({{ site.url }}/resources/): product briefs, white papers and technology briefs, available on request
+- [Privacy Policy]({{ site.url }}/privacy/)
+- [Terms of Use]({{ site.url }}/terms/)

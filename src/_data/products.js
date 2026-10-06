@@ -6,6 +6,7 @@
 // color is the solid fill used for card backgrounds and dots.
 // hero is the window shown for the product in the home page carousel: steps use
 // done / run / queue / ready, findings and note use the tags warn / flag / ok.
+// category and audienceType describe the product to search engines (structured data on its page).
 // HTML is allowed in subtitle, roi, highlights and hero step names (escape & as &amp;).
 export default [
   {
@@ -16,6 +17,8 @@ export default [
     color: "#1878a4",
     tagline: "AI credit assessment & investigation",
     label: "AI-Powered Intelligence Layer",
+    category: "Credit assessment and investigation software",
+    audienceType: "Banks, NBFCs and lenders",
     subtitle: "AI Credit Assessment &amp; Investigation",
     highlights: ["Multi-agent support", "Inconsistency &amp; risk detection", "Intelligent Copilot", "Non-invasive deployment layer"],
     roi: "Cuts credit investigation turnaround time by 60%.",
@@ -36,6 +39,8 @@ export default [
     color: "#4d8230",
     tagline: "Subvention claims tracing, reconciliation & audit",
     label: "Automated Settlement Engine",
+    category: "Subvention claims processing and reconciliation software",
+    audienceType: "Banks and lenders processing government subvention schemes",
     subtitle: "Subvention Processing Engine for Claims Tracing, Reconciliation and Audit",
     highlights: ["Automated claim tracing &amp; validation", "Rule-based calculation engines", "Complete transaction traceability", "Automated multi-party reconciliation"],
     roi: "Eliminates audit leaks and manual settlement delays.",
@@ -57,6 +62,8 @@ export default [
     color: "var(--cw-navy)",
     tagline: "Claims integrity & settlement for insurers",
     label: "Claims Integrity Platform",
+    category: "Insurance claims integrity and settlement software",
+    audienceType: "Life, general and health insurers",
     subtitle: "Claims Integrity and Settlement Platform for Insurers",
     highlights: ["Underwriting &amp; claim checks", "Every figure cited to its source", "Thresholds set in configuration", "Settlement reconciled to the paisa"],
     roi: "Checks every claim before payout, and keeps the evidence behind every decision.",
