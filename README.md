@@ -52,7 +52,7 @@ reference/                   the original design export, kept for visual compari
 - **New product:** add an entry to `products.js` (including its `hero` window for the home page carousel), create its page, and add `src/_includes/partials/thumb-<key>.svg` (menu picture; the build fails without it) and `tile-<key>.svg` (home card illustration). A new colour needs its `--<tone>` tokens and `cw-btn-`, `cw-tile-`, `to-`, `cw-viz-` and `acc-` styles in `site.css`; see the `navy` ones added for Assay.
 - **Resources list:** `src/_data/nav.js` feeds the Resources links in the header, mobile menu and footer.
 - **Email address, legal details, form endpoint:** `src/_data/site.js`.
-- **Styles:** `src/assets/css/site.css`. Colours are CSS variables at the top, with dark-theme values beneath them.
+- **Styles:** `src/assets/css/site.css`. Colours, the type scale (`--fs-…`) and corner radii (`--r-…`) are CSS variables at the top, with dark-theme colours beneath them. Reusable components extracted from inline styles (`cw-eyebrow`, `cw-h1`, `cw-card`, `cw-cta`, …) are at the end.
 - **New page:** create `src/<name>/index.html` with the same front matter as an existing page. It is added to the sitemap automatically.
 
 Write internal links from the site root (`/products/`, `/assets/...`). The build adds the GitHub Pages path prefix when needed, so links work both at `username.github.io/<repo>/` and at the custom domain.

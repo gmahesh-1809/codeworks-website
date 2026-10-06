@@ -37,20 +37,20 @@
     <button type="button" class="cw-theme cw-mob" data-cw-theme aria-label="Switch to dark theme" title="Switch to dark theme" style="margin-left:auto">{{ moon | safe }}{{ sun | safe }}</button>
     <button type="button" class="cw-burger cw-mob" style="margin-left:0" aria-label="Menu" aria-expanded="false" aria-controls="cw-mnav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
   </div>
-  <nav aria-label="Mobile" id="cw-mnav" class="cw-menu cw-mnav" style="position:absolute;left:0;right:0;top:80px;max-height:calc(100vh - 110px);overflow:auto;border-radius:24px;padding:8px 20px 20px;gap:0" hidden>
-    <div class="cw-mrow"><a class="cw-ml" href="/company/" style="color:var(--ink);font-size:16.5px;font-weight:500">Company</a></div>
-    <div class="cw-mrow"><a class="cw-ml" href="/products/" style="color:var(--ink);font-size:16.5px;font-weight:500">Products</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-products" aria-label="Show Products links">{{ chevLg | safe }}</button></div>
+  <nav aria-label="Mobile" id="cw-mnav" class="cw-menu cw-mnav" style="position:absolute;left:0;right:0;top:80px;max-height:calc(100vh - 110px);overflow:auto;border-radius:var(--r-lg);padding:8px 20px 20px;gap:0" hidden>
+    <div class="cw-mrow"><a class="cw-ml" href="/company/" style="color:var(--ink);font-size:var(--fs-16);font-weight:500">Company</a></div>
+    <div class="cw-mrow"><a class="cw-ml" href="/products/" style="color:var(--ink);font-size:var(--fs-16);font-weight:500">Products</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-products" aria-label="Show Products links">{{ chevLg | safe }}</button></div>
     <div id="cw-msub-products" hidden>
       {% for p in products -%}
-      <div class="cw-mrow sub"><a class="cw-ml" href="{{ p.url }}" style="color:var(--ink-2);font-size:15px;font-weight:400">{{ p.name }}</a></div>
+      <div class="cw-mrow sub"><a class="cw-ml" href="{{ p.url }}" style="color:var(--ink-2);font-size:var(--fs-15);font-weight:400">{{ p.name }}</a></div>
       {%- endfor %}
     </div>
-    <div class="cw-mrow"><a class="cw-ml" href="/technology/" style="color:var(--ink);font-size:16.5px;font-weight:500">Technology</a></div>
-    <div class="cw-mrow"><a class="cw-ml" href="/services/" style="color:var(--ink);font-size:16.5px;font-weight:500">Services</a></div>
-    <div class="cw-mrow"><a class="cw-ml" href="/resources/" style="color:var(--ink);font-size:16.5px;font-weight:500">Resources</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-resources" aria-label="Show Resources links">{{ chevLg | safe }}</button></div>
+    <div class="cw-mrow"><a class="cw-ml" href="/technology/" style="color:var(--ink);font-size:var(--fs-16);font-weight:500">Technology</a></div>
+    <div class="cw-mrow"><a class="cw-ml" href="/services/" style="color:var(--ink);font-size:var(--fs-16);font-weight:500">Services</a></div>
+    <div class="cw-mrow"><a class="cw-ml" href="/resources/" style="color:var(--ink);font-size:var(--fs-16);font-weight:500">Resources</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-resources" aria-label="Show Resources links">{{ chevLg | safe }}</button></div>
     <div id="cw-msub-resources" hidden>
       {% for r in nav.resources -%}{% if not r.hidden %}
-      <div class="cw-mrow sub"><a class="cw-ml" href="/resources/#{{ r.key }}" style="color:var(--ink-2);font-size:15px;font-weight:400">{{ r.name }}</a></div>
+      <div class="cw-mrow sub"><a class="cw-ml" href="/resources/#{{ r.key }}" style="color:var(--ink-2);font-size:var(--fs-15);font-weight:400">{{ r.name }}</a></div>
       {%- endif %}{%- endfor %}
     </div>
     <a class="cw-btn cw-btn-primary cw-btn-lg" href="/contact/" style="position:sticky;bottom:0;margin-top:12px">Contact</a>
