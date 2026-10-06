@@ -19,8 +19,9 @@ eleventyExcludeFromCollections: true
 
 <section style="margin-top:24px;padding:0 clamp(8px,2.5vw,32px) 44px">
   <div class="cw-opengrid">
-    <a class="cw-open" href="/products/drishti/" style="text-decoration:none;color:inherit"><b class="k">Product</b><div><div class="t">Drishti.ai</div><div class="d">AI credit assessment &amp; investigation</div></div></a>
-    <a class="cw-open acc-green" href="/products/spectra/" style="text-decoration:none;color:inherit"><b class="k">Product</b><div><div class="t">Spectra</div><div class="d">Subvention claims tracing, reconciliation &amp; audit</div></div></a>
+    {% for p in products -%}
+    <a class="cw-open{% if p.tone != 'blue' %} acc-{{ p.tone }}{% endif %}" href="{{ p.url }}" style="text-decoration:none;color:inherit"><b class="k">Product</b><div><div class="t">{{ p.name }}</div><div class="d">{{ p.tagline }}</div></div></a>
+    {% endfor -%}
     <a class="cw-open" href="/contact/" style="text-decoration:none;color:inherit"><b class="k">Contact</b><div><div class="t">Talk to us</div><div class="d">Write to {{ site.email }}</div></div></a>
   </div>
 </section>

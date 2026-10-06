@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 active: contact
 title: "Contact Codeworks | Schedule a Demo or Architecture Review"
-description: "Talk to the Codeworks technology team about Drishti.ai, Spectra, an architecture review or engineering services. Email sales@codeworks.ind.in."
+description: "Talk to the Codeworks technology team about Drishti.ai, Spectra, Assay, an architecture review or engineering services. Email sales@codeworks.ind.in."
 scripts: [contact-form.js]
 ---
 <section style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:12px;align-items:stretch;margin-bottom:56px">
@@ -18,7 +18,7 @@ scripts: [contact-form.js]
         <label style="display:grid;gap:6px;font-size:14px;font-weight:700">Work email<input class="cw-in" name="email" type="email" required autocomplete="email" aria-describedby="cw-form-error" style="min-height:48px;padding:0 16px;border:1px solid var(--line-4);border-radius:14px;font:400 16px 'DM Sans';color:var(--ink);background:var(--input)"></label>
         <label style="display:grid;gap:6px;font-size:14px;font-weight:700">I'm interested in
           <select class="cw-in" name="topic" style="min-height:48px;padding:0 12px;border:1px solid var(--line-4);border-radius:14px;font:400 16px 'DM Sans';color:var(--ink);background:var(--input)">
-            <option value="">Choose a topic</option><option value="drishti">Drishti.ai</option><option value="spectra">Spectra</option><option value="review">An architecture review</option><option value="services">Engineering services</option><option value="other">Something else</option>
+            <option value="">Choose a topic</option>{% for p in products %}<option value="{{ p.key }}" data-starter="{{ p.starter }}">{{ p.name }}</option>{% endfor %}<option value="review">An architecture review</option><option value="services">Engineering services</option><option value="other">Something else</option>
           </select></label>
         <label style="display:grid;gap:6px;font-size:14px;font-weight:700"><span style="display:flex;justify-content:space-between;gap:12px">Message<span style="font-weight:400;color:var(--ink-4)">— edit as you like</span></span><textarea class="cw-in" name="message" rows="5" style="padding:14px 16px;border:1px solid var(--line-4);border-radius:14px;font:400 16px/1.5 'DM Sans';color:var(--ink);background:var(--input);resize:vertical"></textarea></label>
         <div class="cw-hp" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label></div>

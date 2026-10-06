@@ -27,7 +27,7 @@ src/
     partials/   header.njk, footer.njk, product menu thumbnails
   index.html                 /
   company/                   /company/
-  products/                  /products/  /products/drishti/  /products/spectra/
+  products/                  /products/  /products/drishti/  /products/spectra/  /products/assay/
   technology/                /technology/
   services/                  /services/
   resources/                 /resources/  (#product-briefs, #white-papers, … select a tab)
@@ -48,7 +48,9 @@ reference/                   the original design export, kept for visual compari
 ## Common changes
 
 - **Page text:** edit the page's `index.html` under `src/`. Each file starts with its `title` and `description` (used for search results and link previews).
-- **Navigation, products or resources lists:** `src/_data/nav.js` feeds the header, mobile menu and footer.
+- **Products:** `src/_data/products.js` holds each product's name, tagline, colour, highlights, ROI line and contact message. The header, footer, home page, Products page, Resources briefs, 404 page and contact form all read from it. Each product's own page is `src/products/<key>/index.html`.
+- **New product:** add an entry to `products.js`, create its page, and add `src/_includes/partials/thumb-<key>.svg` (menu picture; the build fails without it) and `tile-<key>.svg` (home card illustration). A new colour needs its `--<tone>` tokens and `cw-btn-`, `cw-tile-`, `to-`, `cw-viz-` and `acc-` styles in `site.css`; see the `navy` ones added for Assay.
+- **Resources list:** `src/_data/nav.js` feeds the Resources links in the header, mobile menu and footer.
 - **Email address, legal details, form endpoint:** `src/_data/site.js`.
 - **Styles:** `src/assets/css/site.css`. Colours are CSS variables at the top, with dark-theme values beneath them.
 - **New page:** create `src/<name>/index.html` with the same front matter as an existing page. It is added to the sitemap automatically.

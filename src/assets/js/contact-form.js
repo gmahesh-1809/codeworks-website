@@ -7,14 +7,14 @@
   var form = document.querySelector("[data-cw-contact]");
   if (!form) return;
 
+  // Product topics come from the page: each product <option> carries its name and a data-starter message
+  // (from src/_data/products.js). The other topics are defined here.
   var STARTERS = {
-    drishti: "Hello Codeworks team,\n\nWe are interested in Drishti.ai for credit assessment and investigation. We would like to understand how it fits our pre-sanction and post-sanction process and works alongside our existing systems.\n\nCould we set up a conversation?",
-    spectra: "Hello Codeworks team,\n\nWe are interested in Spectra for subvention claims tracing, reconciliation and audit. We would like to understand how it handles our schemes, settlement and reporting.\n\nCould we set up a conversation?",
     review: "Hello Codeworks team,\n\nWe would like to schedule an architecture review of [describe the platform or system]. Our main concerns are [scale / availability / integration / modernisation].\n\nPlease let us know a convenient time.",
     services: "Hello Codeworks team,\n\nWe are looking for engineering support with [product engineering / enterprise architecture / AI engineering / application modernisation / systems integration].\n\nHere is a short description of what we need: [add details].",
     other: "Hello Codeworks team,\n\nWe would like to talk to you about [add topic].\n\nPlease get in touch."
   };
-  var LABELS = { drishti: "Drishti.ai", spectra: "Spectra", review: "Architecture review", services: "Engineering services", other: "Something else" };
+  var LABELS = { review: "Architecture review", services: "Engineering services", other: "Something else" };
 
   var endpoint = form.getAttribute("data-endpoint");
   var email = form.getAttribute("data-email");
@@ -26,15 +26,28 @@
   var openedAt = Date.now();
   var edited = false;
 
+  function productOption(topic) {
+    // topic can come from the URL; only plain keys are looked up.
+    return /^[a-z0-9-]+$/.test(topic || "") ? form.querySelector('select[name="topic"] option[value="' + topic + '"][data-starter]') : null;
+  }
+  function starterFor(topic) {
+    var opt = productOption(topic);
+    return STARTERS[topic] || (opt && opt.getAttribute("data-starter"));
+  }
+  function labelFor(topic) {
+    var opt = productOption(topic);
+    return LABELS[topic] || (opt && opt.textContent) || "";
+  }
   function applyTopic(topic) {
-    if (!edited && STARTERS[topic]) el.message.value = STARTERS[topic];
+    var starter = starterFor(topic);
+    if (!edited && starter) el.message.value = starter;
   }
   el.message.addEventListener("input", function () { edited = true; });
   el.topic.addEventListener("change", function () { applyTopic(el.topic.value); });
 
   // Product pages can link to /contact/?topic=drishti to preselect the topic.
   var preset = new URLSearchParams(location.search).get("topic");
-  if (preset && LABELS[preset]) { el.topic.value = preset; applyTopic(preset); }
+  if (preset && labelFor(preset)) { el.topic.value = preset; applyTopic(preset); }
 
   function clearErrors() {
     errorBox.hidden = true;
@@ -68,7 +81,7 @@
       name: v("name"),
       organisation: v("org"),
       email: v("email"),
-      topic: LABELS[el.topic.value] || "",
+      topic: labelFor(el.topic.value),
       message: el.message.value,
       page: location.href,
       website: v("website"),          // honeypot: must stay empty

@@ -1,9 +1,5 @@
-// Single source for product and resource links used by the header and footer.
+// Resource links used by the header and footer. Product links come from products.js.
 export default {
-  products: [
-    { key: "drishti", name: "Drishti.ai", tagline: "AI credit assessment & investigation", url: "/products/drishti/" },
-    { key: "spectra", name: "Spectra", tagline: "Subvention claims tracing, reconciliation & audit", url: "/products/spectra/" },
-  ],
   resources: [
     { key: "product-briefs", name: "Product Briefs" },
     { key: "white-papers", name: "White Papers" },

@@ -1,4 +1,4 @@
-{%- set section = "products" if active in ["products", "drishti", "spectra"] else active -%}
+{%- set section = "products" if (active == "products" or active in (products | join(",", "key")).split(",")) else active -%}
 {%- macro navlink(key, label, url) -%}
 <a class="cw-navi{% if section == key %} on{% endif %}"{% if section == key %} aria-current="page"{% endif %} href="{{ url }}">{{ label }}</a>
 {%- endmacro -%}
@@ -15,7 +15,7 @@
       <div class="cw-dd" data-cw-dd>
         <div class="cw-navi cw-navgrp{% if section == 'products' %} on{% endif %}"><a href="/products/"{% if section == 'products' %} aria-current="page"{% endif %}>Products</a><button type="button" class="cw-chev" aria-label="Products menu" aria-expanded="false" aria-controls="cw-menu-products">{{ chev | safe }}</button></div>
         <div class="cw-menu-wrap" id="cw-menu-products" style="left:-6px" hidden><div class="cw-menu" style="width:min(440px,92vw)">
-          {% for p in nav.products -%}
+          {% for p in products -%}
           <a class="cw-mi{% if active == p.key %} on{% endif %}" href="{{ p.url }}"><span class="cw-mth" aria-hidden="true">{% include "partials/thumb-" + p.key + ".svg" %}</span><span class="cw-mt"><b>{{ p.name }}</b><small>{{ p.tagline }}</small></span><span class="arr" aria-hidden="true">→</span></a>
           {%- endfor %}
           <a class="cw-mi cw-mi-all" href="/products/"><span class="cw-mt"><b>All Products</b></span><span class="arr" aria-hidden="true">→</span></a>
@@ -41,7 +41,7 @@
     <div class="cw-mrow"><a class="cw-ml" href="/company/" style="color:var(--ink);font-size:16.5px;font-weight:500">Company</a></div>
     <div class="cw-mrow"><a class="cw-ml" href="/products/" style="color:var(--ink);font-size:16.5px;font-weight:500">Products</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-products" aria-label="Show Products links">{{ chevLg | safe }}</button></div>
     <div id="cw-msub-products" hidden>
-      {% for p in nav.products -%}
+      {% for p in products -%}
       <div class="cw-mrow sub"><a class="cw-ml" href="{{ p.url }}" style="color:var(--ink-2);font-size:15px;font-weight:400">{{ p.name }}</a></div>
       {%- endfor %}
     </div>
