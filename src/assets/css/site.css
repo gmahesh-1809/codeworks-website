@@ -211,18 +211,6 @@ a.cw-navi{padding:0 clamp(10px,1.2vw,15px)}
 .cw-mnav a.cw-ml{display:flex;align-items:center;min-height:44px;border-bottom:1px solid var(--line-2);color:var(--ink);text-decoration:none}
 .cw-mnav a.cw-ml:hover{color:var(--cw-blue-700)}
 
-/* home hero: "Built for" strip, one link per product */
-.cw-aud{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:28px}
-.cw-aud .k{flex-basis:100%;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)}
-.cw-aud a{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 11px 0 9px;border:1px solid var(--line);border-radius:99px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:14px;transition:border-color .2s,background-color .2s}
-.cw-aud a:hover{border-color:var(--line-4);background:var(--hover)}
-.cw-aud a:focus-visible{outline:2px solid var(--cw-blue);outline-offset:2px}
-.cw-aud i{flex:none;width:8px;height:8px;border-radius:50%}
-.cw-aud .t-navy i{background:var(--navy-pc)!important}
-@media (max-width:480px){.cw-aud a{font-size:13.5px}.cw-aud a span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
-.cw-aud b{font-weight:700}
-.cw-aud a span{color:var(--ink-4)}
-.cw-aud a span::before{content:"· "}
 /* home hero: product carousel (one window per product, switcher above) */
 .cw-hsw{position:relative;z-index:2;display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:14px}
 .cw-hsw [role=tablist]{display:flex;flex-wrap:wrap;gap:6px}
@@ -237,8 +225,14 @@ a.cw-navi{padding:0 clamp(10px,1.2vw,15px)}
 .cw-hcar.play.hold [aria-selected=true] .bar{animation-play-state:paused}
 @keyframes cw-hfill{to{transform:scaleX(1)}}
 .cw-hsw .cw-pp{position:static;flex:none;width:40px;height:40px}
+.cw-hcar .cw-wt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cw-wlink{flex:none;display:inline-flex;align-items:center;gap:6px;margin:-6px -6px -6px 0;padding:6px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none}
+.cw-wlink:hover{text-decoration:underline;text-underline-offset:3px}
+.cw-wlink:focus-visible{outline:2px solid var(--cw-blue);outline-offset:1px}
+.cw-wlink .arr{transition:transform .2s}
+.cw-wlink:hover .arr{transform:translateX(3px)}
 .cw-hcar .cw-back{top:72px}
-.cw-slides{display:grid}
+.cw-slides{display:grid;grid-template-columns:minmax(0,1fr)}
 .cw-stage.cw-hcar{padding-bottom:0}
 .cw-slide{grid-area:1/1;position:relative;padding-bottom:30px;transition:opacity .45s ease,transform .45s ease,visibility 0s .45s}
 .cw-slide:not(.on){opacity:0;visibility:hidden;transform:translateY(8px)}

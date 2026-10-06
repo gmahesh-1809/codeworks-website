@@ -4,10 +4,9 @@
 //
 // tone picks the colour styles in site.css (cw-btn-<tone>, --roi-<tone>, --<tone>-text, …);
 // color is the solid fill used for card backgrounds and dots.
-// audience is the field it serves, shown in the home page "Built for" strip.
 // hero is the window shown for the product in the home page carousel: steps use
 // done / run / queue / ready, findings and note use the tags warn / flag / ok.
-// HTML is allowed in audience, subtitle, roi, highlights and hero step names (escape & as &amp;).
+// HTML is allowed in subtitle, roi, highlights and hero step names (escape & as &amp;).
 export default [
   {
     key: "drishti",
@@ -16,7 +15,6 @@ export default [
     tone: "blue",
     color: "#1878a4",
     tagline: "AI credit assessment & investigation",
-    audience: "Lending",
     label: "AI-Powered Intelligence Layer",
     subtitle: "AI Credit Assessment &amp; Investigation",
     highlights: ["Multi-agent support", "Inconsistency &amp; risk detection", "Intelligent Copilot", "Non-invasive deployment layer"],
@@ -37,7 +35,6 @@ export default [
     tone: "green",
     color: "#4d8230",
     tagline: "Subvention claims tracing, reconciliation & audit",
-    audience: "Subvention",
     label: "Automated Settlement Engine",
     subtitle: "Subvention Processing Engine for Claims Tracing, Reconciliation and Audit",
     highlights: ["Automated claim tracing &amp; validation", "Rule-based calculation engines", "Complete transaction traceability", "Automated multi-party reconciliation"],
@@ -59,7 +56,6 @@ export default [
     // A CSS variable rather than a fixed colour, so it lightens in the dark theme.
     color: "var(--cw-navy)",
     tagline: "Claims integrity & settlement for insurers",
-    audience: "Insurance",
     label: "Claims Integrity Platform",
     subtitle: "Claims Integrity and Settlement Platform for Insurers",
     highlights: ["Underwriting &amp; claim checks", "Every figure cited to its source", "Thresholds you set, without a release", "Settlement reconciled to the paisa"],
