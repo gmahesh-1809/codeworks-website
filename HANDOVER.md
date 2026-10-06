@@ -77,7 +77,7 @@ Already confirmed: the governing courts are **Mumbai, Maharashtra**. The build p
   - "Eliminates audit leaks and manual settlement delays" (Products page, Spectra page)
   - "without hallucinations or black-box guesswork" (Technology page)
   - "millions of daily critical transactions" (Company page)
-  - "30+ Years Telecom-Grade Legacy" (Home, Company)
+  - "30+ Years Carrier-Grade Engineering" (Home, Company). Was "Telecom-Grade Legacy" until 6 October 2026; the 30 years still need confirming.
 
 #### 3.3 Contact form backend (in the **company Google Workspace**)
 The form currently falls back to opening the visitor's email program. To connect it properly:
