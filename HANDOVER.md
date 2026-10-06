@@ -127,7 +127,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [ ] **Content Security Policy:** add one as a `<meta>` tag. It must allow the Apps Script domains (`script.google.com`, `script.googleusercontent.com`). It needs `'unsafe-inline'` for styles until the inline styles are gone.
 
 ### P2: nice to have
-- [ ] Product-page "Talk to Us" buttons could preselect the product on the contact form. Assay's already link to `/contact/?topic=assay`; Drishti's and Spectra's still go to plain `/contact/`.
+- [x] Product-page "Talk to Us" buttons preselect the product on the contact form: `/contact/?topic=drishti`, `?topic=spectra` and `?topic=assay`.
 - [ ] Individual resource pages or PDFs in `src/assets/documents/` once real content exists.
 - [ ] Automatic broken-link checking in the deploy workflow.
 - [ ] `BreadcrumbList` structured data on product pages.

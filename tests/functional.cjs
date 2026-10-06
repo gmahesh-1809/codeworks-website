@@ -116,6 +116,14 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   check('Assay modules tab shows both modules', await visible('#panel-modules') && await page.locator('#panel-modules .cw-open').count() === 8);
   await page.goto(BASE + '/contact/?topic=assay');
   check('?topic=assay preselects Assay', await page.inputValue('select[name=topic]') === 'assay' && (await page.inputValue('textarea[name=message]')).includes('Assay'));
+  const picked = [];
+  for (const k of ['drishti', 'spectra', 'assay']) {
+    await page.goto(BASE + '/products/' + k + '/');
+    await page.click('.cw-phero a.cw-btn');
+    await page.waitForLoadState();
+    picked.push(await page.inputValue('select[name=topic]'));
+  }
+  check('product "Talk to Us" buttons preselect their product', picked.join() === 'drishti,spectra,assay', picked.join());
   await page.goto(BASE + '/contact/?topic=' + encodeURIComponent('x"]'));
   check('malformed ?topic= is ignored', await page.inputValue('select[name=topic]') === '');
 
