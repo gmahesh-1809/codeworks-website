@@ -477,7 +477,11 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:560px){.cw-vrow{grid-template-columns:1fr}.cw-vst::after{display:none!important}.cw-vst{min-height:0}}
 @media (prefers-reduced-motion:reduce){.cw-vst{animation:none}.flowline path{animation:none}}
 /* product grids (home tiles, Products page): three across on wide screens; below that an odd last product spans the row */
-@media (min-width:1196px){.cw-prodgrid{grid-template-columns:repeat(3,1fr)!important}}
+@media (min-width:1196px){.cw-prodgrid{grid-template-columns:repeat(3,1fr)!important}
+/* three across: names sit a fixed distance below the label, so they line up however long the subtitle is */
+.cw-prodgrid>article>div:first-child{justify-content:flex-start!important}.cw-prodgrid>article>div:first-child>div{margin-top:44px}
+/* ...and the coloured headers share one height, so the lists below start level */
+.cw-prodgrid>article{display:grid!important;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}}
 @media (max-width:1195px){.cw-prodtiles>:last-child:nth-child(odd),.cw-prodgrid>:last-child:nth-child(odd){grid-column:1/-1}}
 /* home tile illustrations */
 .cw-tvw{display:block;align-self:flex-end;width:min(100%,460px);margin-top:10px;padding-bottom:26px}.cw-tv{width:100%;height:auto;display:block}.tv .prog{animation:none}
