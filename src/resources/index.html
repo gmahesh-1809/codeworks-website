@@ -6,7 +6,7 @@ description: "Product briefs, white papers, technology briefs, case studies and 
 scripts: [tabs.js]
 ---
 <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 64px;align-items:end;padding:clamp(40px,5vw,72px) clamp(8px,2.5vw,32px) clamp(28px,3vw,40px)">
-  <div><div style="font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text)">Resources</div><h1 style="margin:16px 0 0;font:800 clamp(36px,4.6vw,62px)/1.04 'Bricolage Grotesque';letter-spacing:-0.04em;text-wrap:balance">Practical thinking, product knowledge and technology perspectives.</h1></div>
+  <div><div style="font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text)">Resources</div><h1 style="margin:16px 0 0;font:800 clamp(34px,4vw,54px)/1.04 'Bricolage Grotesque';letter-spacing:-0.04em;text-wrap:balance">Practical thinking, product knowledge and technology perspectives.</h1></div>
   <p style="margin:0;font-size:clamp(17px,1.5vw,19px);line-height:1.6;color:var(--ink-2);max-width:50ch">Our resources provide deeper insight into the business problems, technology approaches and products we build for complex enterprise environments.</p>
 </section>
 
@@ -15,7 +15,7 @@ scripts: [tabs.js]
     <button role="tab" class="cw-tab cw-et" id="tab-product-briefs" aria-controls="panel-product-briefs" aria-selected="true" tabindex="0">Product Briefs</button><button role="tab" class="cw-tab cw-et" id="tab-white-papers" aria-controls="panel-white-papers" aria-selected="false" tabindex="-1">White Papers</button><button role="tab" class="cw-tab cw-et" id="tab-technology-briefs" aria-controls="panel-technology-briefs" aria-selected="false" tabindex="-1">Technology Briefs</button><button role="tab" class="cw-tab cw-et" id="tab-case-studies" aria-controls="panel-case-studies" aria-selected="false" tabindex="-1">Case Studies</button><button role="tab" class="cw-tab cw-et" id="tab-insights" aria-controls="panel-insights" aria-selected="false" tabindex="-1">Insights</button>
   </div>
   <div role="tabpanel" id="panel-product-briefs" aria-labelledby="tab-product-briefs">
-    <h2 class="cw-cat">Product Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">A concise view of our products, their capabilities and the business problems they address.</p>
+    <h2 class="cw-cat cw-sr">Product Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">A concise view of our products, their capabilities and the business problems they address.</p>
     <div class="cw-rows" style="--acc:var(--blue-text)">
         {% for p in products -%}
         <div class="cw-row cw-rv"><div class="tx"><div class="t">{{ p.name }} — Product Brief</div><div class="d">{{ p.brief | safe }}</div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
@@ -23,7 +23,7 @@ scripts: [tabs.js]
     </div>
   </div>
   <div role="tabpanel" id="panel-white-papers" aria-labelledby="tab-white-papers" hidden>
-    <h2 class="cw-cat">White Papers</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">In-depth perspectives on complex business and technology challenges, supported by our product and engineering experience.</p>
+    <h2 class="cw-cat cw-sr">White Papers</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">In-depth perspectives on complex business and technology challenges, supported by our product and engineering experience.</p>
     <div class="cw-rows" style="--acc:var(--green-text)">
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Beyond Conventional Credit Checks</div><div class="d">Technology-led investigation and assessment in modern lending.</div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Automating Subvention Processing</div><div class="d">Managing eligibility, claims, calculations, reconciliation, audit and settlement at scale.</div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
@@ -31,7 +31,7 @@ scripts: [tabs.js]
     </div>
   </div>
   <div role="tabpanel" id="panel-technology-briefs" aria-labelledby="tab-technology-briefs" hidden>
-    <h2 class="cw-cat">Technology Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Deeper technical material for technology leaders, architects and product teams.</p>
+    <h2 class="cw-cat cw-sr">Technology Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Deeper technical material for technology leaders, architects and product teams.</p>
     <div class="cw-rows" style="--acc:var(--blue-text)">
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Neuro-Symbolic AI &amp; Intelligent Agent Architecture</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Configurable Business Rules &amp; Decision Engines</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
@@ -42,13 +42,13 @@ scripts: [tabs.js]
     </div>
   </div>
   <div role="tabpanel" id="panel-case-studies" aria-labelledby="tab-case-studies" hidden>
-    <h2 class="cw-cat">Case Studies</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Real implementations, business challenges and measurable outcomes.</p>
+    <h2 class="cw-cat cw-sr">Case Studies</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Real implementations, business challenges and measurable outcomes.</p>
     <div class="cw-rows" style="--acc:var(--green-text)">
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Case studies will be published here</div><div class="d">Only genuine implementations with validated results. Each follows: Business Challenge → Approach → Product / Technology → Implementation → Outcome.</div></div><a class="go" href="/contact/">Talk to us<span class="arr">↗</span></a></div>
     </div>
   </div>
   <div role="tabpanel" id="panel-insights" aria-labelledby="tab-insights" hidden>
-    <h2 class="cw-cat">Insights</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Shorter perspectives from the Codeworks team on technology, product engineering and complex enterprise environments.</p>
+    <h2 class="cw-cat cw-sr">Insights</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Shorter perspectives from the Codeworks team on technology, product engineering and complex enterprise environments.</p>
     <div class="cw-rows" style="--acc:var(--blue-text)">
         <div class="cw-row cw-rv"><div class="tx"><div class="t">AI in enterprise operations</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Product engineering</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>

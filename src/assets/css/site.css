@@ -490,6 +490,8 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 /* ...and the coloured headers share one height, so the lists below start level */
 .cw-prodgrid>article{display:grid!important;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}}
 @media (max-width:1195px){.cw-prodtiles>:last-child:nth-child(odd),.cw-prodgrid>:last-child:nth-child(odd){grid-column:1/-1}}
+/* phones: product cards without their illustrations, so the home page is shorter */
+@media (max-width:560px){.cw-prod .cw-tvw{display:none}.cw-prodtiles .cw-prod{padding-bottom:28px}}
 /* home tile illustrations */
 .cw-tvw{display:block;align-self:flex-end;width:min(100%,460px);margin-top:10px;padding-bottom:26px}.tv .prog{animation:none}
 .cw-prod{padding-bottom:0}
