@@ -123,6 +123,16 @@ The form currently falls back to opening the visitor's email program. To connect
 
 Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codeworks.ind.in`; leave that record unchanged.
 
+#### 3.6 Search engines and AI assistants
+Done in code (6 October 2026): titles under 60 characters and descriptions under 155; structured data (company and website on the home page; each product as software, with breadcrumbs, on its page); a link-preview image per product; an IndexNow notification to Bing and Yandex after every deploy; and `/llms.txt`, a plain-text summary for AI tools.
+
+Still to do, outside the code:
+- [ ] **Google Search Console:** step 9 above.
+- [ ] **Bing Webmaster Tools** ([bing.com/webmasters](https://www.bing.com/webmasters)): sign in and choose **Import from Google Search Console** (after step 9); the site and sitemap carry over. ChatGPT search and Microsoft Copilot draw on Bing's index.
+- [ ] **LinkedIn company page** (and any other official profiles): add each URL to `profiles` in `src/_data/site.js`. They're listed as `sameAs` in the company's structured data, which helps search engines tell this Codeworks apart from others with the same name.
+- [ ] **Presence elsewhere:** consistent name and short description on LinkedIn, industry directories and partner pages; articles and case studies that link back to the site. This, and real content (product explainers, FAQs, case studies), matter more than any code change.
+- [ ] **Address and legal name in the structured data:** add them to the company details in `src/_data/schema.js` once 3.1 is confirmed.
+
 ### P1: should do soon after launch
 - [ ] **Analytics (optional):** if wanted, use a cookieless tool (Plausible, GoatCounter or Cloudflare Web Analytics) with one goal: form submissions. Avoid Google Analytics unless advertising attribution is needed, because it requires a cookie banner. Any analytics tool must also be added to the Privacy Policy.
 - [x] **Drishti "Four Intelligent Agents"** (PR #1): a Pause/Play button now controls the cycling, and the cards are an ordered list instead of `<button>`s.
@@ -139,7 +149,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [ ] Individual resource pages or PDFs in `src/assets/documents/` once real content exists.
 - [ ] Automatic broken-link checking in the deploy workflow.
 - [x] Services cards ended in lines like "→ Architectural Specs" that looked like links but weren't. They are now plain labels ("Deliverable: architectural specs").
-- [ ] `BreadcrumbList` structured data on product pages.
+- [x] `BreadcrumbList` structured data on product pages (see 3.6).
 
 ---
 
@@ -160,6 +170,11 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 
 ## 5. Things to know (gotchas)
 
+- **Search engine extras:**
+  - Product preview images (`src/assets/images/og-<key>.png`) are generated from `products.js` by `npm run og-images`. Rerun it and commit the PNGs after changing a product's name, label or tagline. Other pages use `og-default.png`.
+  - Structured data is built in `src/_data/schema.js` and output by `base.njk`. Check changes with Google's [Rich Results Test](https://search.google.com/test/rich-results).
+  - IndexNow: the key in `site.js` (`indexNowKey`) is published at `/<key>.txt` and is public by design. If you change it, the old file disappears with the next deploy. The workflow step is skipped on preview repositories and never fails a deploy; its log shows the response code (200 or 202 is good).
+  - `/llms.txt` is generated from `src/llms.txt.njk` and `products.js`. It's plain text, so values containing `&` are marked `| safe`.
 - **Deliberate differences from the original design:**
   - Privacy and Terms links in the footer. On phones, "Talk to Us" moves to its own line.
   - A one-line privacy notice under the contact form's Send button.

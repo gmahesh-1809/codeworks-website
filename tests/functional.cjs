@@ -164,6 +164,16 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   const res = await page.goto(BASE + '/no-such-page/');
   check('unknown URL returns 404 page', res.status() === 404 && (await page.textContent('h1')).length > 0);
 
+  // Search engines: structured data, per-product preview images, llms.txt and the IndexNow key file.
+  const ld = async (u) => { await page.goto(BASE + u); return page.$$eval('script[type="application/ld+json"]', s => s.map(x => JSON.parse(x.textContent)['@graph'].map(n => n['@type']).join(','))); };
+  check('home structured data: company and website', (await ld('/')).join() === 'Organization,WebSite');
+  check('product structured data: software, company, breadcrumbs', (await ld('/products/spectra/')).join() === 'SoftwareApplication,Organization,BreadcrumbList');
+  check('product pages use their own preview image', (await page.getAttribute('meta[property="og:image"]', 'content')).endsWith('/og-spectra.png'));
+  const llms = await page.goto(BASE + '/llms.txt'), llmsText = await llms.text();
+  check('llms.txt is served, lists every product, plain text', llms.status() === 200 && ['Drishti.ai', 'Spectra', 'Assay'].every(n => llmsText.includes(`[${n}]`)) && !llmsText.includes('&amp;'));
+  const robots = await (await page.goto(BASE + '/robots.txt')).text();
+  check('robots.txt allows crawling and lists the sitemap', /Allow: \//.test(robots) && /Sitemap: /.test(robots));
+
   await browser.close();
   console.log(failures ? `\n${failures} check(s) failed` : '\nAll checks passed');
   process.exit(failures ? 1 : 0);

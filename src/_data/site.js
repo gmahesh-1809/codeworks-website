@@ -6,6 +6,11 @@ export default {
   name: "Codeworks",
   url: (process.env.SITE_URL || "https://www.codeworks.ind.in") + prefix,
   email: "sales@codeworks.ind.in",
+  // IndexNow key (public by design): published at /<key>.txt; the deploy workflow uses it to tell
+  // Bing and other IndexNow search engines when pages change. Any 8–128 letters, digits or dashes.
+  indexNowKey: "c94ecf57bcf22a3e09b0d79db545675d",
+  // Company profiles elsewhere (e.g. the LinkedIn company page URL). Listed as sameAs in the structured data.
+  profiles: [],
   locale: "en_IN",
   // TODO(legal): registered company name.
   legalName: "Codeworks",

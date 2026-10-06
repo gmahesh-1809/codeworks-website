@@ -43,8 +43,14 @@
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
-{%- if organizationSchema %}
-<script type="application/ld+json">{{ schema.organization | dump | safe }}</script>
+{#- Structured data: the company on the home page; software + breadcrumbs on product pages (see _data/schema.js). #}
+{%- set product = products | findByKey(active) %}
+{%- set ld = null %}
+{%- if organizationSchema %}{% set ld = schema.homeGraph() %}
+{%- elif active == "products" %}{% set ld = schema.productsGraph() %}
+{%- elif product %}{% set ld = schema.productGraph(product, description) %}{% endif %}
+{%- if ld %}
+<script type="application/ld+json">{{ ld | dump | replace("</", "<\\/") | safe }}</script>
 {%- endif %}
 </head>
 <body>

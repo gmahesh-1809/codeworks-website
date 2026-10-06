@@ -20,6 +20,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      indexnow-key: ${{ steps.indexnow.outputs.key }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -36,6 +38,9 @@ jobs:
           PATH_PREFIX: ${{ steps.pages.outputs.base_path }}/
           # Repository variable; set to "true" on preview repositories to keep them out of search engines.
           SITE_NOINDEX: ${{ vars.SITE_NOINDEX }}
+      - id: indexnow
+        name: Read the IndexNow key
+        run: echo "key=$(node --input-type=module -e 'import s from "./src/_data/site.js"; console.log(s.indexNowKey || "")')" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
@@ -49,3 +54,21 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+      # Tell Bing and other IndexNow search engines (e.g. Yandex) which pages exist, so changes are picked up sooner.
+      # Production only: skipped on preview repositories and github.io addresses. Never fails the deploy.
+      - name: Notify IndexNow
+        if: ${{ needs.build.outputs.indexnow-key != '' && vars.SITE_NOINDEX != 'true' && !contains(steps.deployment.outputs.page_url, 'github.io') }}
+        continue-on-error: true
+        env:
+          KEY: ${{ needs.build.outputs.indexnow-key }}
+          SITE: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          SITE="${SITE%/}"
+          HOST="${SITE#https://}"; HOST="${HOST%%/*}"
+          sleep 30   # let the new version reach the CDN
+          URLS=$(curl -fsS "$SITE/sitemap.xml" | grep -o '<loc>[^<]*' | sed 's/<loc>//' | jq -R . | jq -sc .)
+          jq -n --arg host "$HOST" --arg key "$KEY" --arg loc "$SITE/$KEY.txt" --argjson urls "$URLS" \
+            '{host: $host, key: $key, keyLocation: $loc, urlList: $urls}' > body.json
+          echo "Submitting $(jq '.urlList | length' body.json) URLs for $HOST"
+          curl -sS -o /dev/null -w "IndexNow response: %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" --data @body.json
