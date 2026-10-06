@@ -26,9 +26,9 @@
       <div class="cw-dd" data-cw-dd>
         <div class="cw-navi cw-navgrp{% if section == 'resources' %} on{% endif %}"><a href="/resources/"{% if section == 'resources' %} aria-current="page"{% endif %}>Resources</a><button type="button" class="cw-chev" aria-label="Resources menu" aria-expanded="false" aria-controls="cw-menu-resources">{{ chev | safe }}</button></div>
         <div class="cw-menu-wrap" id="cw-menu-resources" style="right:-6px" hidden><div class="cw-menu" style="width:min(270px,92vw)">
-          {% for r in nav.resources -%}
+          {% for r in nav.resources -%}{% if not r.hidden %}
           <a class="cw-mi" href="/resources/#{{ r.key }}"><span class="cw-mt"><b style="font-weight:500">{{ r.name }}</b></span><span class="arr" aria-hidden="true">→</span></a>
-          {%- endfor %}
+          {%- endif %}{%- endfor %}
         </div></div>
       </div>
       <a class="cw-btn cw-btn-sm {{ 'cw-btn-ink' if active == 'contact' else 'cw-btn-primary' }}"{% if active == 'contact' %} aria-current="page"{% endif %} href="/contact/" style="margin-left:10px">Contact</a>
@@ -49,9 +49,9 @@
     <div class="cw-mrow"><a class="cw-ml" href="/services/" style="color:var(--ink);font-size:16.5px;font-weight:500">Services</a></div>
     <div class="cw-mrow"><a class="cw-ml" href="/resources/" style="color:var(--ink);font-size:16.5px;font-weight:500">Resources</a><button type="button" class="cw-mtog" aria-expanded="false" aria-controls="cw-msub-resources" aria-label="Show Resources links">{{ chevLg | safe }}</button></div>
     <div id="cw-msub-resources" hidden>
-      {% for r in nav.resources -%}
+      {% for r in nav.resources -%}{% if not r.hidden %}
       <div class="cw-mrow sub"><a class="cw-ml" href="/resources/#{{ r.key }}" style="color:var(--ink-2);font-size:15px;font-weight:400">{{ r.name }}</a></div>
-      {%- endfor %}
+      {%- endif %}{%- endfor %}
     </div>
     <a class="cw-btn cw-btn-primary cw-btn-lg" href="/contact/" style="position:sticky;bottom:0;margin-top:12px">Contact</a>
   </nav>

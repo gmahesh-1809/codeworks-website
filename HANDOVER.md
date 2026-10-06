@@ -103,8 +103,7 @@ The form currently falls back to opening the visitor's email program. To connect
 - [x] Retention period in the Privacy Policy: 24 months after last contact unless a business relationship follows. Confirm it when the form goes live.
 
 #### 3.4 Content decisions
-- [ ] **Resources → Case Studies** shows a "will be published here" placeholder. Launch with it, or hide the tab?
-- [ ] **Resources → Insights** lists topic titles with no content behind them. Same decision.
+- [x] **Resources → Case Studies and Insights:** hidden on 6 October 2026 until there is real content. The placeholder text read like internal notes ("Case studies will be published here", "Only genuine implementations…", a writing template), and Insights listed topics with nothing behind them. To bring one back: restore its tab button and uncomment its panel in `src/resources/index.html`, and remove `hidden: true` from its entry in `src/_data/nav.js` (the menus and footer then show it again).
 - [ ] Every Resources item says "Request this" and links to Contact; no documents are downloadable yet. Fine for launch if that's intended.
 
 #### 3.5 Move to the company GitHub organisation and go live
@@ -131,12 +130,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [x] **Unused CSS:** removed on 6 October 2026: 41 rules (about 3 KB) for removed product screenshots and earlier layouts (`.cw-shots`, `.cw-shot`, `.cw-peek`, `.cw-bento`, `.cw-asym`, `.cw-sw`, `.cw-tabs`), plus `.cw-tv` and `.cw-fl.strong`, which nothing used. Every page was pixel-identical before and after.
 - [ ] **Inline styles:** repeated inline styles (section labels, display headings, CTA bands, cards) should become CSS classes. Do one pattern at a time and run the visual check after each.
 - [x] **Product summaries:** now in `src/_data/products.js`, the one source for the header, footer, home cards, Products page, Resources briefs, 404 page and contact topics. README → *Common changes* explains adding a product.
-- [ ] **Design pass (from the 6 October review):** to be mocked up on a branch and reviewed before merging:
-  - smaller headings on inner pages (Services' heading takes 4 lines at about 70px; aim for 48–56px), so content starts higher
-  - fewer heavy coloured blocks: Company stacks a dark panel, a blue and a green card, a blue call-to-action band and the dark footer
-  - the strip under the home page products: "30+ Years…" has a number and caption, the other three only a bold label; give all four the same structure
-  - shorter product cards on phones (the home page is about 4,600px tall on a phone, mostly illustrations)
-  - Resources repeats its tab name as a large heading straight below the tabs
+- [x] **Design pass (from the 6 October review):** inner-page headings max 54px (Services' took 4 lines, now 2); Company's "Who we work with" cards are light instead of solid blue and green; the home strip under the products gives every item a one-line explanation; home product cards drop their illustrations on phones (home page about 4,170px tall on a phone instead of 4,610px); Resources no longer repeats its tab name as a heading.
 - [ ] **Type scale and corner radii:** the site uses 41 font sizes and 22 corner radii. Settle on about 8 sizes and 3–4 radii. Do it together with the inline-styles item above, since most of them are inline.
 - [ ] **Content Security Policy:** add one as a `<meta>` tag. It must allow the Apps Script domains (`script.google.com`, `script.googleusercontent.com`). It needs `'unsafe-inline'` for styles until the inline styles are gone.
 
@@ -144,7 +138,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [x] Product-page "Talk to Us" buttons preselect the product on the contact form: `/contact/?topic=drishti`, `?topic=spectra` and `?topic=assay`.
 - [ ] Individual resource pages or PDFs in `src/assets/documents/` once real content exists.
 - [ ] Automatic broken-link checking in the deploy workflow.
-- [ ] Services cards end in lines like "→ Architectural Specs" that look like links but aren't. Make them real links (e.g. to Contact with a topic) or plain text.
+- [x] Services cards ended in lines like "→ Architectural Specs" that looked like links but weren't. They are now plain labels ("Deliverable: architectural specs").
 - [ ] `BreadcrumbList` structured data on product pages.
 
 ---
