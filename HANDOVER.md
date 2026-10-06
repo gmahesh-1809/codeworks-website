@@ -1,4 +1,4 @@
-# Handover: Codeworks website (status 5 October 2026)
+# Handover: Codeworks website (status 6 October 2026)
 
 The Codeworks website is live. This file lists everything still to do, plus the context needed to continue: which decisions were made, why, and what to watch out for.
 
@@ -100,11 +100,13 @@ The form currently falls back to opening the visitor's email program. To connect
    - `CNAME www` → `gmahesh-1809.github.io`
    - four `A` records for the bare domain
    - leave the `MX` (email) records unchanged
-6. [ ] Verify the domain with GitHub (gmahesh-1809's account settings → Pages → Verified domains). Not yet checked.
-7. [ ] Once the certificate is issued, tick **Enforce HTTPS**. The certificate is issued (valid to 3 January 2027) and the box was ticked on 5 October, but GitHub still reported `https_enforced: false` that day and `http://` did not redirect. Check with `gh api repos/gmahesh-1809/codeworks-website/pages --jq .https_enforced`; if it stays false, remove and re-add the custom domain.
-8. [ ] Re-run the deploy workflow **after step 7 takes effect**. The site address comes from the Pages settings, which say `http://` until HTTPS is enforced, so canonical URLs, the sitemap and link previews currently use `http://www.codeworks.ind.in`.
-9. [ ] After step 8, in Google Search Console, add the domain and submit `https://www.codeworks.ind.in/sitemap.xml`.
+6. [ ] Verify the domain with GitHub, so no one else can use it on their own Pages site. gmahesh-1809 opens their **account** Settings → Pages → **Add a domain**, enters `codeworks.ind.in`, adds the `_github-pages-challenge-gmahesh-1809` TXT record GitHub shows to DNS, then clicks **Verify**. Not done as of 6 October: no such TXT record exists.
+7. [x] Once the certificate is issued, tick **Enforce HTTPS**. On since 5 October: `http://` (with or without `www`) and `https://codeworks.ind.in` all redirect (301) to `https://www.codeworks.ind.in/`. The certificate is valid to 3 January 2027 and GitHub renews it automatically.
+8. [x] Re-run the deploy workflow after step 7. Done on 5 October: canonical URLs, Open Graph URLs, the sitemap, robots.txt and the Organization schema all use `https://www.codeworks.ind.in`.
+9. [ ] In [Google Search Console](https://search.google.com/search-console), add `codeworks.ind.in` as a **Domain** property, add the `google-site-verification=…` TXT record it shows to DNS, click **Verify**, then submit `https://www.codeworks.ind.in/sitemap.xml`. Not done as of 6 October.
 10. [x] Turn off Pages on the personal preview repository, then make it private or delete it, so two copies of the site aren't online.
+
+Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codeworks.ind.in`; leave that record unchanged.
 
 ### P1: should do soon after launch
 - [ ] **Analytics (optional):** if wanted, use a cookieless tool (Plausible, GoatCounter or Cloudflare Web Analytics) with one goal: form submissions. Avoid Google Analytics unless advertising attribution is needed, because it requires a cookie banner. Any analytics tool must also be added to the Privacy Policy.
