@@ -103,8 +103,7 @@ The form currently falls back to opening the visitor's email program. To connect
 - [x] Retention period in the Privacy Policy: 24 months after last contact unless a business relationship follows. Confirm it when the form goes live.
 
 #### 3.4 Content decisions
-- [ ] **Resources → Case Studies** shows a "will be published here" placeholder. Launch with it, or hide the tab?
-- [ ] **Resources → Insights** lists topic titles with no content behind them. Same decision.
+- [x] **Resources → Case Studies and Insights:** hidden on 6 October 2026 until there is real content. The placeholder text read like internal notes ("Case studies will be published here", "Only genuine implementations…", a writing template), and Insights listed topics with nothing behind them. To bring one back: restore its tab button and uncomment its panel in `src/resources/index.html`, and remove `hidden: true` from its entry in `src/_data/nav.js` (the menus and footer then show it again).
 - [ ] Every Resources item says "Request this" and links to Contact; no documents are downloadable yet. Fine for launch if that's intended.
 
 #### 3.5 Move to the company GitHub organisation and go live
@@ -144,7 +143,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [x] Product-page "Talk to Us" buttons preselect the product on the contact form: `/contact/?topic=drishti`, `?topic=spectra` and `?topic=assay`.
 - [ ] Individual resource pages or PDFs in `src/assets/documents/` once real content exists.
 - [ ] Automatic broken-link checking in the deploy workflow.
-- [ ] Services cards end in lines like "→ Architectural Specs" that look like links but aren't. Make them real links (e.g. to Contact with a topic) or plain text.
+- [x] Services cards ended in lines like "→ Architectural Specs" that looked like links but weren't. They are now plain labels ("Deliverable: architectural specs").
 - [ ] `BreadcrumbList` structured data on product pages.
 
 ---

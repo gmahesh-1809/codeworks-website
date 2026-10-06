@@ -68,9 +68,9 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
 
   // Resources: hash from footer link while already on the page.
   await page.goto(BASE + '/resources/');
-  await page.click('.cw-foot a[href$="#case-studies"]');
+  await page.click('.cw-foot a[href$="#white-papers"]');
   await page.waitForTimeout(100);
-  check('footer link switches Resources tab', await visible('#panel-case-studies') && await page.getAttribute('#tab-case-studies', 'aria-selected') === 'true');
+  check('footer link switches Resources tab', await visible('#panel-white-papers') && await page.getAttribute('#tab-white-papers', 'aria-selected') === 'true');
 
   // Technology flow: autoplay advances; clicking a step pauses.
   await page.goto(BASE + '/technology/');

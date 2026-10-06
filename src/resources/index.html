@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 active: resources
 title: "Resources: Product Briefs, White Papers and Insights | Codeworks"
-description: "Product briefs, white papers, technology briefs, case studies and insights from Codeworks on enterprise software, AI and complex business operations."
+description: "Product briefs, white papers and technology briefs from Codeworks on enterprise software, AI and complex business operations."
 scripts: [tabs.js]
 ---
 <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 64px;align-items:end;padding:clamp(40px,5vw,72px) clamp(8px,2.5vw,32px) clamp(28px,3vw,40px)">
@@ -12,7 +12,7 @@ scripts: [tabs.js]
 
 <section style="padding:0 clamp(8px,2.5vw,32px) 44px">
   <div role="tablist" aria-label="Resource categories" data-cw-tabs class="cw-etabs">
-    <button role="tab" class="cw-tab cw-et" id="tab-product-briefs" aria-controls="panel-product-briefs" aria-selected="true" tabindex="0">Product Briefs</button><button role="tab" class="cw-tab cw-et" id="tab-white-papers" aria-controls="panel-white-papers" aria-selected="false" tabindex="-1">White Papers</button><button role="tab" class="cw-tab cw-et" id="tab-technology-briefs" aria-controls="panel-technology-briefs" aria-selected="false" tabindex="-1">Technology Briefs</button><button role="tab" class="cw-tab cw-et" id="tab-case-studies" aria-controls="panel-case-studies" aria-selected="false" tabindex="-1">Case Studies</button><button role="tab" class="cw-tab cw-et" id="tab-insights" aria-controls="panel-insights" aria-selected="false" tabindex="-1">Insights</button>
+    <button role="tab" class="cw-tab cw-et" id="tab-product-briefs" aria-controls="panel-product-briefs" aria-selected="true" tabindex="0">Product Briefs</button><button role="tab" class="cw-tab cw-et" id="tab-white-papers" aria-controls="panel-white-papers" aria-selected="false" tabindex="-1">White Papers</button><button role="tab" class="cw-tab cw-et" id="tab-technology-briefs" aria-controls="panel-technology-briefs" aria-selected="false" tabindex="-1">Technology Briefs</button>{# Hidden until there is real content (HANDOVER §3.4): <button role="tab" class="cw-tab cw-et" id="tab-case-studies" aria-controls="panel-case-studies" aria-selected="false" tabindex="-1">Case Studies</button><button role="tab" class="cw-tab cw-et" id="tab-insights" aria-controls="panel-insights" aria-selected="false" tabindex="-1">Insights</button> #}
   </div>
   <div role="tabpanel" id="panel-product-briefs" aria-labelledby="tab-product-briefs">
     <h2 class="cw-cat cw-sr">Product Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">A concise view of our products, their capabilities and the business problems they address.</p>
@@ -41,6 +41,8 @@ scripts: [tabs.js]
         <div class="cw-row cw-rv"><div class="tx"><div class="t">Controls, Traceability &amp; Auditability</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
     </div>
   </div>
+  {#- Case Studies and Insights are hidden until there is real content (HANDOVER §3.4).
+      To bring one back: restore its tab button above, uncomment its panel, and remove hidden: true in src/_data/nav.js.
   <div role="tabpanel" id="panel-case-studies" aria-labelledby="tab-case-studies" hidden>
     <h2 class="cw-cat cw-sr">Case Studies</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">Real implementations, business challenges and measurable outcomes.</p>
     <div class="cw-rows" style="--acc:var(--green-text)">
@@ -60,4 +62,5 @@ scripts: [tabs.js]
         <div class="cw-row cw-rv"><div class="tx"><div class="t">M&amp;A technology integration</div><div class="d"></div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
     </div>
   </div>
+  #}
 </section>

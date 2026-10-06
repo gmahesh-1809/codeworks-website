@@ -11,7 +11,7 @@
     <nav aria-label="Products"><div style="{{ heading }}">Products</div>
       <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/products/">All Products</a>{% for p in products %}<a class="cw-fl" href="{{ p.url }}">{{ p.name }}</a>{% endfor %}</div></nav>
     <nav aria-label="Resources"><div style="{{ heading }}">Resources</div>
-      <div style="margin-top:16px;display:flex;flex-direction:column">{% for r in nav.resources %}<a class="cw-fl" href="/resources/#{{ r.key }}">{{ r.name }}</a>{% endfor %}</div></nav>
+      <div style="margin-top:16px;display:flex;flex-direction:column">{% for r in nav.resources %}{% if not r.hidden %}<a class="cw-fl" href="/resources/#{{ r.key }}">{{ r.name }}</a>{% endif %}{% endfor %}</div></nav>
   </div>
   <div class="cw-fbot"><div class="cw-flegal"><span>© {{ site.year }} {{ site.legalName or "Codeworks" }}</span><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div><a href="/contact/">Talk to Us →</a></div>
 </footer>

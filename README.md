@@ -86,7 +86,7 @@ First-time setup:
 - [ ] Legal details in `src/_data/site.js` (`legalName`, `registeredOffice`), plus the grievance officer in `src/privacy/index.md`. The build prints a warning while any are left.
 - [ ] Check the marketing claims ("cuts … by 60%", "eliminates audit leaks", "without hallucinations").
 - [ ] Contact form: deploy the Apps Script (`apps-script/README.md`) and set `formEndpoint`.
-- [ ] Decide whether the Case Studies and Insights placeholders go live.
+- [x] Case Studies and Insights are hidden until there is real content (see HANDOVER §3.4).
 
 ## Visual regression check
 
