@@ -37,6 +37,12 @@ The Codeworks website is live. This file lists everything still to do, plus the 
   - "Telecom-Grade Legacy" / "telecom engineering" reworded to "carrier-grade engineering" on the Home and Company pages; the Company page description no longer lists telcos ([#4](https://github.com/gmahesh-1809/codeworks-website/pull/4))
   - the hero window switches between the three products, with a product switcher and Pause/Play, and an "Explore <product> →" link in each window ([#5](https://github.com/gmahesh-1809/codeworks-website/pull/5))
 - Products page shows three cards across on wide screens, with the names lined up ([#2](https://github.com/gmahesh-1809/codeworks-website/pull/2), [#3](https://github.com/gmahesh-1809/codeworks-website/pull/3)).
+- Product pages on 6 October 2026:
+  - Drishti and Spectra "Talk to Us" buttons preselect the product on the contact form, as Assay's do ([#6](https://github.com/gmahesh-1809/codeworks-website/pull/6))
+  - Assay copy corrected against the product's code, from `assay-core/docs/internal/2026-10-06-website-copy-fixes.md` ([#8](https://github.com/gmahesh-1809/codeworks-website/pull/8))
+  - Assay text shortened (Overview 221 → 145 words) and made less specific about integrations: "with the customer's consent, their bank and tax data" instead of naming the account aggregator; "set in configuration" instead of "without a software release" ([#8](https://github.com/gmahesh-1809/codeworks-website/pull/8), [#9](https://github.com/gmahesh-1809/codeworks-website/pull/9), [#10](https://github.com/gmahesh-1809/codeworks-website/pull/10))
+- Unused CSS removed: 41 rules, about 3 KB, every page pixel-identical before and after ([#7](https://github.com/gmahesh-1809/codeworks-website/pull/7)).
+- Design review of the whole site on 6 October 2026, with quick fixes: dark-mode contrast of the home window's step numbers and the amber "!" badge, Services cards no longer alternating the product colours, numbered markers only on real sequences, and a narrower text column on the legal pages. The remaining findings are P1/P2 items below.
 
 **Do not touch** the older private repository `fzmgt5c478-svg/codeworks-site`. It holds an earlier design and is unrelated.
 
@@ -85,6 +91,7 @@ Already confirmed: the governing courts are **Mumbai, Maharashtra**. The build p
   - "millions of daily critical transactions" (Company page)
   - "30+ Years Carrier-Grade Engineering" (Home, Company). Was "Telecom-Grade Legacy" until 6 October 2026; the 30 years still need confirming.
   - Assay's "ROI Impact" line ("Checks every claim before payout…") is descriptive, because Assay has not yet been measured on real claims. Replace it with a figure once one exists.
+- [ ] **Assay wording after the 6 October rounds:** the Assay team should read the live Assay page. Their fix list marked some sentences "correct, do not change", and later rounds shortened them (e.g. "Calculated, Not Estimated", the Key Highlight on thresholds). No fact was changed.
 - [ ] **Home page product windows (Spectra and Assay):** their steps and findings are illustrative, written for the carousel (e.g. "Interest rate outside the scheme limit", "Claim close to policy inception", claim number CLM-2026-4418 from the Assay brief). Ask someone who knows each product to confirm they're realistic. They're in the `hero` entries in `src/_data/products.js`.
 
 #### 3.3 Contact form backend (in the **company Google Workspace**)
@@ -124,12 +131,20 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [x] **Unused CSS:** removed on 6 October 2026: 41 rules (about 3 KB) for removed product screenshots and earlier layouts (`.cw-shots`, `.cw-shot`, `.cw-peek`, `.cw-bento`, `.cw-asym`, `.cw-sw`, `.cw-tabs`), plus `.cw-tv` and `.cw-fl.strong`, which nothing used. Every page was pixel-identical before and after.
 - [ ] **Inline styles:** repeated inline styles (section labels, display headings, CTA bands, cards) should become CSS classes. Do one pattern at a time and run the visual check after each.
 - [x] **Product summaries:** now in `src/_data/products.js`, the one source for the header, footer, home cards, Products page, Resources briefs, 404 page and contact topics. README → *Common changes* explains adding a product.
+- [ ] **Design pass (from the 6 October review):** to be mocked up on a branch and reviewed before merging:
+  - smaller headings on inner pages (Services' heading takes 4 lines at about 70px; aim for 48–56px), so content starts higher
+  - fewer heavy coloured blocks: Company stacks a dark panel, a blue and a green card, a blue call-to-action band and the dark footer
+  - the strip under the home page products: "30+ Years…" has a number and caption, the other three only a bold label; give all four the same structure
+  - shorter product cards on phones (the home page is about 4,600px tall on a phone, mostly illustrations)
+  - Resources repeats its tab name as a large heading straight below the tabs
+- [ ] **Type scale and corner radii:** the site uses 41 font sizes and 22 corner radii. Settle on about 8 sizes and 3–4 radii. Do it together with the inline-styles item above, since most of them are inline.
 - [ ] **Content Security Policy:** add one as a `<meta>` tag. It must allow the Apps Script domains (`script.google.com`, `script.googleusercontent.com`). It needs `'unsafe-inline'` for styles until the inline styles are gone.
 
 ### P2: nice to have
 - [x] Product-page "Talk to Us" buttons preselect the product on the contact form: `/contact/?topic=drishti`, `?topic=spectra` and `?topic=assay`.
 - [ ] Individual resource pages or PDFs in `src/assets/documents/` once real content exists.
 - [ ] Automatic broken-link checking in the deploy workflow.
+- [ ] Services cards end in lines like "→ Architectural Specs" that look like links but aren't. Make them real links (e.g. to Contact with a topic) or plain text.
 - [ ] `BreadcrumbList` structured data on product pages.
 
 ---
@@ -164,5 +179,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - **Fonts:** Bricolage Grotesque and DM Sans are self-hosted under the SIL Open Font License. The licence files are in `src/assets/fonts/`.
 - **Drishti agent cards:** their grey fill and sizing originally came from the browser's default `<button>` style. Now that they're list items, `.cw-ag` sets `background-color: ButtonFace` and `box-sizing: border-box` to keep the same look. `ButtonFace` differs slightly between Chrome, Safari and Firefox (it did before too); replace it with a design colour if that matters.
 - **Product data:** templates read `products` directly. Don't import `products.js` into another data file (such as `nav.js`): the dev server then keeps a stale copy and edits only appear after restarting `npm start`.
+- **Colour and numbering conventions** (from the design review): blue, green and navy are the three products' colours (and blue and green are also the logo's), so don't alternate them decoratively; use one neutral surface and the blue accent for groups of equal items. Use 01 / 02 / 03 markers only where the order is real: the Technology flow, Drishti's agents, the home window steps and Spectra's capabilities.
+- **Line length:** in DM Sans a `ch` unit is wider than an average character, so `72ch` gave about 93 characters per line. Running text uses about `58ch` (around 75 characters).
 - **Home page carousel** (`src/assets/js/hero.js`): each product's window comes from its `hero` entry in `products.js`, so a new product needs one too. The first product's window is the one shown without JavaScript, and the one the page opens on. Rotation is every 6 seconds (the `cw-hfill` animation in `site.css`; the script advances when it ends). The windows are stacked in one grid cell; the 30px of bottom padding on each `.cw-slide` (removed below 1180px) is room for the floating note.
 - **Contact form:** it only shows "Thank you" when the Apps Script replies `{"ok": true}`. Never switch the request to `no-cors`, or every submission would look successful even when it failed.
