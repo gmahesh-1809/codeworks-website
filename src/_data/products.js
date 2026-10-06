@@ -58,7 +58,7 @@ export default [
     tagline: "Claims integrity & settlement for insurers",
     label: "Claims Integrity Platform",
     subtitle: "Claims Integrity and Settlement Platform for Insurers",
-    highlights: ["Underwriting &amp; claim checks", "Every figure cited to its source", "Thresholds you set, without a release", "Settlement reconciled to the paisa"],
+    highlights: ["Underwriting &amp; claim checks", "Every figure cited to its source", "Thresholds set in configuration", "Settlement reconciled to the paisa"],
     roi: "Checks every claim before payout, and keeps the evidence behind every decision.",
     hero: {
       title: "Assay · Claim file CLM-2026-4418",
