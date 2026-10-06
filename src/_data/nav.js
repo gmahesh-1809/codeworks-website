@@ -1,9 +1,9 @@
-// Single source for product and resource links used by the header and footer.
+// Product and resource links used by the header and footer. Product details live in products.js.
+import products from "./products.js";
+
 export default {
-  products: [
-    { key: "drishti", name: "Drishti.ai", tagline: "AI credit assessment & investigation", url: "/products/drishti/" },
-    { key: "spectra", name: "Spectra", tagline: "Subvention claims tracing, reconciliation & audit", url: "/products/spectra/" },
-  ],
+  products,
+  productKeys: products.map((p) => p.key),
   resources: [
     { key: "product-briefs", name: "Product Briefs" },
     { key: "white-papers", name: "White Papers" },

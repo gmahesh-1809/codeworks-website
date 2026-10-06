@@ -1,4 +1,4 @@
-{%- set section = "products" if active in ["products", "drishti", "spectra"] else active -%}
+{%- set section = "products" if (active == "products" or active in nav.productKeys) else active -%}
 {%- macro navlink(key, label, url) -%}
 <a class="cw-navi{% if section == key %} on{% endif %}"{% if section == key %} aria-current="page"{% endif %} href="{{ url }}">{{ label }}</a>
 {%- endmacro -%}
