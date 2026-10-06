@@ -95,6 +95,17 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   check('Escape closes mobile menu', !(await visible('#cw-mnav')));
   await page.setViewportSize({ width: 1280, height: 900 });
 
+  // Home hero carousel: one window per product; autoplay advances; choosing a product stops it.
+  await page.goto(BASE + '/');
+  await page.mouse.move(5, 890);
+  const slideOn = () => page.evaluate(() => [...document.querySelectorAll('.cw-slide')].findIndex(s => s.classList.contains('on')));
+  check('hero has a window per product', await page.locator('.cw-slide').count() === 3 && await slideOn() === 0);
+  await page.waitForTimeout(6500);
+  check('hero advances to the next product', await slideOn() === 1);
+  await page.click('#hs-tab-assay');
+  await page.mouse.move(5, 890); await page.waitForTimeout(6500);
+  check('choosing a product shows it and stops rotation', await slideOn() === 2 && await page.getAttribute('.cw-hsw .cw-pp', 'aria-label') === 'Play');
+
   // Products from src/_data/products.js: Assay appears everywhere the list is used.
   await page.goto(BASE + '/');
   check('home shows a card per product', await page.locator('a.cw-prod').count() === 3 && await page.locator('a.cw-prod[href$="/products/assay/"]').count() === 1);
