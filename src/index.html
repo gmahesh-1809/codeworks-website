@@ -5,15 +5,18 @@ title: "Codeworks | Enterprise Software Platforms for Critical Operations"
 description: "Codeworks builds deterministic, high-volume enterprise software platforms for banks, NBFCs and businesses where technology is central to operations."
 organizationSchema: true
 ---
-<section class="cw-heroband" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:48px 72px;align-items:center;padding:clamp(56px,7vw,104px) clamp(8px,2.5vw,32px) clamp(40px,5vw,72px)">
+<section class="cw-heroband" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:48px 72px;align-items:center;padding:clamp(28px,3.5vw,48px) clamp(8px,2.5vw,32px) clamp(32px,4vw,56px)">
   <div>
-    <div style="font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text)">Enterprise Software Platforms</div>
-    <h1 style="margin:16px 0 0;font:800 clamp(36px,4.6vw,62px)/1.04 'Bricolage Grotesque';letter-spacing:-0.04em;text-wrap:balance">Engineering High-Volume Software Platforms for <span style="color:var(--blue-ink)">Critical Enterprise Operations.</span></h1>
+    <div style="font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text)">Lending · Insurance · <span style="white-space:nowrap">Public-Scheme Finance</span></div>
+    <h1 style="margin:16px 0 0;font:800 clamp(34px,4vw,54px)/1.04 'Bricolage Grotesque';letter-spacing:-0.04em;text-wrap:balance">Engineering High-Volume Software Platforms for <span style="color:var(--blue-ink)">Critical Enterprise Operations.</span></h1>
     <p style="margin:24px 0 0;font-size:clamp(17px,1.5vw,19px);line-height:1.65;color:var(--ink-2);max-width:48ch;text-wrap:pretty">From high-throughput data processing to AI-driven intelligence—we build deterministic software platforms that understand business rules, compliance and scale.</p>
     <div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:12px">
       <a class="cw-btn cw-btn-primary cw-btn-lg" href="/contact/">Schedule a Demo <span class="arr">→</span></a>
       <a class="cw-btn cw-btn-secondary cw-btn-lg" href="/products/">Our Products</a>
     </div>
+    <nav class="cw-aud" aria-label="Fields our products are built for"><span class="k">Built for</span>
+      {%- for p in products %}<a href="{{ p.url }}" class="t-{{ p.tone }}"><i style="background:{{ p.color }}" aria-hidden="true"></i><b>{{ p.audience | safe }}</b> <span>{{ p.name }}</span></a>{% endfor -%}
+    </nav>
   </div>
   <div class="cw-stage">
     <div class="cw-glow" aria-hidden="true"></div>
@@ -35,7 +38,7 @@ organizationSchema: true
 </section>
 
 <section class="cw-trust cw-bleed">
-  <div><div style="font:800 56px/1 'Bricolage Grotesque';color:var(--blue-ink);letter-spacing:-0.04em">30+</div><div style="font-weight:500">Years Telecom-Grade Legacy</div></div>
+  <div><div style="font:800 56px/1 'Bricolage Grotesque';color:var(--blue-ink);letter-spacing:-0.04em">30+</div><div style="font-weight:500">Years Carrier-Grade Engineering</div></div>
   <div><span style="width:36px;height:5px;border-radius:9px;background:#1878a4"></span><b style="font:700 21px/1.15 'Bricolage Grotesque'">High-Volume Resilience</b></div><div><span style="width:36px;height:5px;border-radius:9px;background:#5c903c"></span><b style="font:700 21px/1.15 'Bricolage Grotesque'">Zero Rip-&amp;-Replace</b></div><div><span style="width:36px;height:5px;border-radius:9px;background:#1878a4"></span><b style="font:700 21px/1.15 'Bricolage Grotesque'">Audit-Ready</b></div>
 </section>
 
