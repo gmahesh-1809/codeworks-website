@@ -6,6 +6,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{#- Applies the saved light/dark choice before first paint. The CSP below allows exactly this text by its hash. #}
+{%- set themeScript %}try{var t=localStorage.getItem("cw-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}{% endset %}
+{#- Content Security Policy (a meta tag, because GitHub Pages can't send headers). Everything is self-hosted;
+    the contact form posts to Google Apps Script, which redirects to script.googleusercontent.com.
+    style-src needs 'unsafe-inline' while pages use style="" attributes. #}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' {{ themeScript | cspHash | safe }}; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
 {%- if canonical and not noindex %}
@@ -33,7 +39,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
-<script>try{var t=localStorage.getItem("cw-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>{{ themeScript | safe }}</script>
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
