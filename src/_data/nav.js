@@ -1,9 +1,5 @@
-// Product and resource links used by the header and footer. Product details live in products.js.
-import products from "./products.js";
-
+// Resource links used by the header and footer. Product links come from products.js.
 export default {
-  products,
-  productKeys: products.map((p) => p.key),
   resources: [
     { key: "product-briefs", name: "Product Briefs" },
     { key: "white-papers", name: "White Papers" },

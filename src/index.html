@@ -28,8 +28,8 @@ organizationSchema: true
   </div>
 </section>
 
-<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:12px">
-  {% for p in nav.products -%}
+<section class="cw-prodtiles" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:12px">
+  {% for p in products -%}
   <a class="cw-prod cw-rv" href="{{ p.url }}" style="background:{{ p.color }}"><span style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><b style="font:800 clamp(36px,4vw,48px)/1 'Bricolage Grotesque';letter-spacing:-0.03em">{{ p.name }}</b><span class="go" style="width:48px;height:48px;border-radius:50%;background:#ffffff;color:#0d1f27;display:grid;place-items:center;flex:none;font-size:20px">↗</span></span><span style="font-size:19px;line-height:1.4">{{ p.tagline }}</span><span class="cw-tvw" aria-hidden="true">{% include "partials/tile-" + p.key + ".svg" %}</span></a>
   {%- endfor %}
 </section>

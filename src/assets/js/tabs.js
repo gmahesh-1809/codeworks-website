@@ -1,4 +1,4 @@
-// Accessible tabs (Resources, Drishti.ai, Spectra). All panels are in the HTML; this only switches them.
+// Accessible tabs (Resources and the product pages). All panels are in the HTML; this only switches them.
 // The selected tab is mirrored in the URL hash (#white-papers, #agents ...) so it can be linked to.
 (function () {
   "use strict";

@@ -17,7 +17,7 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   const visible = sel => page.locator(sel).first().isVisible();
 
   // Every page loads without script errors or broken requests.
-  for (const p of ['/', '/company/', '/products/', '/products/drishti/', '/products/spectra/', '/technology/', '/services/', '/resources/', '/contact/', '/privacy/', '/terms/']) {
+  for (const p of ['/', '/company/', '/products/', '/products/drishti/', '/products/spectra/', '/products/assay/', '/technology/', '/services/', '/resources/', '/contact/', '/privacy/', '/terms/']) {
     await page.goto(BASE + p);
   }
   check('no script errors on any page', errors.length === 0, errors.join(' | '));
@@ -94,6 +94,19 @@ const check = (name, ok, extra) => { if (!ok) failures++; console.log(`${ok ? 'P
   await page.keyboard.press('Escape');
   check('Escape closes mobile menu', !(await visible('#cw-mnav')));
   await page.setViewportSize({ width: 1280, height: 900 });
+
+  // Products from src/_data/products.js: Assay appears everywhere the list is used.
+  await page.goto(BASE + '/');
+  check('home shows a card per product', await page.locator('a.cw-prod').count() === 3 && await page.locator('a.cw-prod[href$="/products/assay/"]').count() === 1);
+  check('products menu and footer list Assay', await page.locator('#cw-menu-products a[href$="/products/assay/"]').count() === 1 && await page.locator('.cw-foot a[href$="/products/assay/"]').count() === 1);
+  await page.goto(BASE + '/products/assay/');
+  check('Products marked current on the Assay page', await page.getAttribute('.cw-nav .cw-navgrp >> nth=0 >> a', 'aria-current') === 'page');
+  await page.click('#tab-modules');
+  check('Assay modules tab shows both modules', await visible('#panel-modules') && await page.locator('#panel-modules .cw-open').count() === 8);
+  await page.goto(BASE + '/contact/?topic=assay');
+  check('?topic=assay preselects Assay', await page.inputValue('select[name=topic]') === 'assay' && (await page.inputValue('textarea[name=message]')).includes('Assay'));
+  await page.goto(BASE + '/contact/?topic=' + encodeURIComponent('x"]'));
+  check('malformed ?topic= is ignored', await page.inputValue('select[name=topic]') === '');
 
   // Contact form: validation, honest failure, real success.
   await page.goto(BASE + '/contact/?topic=spectra');

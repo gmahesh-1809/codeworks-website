@@ -30,6 +30,7 @@ The Codeworks website is live. This file lists everything still to do, plus the 
   - an accessibility pass
   - a contact form backend ready to connect (Apps Script)
 - Moved to the company repository and live on the custom domain (5 October 2026). See §3.5 for the steps still open.
+- Third product, **Assay** (claims integrity & settlement for insurers), added 6 October 2026 at `/products/assay/`. Its wording comes from the Assay brief in the `assay-core` repository (`collateral/Assay_Insurance_Brief.html`), approved for the website by the project owner. Assay uses the site's dark navy (`--cw-navy`) as its colour.
 
 **Do not touch** the older private repository `fzmgt5c478-svg/codeworks-site`. It holds an earlier design and is unrelated.
 
@@ -114,7 +115,7 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - [x] **Drishti page headings** (PR #1): visually hidden H2s for the Overview and Agents panels; agent names are H3s.
 - [ ] **Unused CSS:** about 3 KB in `site.css` belongs to removed product screenshots and earlier layouts: `.cw-shots`, `.cw-shot`, `.cw-peek`, `.cw-bento`, `.cw-asym`, `.cw-sw`, `.cw-tabs`. Remove it, then run the visual check.
 - [ ] **Inline styles:** repeated inline styles (section labels, display headings, CTA bands, cards) should become CSS classes. Do one pattern at a time and run the visual check after each.
-- [ ] **Product summaries:** home page cards and the Products page still have their own copies of the product taglines and ROI lines. Move them into `src/_data/nav.js` (or a `products.js`) so there is one source.
+- [x] **Product summaries:** now in `src/_data/products.js`, the one source for the header, footer, home cards, Products page, Resources briefs, 404 page and contact topics. README → *Common changes* explains adding a product.
 - [ ] **Content Security Policy:** add one as a `<meta>` tag. It must allow the Apps Script domains (`script.google.com`, `script.googleusercontent.com`). It needs `'unsafe-inline'` for styles until the inline styles are gone.
 
 ### P2: nice to have
@@ -154,4 +155,5 @@ Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codewo
 - **Visual check:** `tests/screens/` isn't committed. On a new laptop, run `node tests/visual.cjs baseline` once (it uses `reference/codeworks-export.html`). After that, `current` and `diff` work as described in the README.
 - **Fonts:** Bricolage Grotesque and DM Sans are self-hosted under the SIL Open Font License. The licence files are in `src/assets/fonts/`.
 - **Drishti agent cards:** their grey fill and sizing originally came from the browser's default `<button>` style. Now that they're list items, `.cw-ag` sets `background-color: ButtonFace` and `box-sizing: border-box` to keep the same look. `ButtonFace` differs slightly between Chrome, Safari and Firefox (it did before too); replace it with a design colour if that matters.
+- **Product data:** templates read `products` directly. Don't import `products.js` into another data file (such as `nav.js`): the dev server then keeps a stale copy and edits only appear after restarting `npm start`.
 - **Contact form:** it only shows "Thank you" when the Apps Script replies `{"ok": true}`. Never switch the request to `no-cors`, or every submission would look successful even when it failed.

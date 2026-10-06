@@ -17,7 +17,7 @@ scripts: [tabs.js]
   <div role="tabpanel" id="panel-product-briefs" aria-labelledby="tab-product-briefs">
     <h2 class="cw-cat">Product Briefs</h2><p style="margin:14px 0 0;font-size:19px;line-height:1.55;color:var(--ink-3);max-width:60ch">A concise view of our products, their capabilities and the business problems they address.</p>
     <div class="cw-rows" style="--acc:var(--blue-text)">
-        {% for p in nav.products -%}
+        {% for p in products -%}
         <div class="cw-row cw-rv"><div class="tx"><div class="t">{{ p.name }} — Product Brief</div><div class="d">{{ p.brief | safe }}</div></div><a class="go" href="/contact/">Request this<span class="arr">↗</span></a></div>
         {% endfor -%}
     </div>

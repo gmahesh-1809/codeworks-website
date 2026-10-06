@@ -9,7 +9,7 @@
     <nav aria-label="Company"><div style="{{ heading }}">Company</div>
       <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/company/">Who We Are</a><a class="cw-fl" href="/technology/">Technology</a><a class="cw-fl" href="/services/">Services</a><a class="cw-fl" href="/contact/">Contact</a></div></nav>
     <nav aria-label="Products"><div style="{{ heading }}">Products</div>
-      <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/products/">All Products</a>{% for p in nav.products %}<a class="cw-fl" href="{{ p.url }}">{{ p.name }}</a>{% endfor %}</div></nav>
+      <div style="margin-top:16px;display:flex;flex-direction:column"><a class="cw-fl" href="/products/">All Products</a>{% for p in products %}<a class="cw-fl" href="{{ p.url }}">{{ p.name }}</a>{% endfor %}</div></nav>
     <nav aria-label="Resources"><div style="{{ heading }}">Resources</div>
       <div style="margin-top:16px;display:flex;flex-direction:column">{% for r in nav.resources %}<a class="cw-fl" href="/resources/#{{ r.key }}">{{ r.name }}</a>{% endfor %}</div></nav>
   </div>

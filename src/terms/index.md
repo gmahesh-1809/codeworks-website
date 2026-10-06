@@ -14,7 +14,7 @@ The content on this website is general information about Codeworks, our products
 
 ## Intellectual property
 
-The website and its content, including text, graphics, the Codeworks name and logo, and the names Drishti.ai and Spectra, belong to Codeworks or its licensors. You may view and print pages for your own reference. You may not copy, modify or republish content for commercial purposes without our written permission.
+The website and its content, including text, graphics, the Codeworks name and logo, and the names Drishti.ai, Spectra and Assay, belong to Codeworks or its licensors. You may view and print pages for your own reference. You may not copy, modify or republish content for commercial purposes without our written permission.
 
 ## Acceptable use
 
