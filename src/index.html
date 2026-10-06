@@ -4,6 +4,7 @@ active: home
 title: "Codeworks | Enterprise Software Platforms for Critical Operations"
 description: "Codeworks builds deterministic, high-volume enterprise software platforms for banks, NBFCs and businesses where technology is central to operations."
 organizationSchema: true
+scripts: [hero.js]
 ---
 <section class="cw-heroband" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:48px 72px;align-items:center;padding:clamp(28px,3.5vw,48px) clamp(8px,2.5vw,32px) clamp(32px,4vw,56px)">
   <div>
@@ -14,20 +15,30 @@ organizationSchema: true
       <a class="cw-btn cw-btn-primary cw-btn-lg" href="/contact/">Schedule a Demo <span class="arr">→</span></a>
       <a class="cw-btn cw-btn-secondary cw-btn-lg" href="/products/">Our Products</a>
     </div>
-    <nav class="cw-aud" aria-label="Fields our products are built for"><span class="k">Built for</span>
-      {%- for p in products %}<a href="{{ p.url }}" class="t-{{ p.tone }}"><i style="background:{{ p.color }}" aria-hidden="true"></i><b>{{ p.audience | safe }}</b> <span>{{ p.name }}</span></a>{% endfor -%}
-    </nav>
   </div>
-  <div class="cw-stage">
+  {%- set status = { "done": "Complete", "run": "Running", "queue": "Queued", "ready": "Ready" } %}
+  <div class="cw-stage cw-hcar" data-cw-hcar aria-roledescription="carousel" aria-label="Our products">
     <div class="cw-glow" aria-hidden="true"></div>
     <div class="cw-back" aria-hidden="true"></div>
-    <div class="cw-win">
-      <div class="cw-bar"><span class="cw-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cw-wt">Drishti.ai · Four intelligent agents</span></div>
-      <div class="cw-seg" aria-hidden="true"><i class="done"></i><i class="run"></i><i class="queue"></i><i class="ready"></i></div>
-      <div class="cw-steps"><div class="cw-step"><span class="cw-node done">01</span><span>Document Verification</span><span class="cw-pill done"><i></i>Complete</span></div><div class="cw-step"><span class="cw-node run">02</span><span>Investigation</span><span class="cw-pill run"><i></i>Running</span></div><div class="cw-step"><span class="cw-node queue">03</span><span>Credit Assessment Report</span><span class="cw-pill queue"><i></i>Queued</span></div><div class="cw-step"><span class="cw-node ready">04</span><span>Credit Copilot</span><span class="cw-pill ready"><i></i>Ready</span></div></div>
-      <div class="cw-risks"><div class="cw-risk"><span>Inconsistency across submitted documents</span><b class="cw-tag" style="background:var(--warn-bg);color:var(--warn-fg)">Review</b></div><div class="cw-risk"><span>Unexplained link between related entities</span><b class="cw-tag" style="background:var(--flag-bg);color:var(--flag-fg)">Flag</b></div></div>
+    <div class="cw-hsw" hidden>
+      <div role="tablist" aria-label="Choose a product">
+        {%- for p in products %}<button type="button" role="tab" class="t-{{ p.tone }}" id="hs-tab-{{ p.key }}" aria-controls="hs-{{ p.key }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}"><i style="background:{{ p.color }}" aria-hidden="true"></i>{{ p.name }}<span class="bar" aria-hidden="true"></span></button>{% endfor -%}
+      </div>
+      <button type="button" class="cw-pp" aria-label="Pause"><svg class="i-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="2.5" width="3" height="11" rx="1"></rect><rect x="9.5" y="2.5" width="3" height="11" rx="1"></rect></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" hidden><path d="M4 2.5v11l9-5.5z"></path></svg></button>
     </div>
-    <div class="cw-float"><span>Income evidence matches declared profile</span><b class="cw-tag" style="background:var(--ok-bg);color:var(--ok-fg)">Clear</b></div>
+    <div class="cw-slides" aria-live="off">
+      {%- for p in products %}{% set h = p.hero %}
+      <div class="cw-slide{% if loop.first %} on{% endif %}" id="hs-{{ p.key }}" role="tabpanel" aria-labelledby="hs-tab-{{ p.key }}" aria-roledescription="slide"{% if not loop.first %} aria-hidden="true" inert{% endif %}>
+        <div class="cw-win">
+          <div class="cw-bar"><span class="cw-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cw-wt">{{ h.title }}</span><a class="cw-wlink" href="{{ p.url }}" style="color:var(--{{ p.tone }}-text)">Explore {{ p.name }}<span class="arr" aria-hidden="true">→</span></a></div>
+          <div class="cw-seg" aria-hidden="true">{% for s in h.steps %}<i class="{{ s[1] }}"></i>{% endfor %}</div>
+          <div class="cw-steps">{% for s in h.steps %}<div class="cw-step"><span class="cw-node {{ s[1] }}">0{{ loop.index }}</span><span>{{ s[0] | safe }}</span><span class="cw-pill {{ s[1] }}"><i></i>{{ status[s[1]] }}</span></div>{% endfor %}</div>
+          <div class="cw-risks">{% for f in h.findings %}<div class="cw-risk"><span>{{ f[0] }}</span><b class="cw-tag {{ f[1] }}">{{ f[2] }}</b></div>{% endfor %}</div>
+        </div>
+        <div class="cw-float"><span>{{ h.note[0] }}</span><b class="cw-tag {{ h.note[1] }}">{{ h.note[2] }}</b></div>
+      </div>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
