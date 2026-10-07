@@ -16,9 +16,12 @@ The Codeworks website is live. This file lists everything still to do, plus the 
 | Live site | https://www.codeworks.ind.in, served by GitHub Pages from that repository |
 | Old preview | `fzmgt5c478-svg/codeworks-website` (personal account). Pages is off and the repository is private. Don't use it |
 | Build | Eleventy 3 static site, deployed by GitHub Actions on every push to `main` |
-| Tests | `npm test` (37 behaviour checks, all passing) |
+| Domain and DNS | `codeworks.ind.in`, registered at **GoDaddy**, which also hosts its DNS (nameservers `ns47`/`ns48.domaincontrol.com`). Company email is **Google Workspace** (the MX records) |
+| Tests | `npm test` (43 behaviour checks, all passing) |
 
-**Every push to `main` goes live within about 30 seconds.** Work on a branch (`site-updates`, or a short-lived branch per change that is deleted after merging), check it locally, then open a pull request into `main`. Merging is done by a person on GitHub, not by Claude Code.
+**Every push to `main` goes live within about 30 seconds.** Work on a branch (`site-updates`, or a short-lived branch per change that is deleted after merging), check it locally, then open a pull request into `main`. Merging is done by a person on GitHub, not by Claude Code. Branches on GitHub as of 6 October 2026: `main` and `site-updates` only; delete short-lived branches once merged.
+
+**Run one Claude Code session on this folder at a time.** On 6 October several sessions worked here at once and merged changes (#8–#14) the others didn't know about. Branches kept the work apart, but sessions editing the same files at the same moment can overwrite each other's uncommitted changes.
 
 **Done:**
 - The original design export (a single HTML file that rendered 9 pages in an iframe with React from unpkg) has been converted into real static pages at clean URLs.
@@ -42,6 +45,7 @@ The Codeworks website is live. This file lists everything still to do, plus the 
   - Assay copy corrected against the product's code, from `assay-core/docs/internal/2026-10-06-website-copy-fixes.md` ([#8](https://github.com/gmahesh-1809/codeworks-website/pull/8))
   - Assay text shortened (Overview 221 → 145 words) and made less specific about integrations: "with the customer's consent, their bank and tax data" instead of naming the account aggregator; "set in configuration" instead of "without a software release" ([#8](https://github.com/gmahesh-1809/codeworks-website/pull/8), [#9](https://github.com/gmahesh-1809/codeworks-website/pull/9), [#10](https://github.com/gmahesh-1809/codeworks-website/pull/10))
 - Unused CSS removed: 41 rules, about 3 KB, every page pixel-identical before and after ([#7](https://github.com/gmahesh-1809/codeworks-website/pull/7)).
+- Search engines and AI assistants ([#15](https://github.com/gmahesh-1809/codeworks-website/pull/15)): shorter titles and descriptions, structured data, a preview image per product, IndexNow and `/llms.txt`. Details and what's left in 3.6.
 - Design review of the whole site on 6 October 2026, with quick fixes: dark-mode contrast of the home window's step numbers and the amber "!" badge, Services cards no longer alternating the product colours, numbered markers only on real sequences, and a narrower text column on the legal pages. The remaining findings are P1/P2 items below.
 
 **Do not touch** the older private repository `fzmgt5c478-svg/codeworks-site`. It holds an earlier design and is unrelated.
@@ -124,10 +128,10 @@ The form currently falls back to opening the visitor's email program. To connect
 Both TXT records (steps 6 and 9) go alongside the existing SPF record on `codeworks.ind.in`; leave that record unchanged.
 
 #### 3.6 Search engines and AI assistants
-Done in code (6 October 2026): titles under 60 characters and descriptions under 155; structured data (company and website on the home page; each product as software, with breadcrumbs, on its page); a link-preview image per product; an IndexNow notification to Bing and Yandex after every deploy; and `/llms.txt`, a plain-text summary for AI tools.
+Done in code (6 October 2026, [#15](https://github.com/gmahesh-1809/codeworks-website/pull/15)): titles under 60 characters and descriptions under 155; structured data (company and website on the home page; each product as software, with breadcrumbs, on its page); a link-preview image per product; an IndexNow notification to Bing and Yandex after every deploy; and `/llms.txt`, a plain-text summary for AI tools. The first IndexNow submission (12 pages, on the #15 deploy) was accepted with a 202.
 
 Still to do, outside the code:
-- [ ] **Google Search Console:** step 9 above.
+- [ ] **Google Search Console:** step 9 above. Sign in with a **Codeworks Google Workspace** account, not a personal one, so the company owns the property. The TXT record goes in **GoDaddy → My Products → codeworks.ind.in → DNS**.
 - [ ] **Bing Webmaster Tools** ([bing.com/webmasters](https://www.bing.com/webmasters)): sign in and choose **Import from Google Search Console** (after step 9); the site and sitemap carry over. ChatGPT search and Microsoft Copilot draw on Bing's index.
 - [ ] **LinkedIn company page** (and any other official profiles): add each URL to `profiles` in `src/_data/site.js`. They're listed as `sameAs` in the company's structured data, which helps search engines tell this Codeworks apart from others with the same name.
 - [ ] **Presence elsewhere:** consistent name and short description on LinkedIn, industry directories and partner pages; articles and case studies that link back to the site. This, and real content (product explainers, FAQs, case studies), matter more than any code change.
