@@ -128,7 +128,7 @@ body{margin:0;background:var(--bg)}:focus-visible{outline:2px solid #1878a4;outl
 --blue-text:#86cdf0;--blue-ink:#5cb7e4;--green-text:#a6d982;
 --tint-blue:#142632;--tint-green:#18261a;--tint-band:#13161a;--tab-bg:#1c2024;--input:#121417;
 --ink-fill:#eef0f2;--ink-fill-text:#121417;--ink-fill-hover:#ffffff;
---deep:#14171b;--deep-2:#1d2126;--deep-line:#2c3238;--ag-bg:var(--surface-2);
+--deep:#14171b;--deep-2:#1d2126;--deep-line:#2c3238;--deep-edge:#262a30;--ag-bg:var(--surface-2);
 --warn-bg:#3b3011;--warn-fg:#f3d47e;--flag-bg:#432019;--flag-fg:#f6b5a8;--ok-bg:#1c3a1e;--ok-fg:#b7e39b;--roi-blue:#142632;--roi-green:#18261a;--cw-navy:#2a3d4a;--cw-navy-700:#22323d;--navy-text:#c2cdd6;--navy-pc:#9db1bf;--roi-navy:#1c262e;--node-run:#86cdf0;--node-ready:#a6d982;
 --glass:rgba(23,26,30,.78);--glass-2:rgba(23,26,30,.93);--glass-line:rgba(68,75,83,.55);--back:rgba(23,26,30,.55);}}
 :root[data-theme="dark"]{color-scheme:dark;
@@ -138,7 +138,7 @@ body{margin:0;background:var(--bg)}:focus-visible{outline:2px solid #1878a4;outl
 --blue-text:#86cdf0;--blue-ink:#5cb7e4;--green-text:#a6d982;
 --tint-blue:#142632;--tint-green:#18261a;--tint-band:#13161a;--tab-bg:#1c2024;--input:#121417;
 --ink-fill:#eef0f2;--ink-fill-text:#121417;--ink-fill-hover:#ffffff;
---deep:#14171b;--deep-2:#1d2126;--deep-line:#2c3238;--ag-bg:var(--surface-2);
+--deep:#14171b;--deep-2:#1d2126;--deep-line:#2c3238;--deep-edge:#262a30;--ag-bg:var(--surface-2);
 --warn-bg:#3b3011;--warn-fg:#f3d47e;--flag-bg:#432019;--flag-fg:#f6b5a8;--ok-bg:#1c3a1e;--ok-fg:#b7e39b;--roi-blue:#142632;--roi-green:#18261a;--cw-navy:#2a3d4a;--cw-navy-700:#22323d;--navy-text:#c2cdd6;--navy-pc:#9db1bf;--roi-navy:#1c262e;--node-run:#86cdf0;--node-ready:#a6d982;
 --glass:rgba(23,26,30,.78);--glass-2:rgba(23,26,30,.93);--glass-line:rgba(68,75,83,.55);--back:rgba(23,26,30,.55);}
 :root[data-theme="light"]{color-scheme:light}
@@ -617,6 +617,11 @@ button[disabled]{opacity:.6;cursor:progress}
 .cw-card-d{margin:12px 0 0;font-size:var(--fs-18);line-height:1.5;color:var(--ink-2);max-width:34ch}
 .cw-card-note{margin-top:18px;font-size:var(--fs-14);color:var(--ink-4)}
 .cw-wb{background:var(--deep-2);border:1px solid var(--deep-line);border-radius:var(--r-lg);padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-start;gap:24px}
+/* 3. stacked on phones the cards only need their text's height */
+@media (max-width:620px){.cw-wb{min-height:0}}
+/* Dark panels (footer, Company "What we bring"): in dark mode they sit on a dark page, so a hairline edge keeps their shape.
+   --deep-edge is only set in dark mode. */
+.cw-deep{box-shadow:inset 0 0 0 1px var(--deep-edge,transparent)}
 .cw-wb-t{font:700 var(--fs-22)/1.1 'Bricolage Grotesque'}
 .cw-wb-d{margin-top:8px;font-size:var(--fs-15);line-height:1.5;color:#ababb2}
 .cw-trust-bar{width:36px;height:5px;border-radius:var(--r-sm);background:#1878a4}
