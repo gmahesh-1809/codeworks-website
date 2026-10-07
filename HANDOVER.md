@@ -164,6 +164,7 @@ Still to do, outside the code:
   - The reversed version is all white.
   - The PNG values `#1979a7` and `#5e903c` were deliberately *not* used.
 - **Product screenshots** that appeared in an earlier version were removed on purpose.
+- **Dark mode is neutral charcoal, not tinted** (7 October 2026): page `#0f1114`, cards `#171a1e`, raised panels `#1c2025`, with greys that lean only slightly cool. This follows Apple's approach: neutral greys, raised surfaces lighter than the page, accent colours brightened for dark. The earlier teal-tinted palette (`#09151b`) made the whole page look blue-green. In dark mode Assay's navy is a calmer slate (`#2a3d4a`). Brand and status colours are unchanged, and light mode is unaffected.
 - **Legal name** "Codeworks"; governing courts Mumbai.
 
 ---
@@ -186,7 +187,7 @@ Still to do, outside the code:
 - **Favicon:** `src/favicon.ico` must stay at the source root. An earlier copy rule overwrote the whole output folder on fresh builds.
 - **Visual check:** `tests/screens/` isn't committed. On a new laptop, run `node tests/visual.cjs baseline` once (it uses `reference/codeworks-export.html`). After that, `current` and `diff` work as described in the README.
 - **Fonts:** Bricolage Grotesque and DM Sans are self-hosted under the SIL Open Font License. The licence files are in `src/assets/fonts/`.
-- **Drishti agent cards:** their grey fill and sizing originally came from the browser's default `<button>` style. Now that they're list items, `.cw-ag` sets `background-color: ButtonFace` and `box-sizing: border-box` to keep the same look. `ButtonFace` differs slightly between Chrome, Safari and Firefox (it did before too); replace it with a design colour if that matters.
+- **Drishti agent cards:** their fill is `--ag-bg`: `#efefef` in light mode (the same grey Chrome's default button gave them before) and the raised-surface grey in dark mode. Until 7 October 2026 it was the browser's own button colour (`ButtonFace`), which made the cards mid grey in dark mode, with hard-to-read text (2.7:1).
 - **Product data:** templates read `products` directly. Don't import `products.js` into another data file (such as `nav.js`): the dev server then keeps a stale copy and edits only appear after restarting `npm start`.
 - **Type and radius tokens:** use `var(--fs-…)` and `var(--r-…)` for every new font size and corner radius, and the existing component classes before writing new inline styles. A size or radius that isn't on the scale is a sign to reuse a step, not to add one.
 - **Colour and numbering conventions** (from the design review): blue, green and navy are the three products' colours (and blue and green are also the logo's), so don't alternate them decoratively; use one neutral surface and the blue accent for groups of equal items. Use 01 / 02 / 03 markers only where the order is real: the Technology flow, Drishti's agents, the home window steps and Spectra's capabilities.
