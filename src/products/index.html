@@ -17,7 +17,7 @@ description: "Codeworks platforms for financial operations: Drishti.ai for AI cr
         <span style="font-size:var(--fs-13);font-weight:700;letter-spacing:.14em;text-transform:uppercase">{{ p.label }}</span>
         <div><h2 style="display:block;margin:0;font:700 var(--fs-h1)/1 'Bricolage Grotesque';letter-spacing:-0.04em">{{ p.name }}</h2><p style="margin:14px 0 0;font-size:var(--fs-lead);line-height:1.4;max-width:36ch">{{ p.subtitle | safe }}</p></div>
       </div>
-      <div style="padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:28px;flex:1">
+      <div class="cw-prodbody" style="padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:28px;flex:1">
         <div>{% for h in p.highlights %}<div style="display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line-2);font-size:var(--fs-16);font-weight:500"><span style="width:8px;height:8px;border-radius:50%;background:{{ p.color }};flex:none"></span>{{ h | safe }}</div>{% endfor %}</div>
         <div style="background:var(--roi-{{ p.tone }});border-radius:var(--r-lg);padding:18px 22px"><div style="font-size:var(--fs-13);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--{{ p.tone }}-text)">ROI Impact</div><div style="margin-top:6px;font:700 var(--fs-20)/1.3 'Bricolage Grotesque';letter-spacing:-0.01em">{{ p.roi | safe }}</div></div>
         <a class="cw-btn cw-btn-lg cw-btn-{{ p.tone }}" href="{{ p.url }}" style="margin-top:auto;align-self:flex-start">Explore {{ p.name }} <span class="arr">→</span></a>

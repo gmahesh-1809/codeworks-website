@@ -491,7 +491,14 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 /* three across: names sit a fixed distance below the label, so they line up however long the subtitle is */
 .cw-prodgrid>article>div:first-child{justify-content:flex-start!important}.cw-prodgrid>article>div:first-child>div{margin-top:44px}
 /* ...and the coloured headers share one height, so the lists below start level */
-.cw-prodgrid>article{display:grid!important;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}}
+.cw-prodgrid>article{display:grid!important;grid-template-rows:subgrid;grid-row:span 4;row-gap:0}
+/* ...and so do the highlight lists, ROI boxes and buttons: the body's pieces join the shared rows, so the
+   ROI boxes are all the same height and the buttons line up. The body's padding and gaps move onto the pieces. */
+.cw-prodgrid .cw-prodbody{display:contents!important}
+.cw-prodgrid .cw-prodbody>*{margin-inline:clamp(24px,3vw,40px)}
+.cw-prodgrid .cw-prodbody>:first-child{margin-top:clamp(24px,3vw,40px)}
+.cw-prodgrid .cw-prodbody>:nth-child(2){margin-top:28px}
+.cw-prodgrid .cw-prodbody>:last-child{margin-top:28px!important;margin-bottom:clamp(24px,3vw,40px);align-self:start;justify-self:start}}
 @media (max-width:1195px){.cw-prodtiles>:last-child:nth-child(odd),.cw-prodgrid>:last-child:nth-child(odd){grid-column:1/-1}}
 /* phones: product cards without their illustrations, so the home page is shorter */
 @media (max-width:560px){.cw-prod .cw-tvw{display:none}.cw-prodtiles .cw-prod{padding-bottom:28px}}
