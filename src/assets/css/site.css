@@ -458,9 +458,7 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 .cw-vh .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pc);color:#fff;font:700 var(--fs-12)/26px 'DM Sans',sans-serif;text-align:center;font-style:normal;letter-spacing:.02em}
 .cw-vh b{font:700 var(--fs-14)/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.01em;padding-top:4px}
 .cw-vb{display:flex;flex-direction:column;gap:11px;flex:1;justify-content:center}
-.ln{display:block;height:8px;border-radius:var(--r-xs);background:var(--viz-ln)}
-.ln.inv{background:rgba(255,255,255,.75)}
-.w24{width:24%}.w26{width:26%}.w18{width:18%}.w30{width:30%}.w34{width:34%}.w38{width:38%}.w40{width:40%}.w42{width:42%}.w46{width:46%}.w50{width:50%}.w60{width:60%}.w64{width:64%}.w70{width:70%}.w75{width:75%}.w80{width:80%}.w82{width:82%}.w90{width:90%}
+
 .col{display:flex;flex-direction:column;gap:6px;flex:1}
 .vdoc{display:flex;align-items:center;gap:10px;padding:9px 10px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-sm)}
 .vdoc .thumb{flex:none;width:26px;height:32px;border-radius:var(--r-xs);background:var(--tint-blue);border:1px solid var(--line-3)}
@@ -469,7 +467,7 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 .vdoc em.warn{color:#2f2100}
 .vgraph{width:100%;height:auto;color:var(--pc);opacity:1}
 .vgraph .nd{fill:var(--surface);stroke:var(--pc);stroke-width:2}.vgraph .nd.warn{stroke:var(--amber)}.vgraph .nd.hot{fill:var(--pc);stroke:var(--pc)}
-.vgraph.rec .l rect{fill:var(--line-3);opacity:.8}.vgraph.rec .l.r rect{fill:var(--tint-green)}
+
 .vbar{height:9px;border-radius:var(--r-sm);background:var(--line-2);overflow:hidden}.vbar i{display:block;height:100%;background:var(--pc);border-radius:var(--r-sm)}.vbar.warn i{background:var(--amber)}.vbar.ok i{background:var(--cw-green-600)}
 .bub{display:flex;flex-direction:column;gap:6px;padding:9px 11px;border-radius:var(--r-md);max-width:82%}
 .bub.l{background:var(--surface);border:1px solid var(--line-2);align-self:flex-start;width:82%}
@@ -491,6 +489,12 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 .bub.r{width:auto;color:#fff}
 .bub.l{width:auto}
 .vinput .vs{color:var(--ink-4)}
+.vrow .vt,.vcalc .vt{flex:1 1 auto;min-width:0}
+.vrow .vs,.vcalc .vs{flex:0 1 auto;min-width:0;text-align:right}
+.vcalc .vs{color:var(--ink);font-weight:600}
+.vsum .vtot{flex:none;padding:4px 10px;border-radius:var(--r-pill);background:var(--pc);color:#fff;font:700 var(--fs-13) 'DM Sans',sans-serif}
+.cw-viz-navy .vsum .vtot{color:var(--viz-n-navy,#fff)}
+.tl .col{display:block;min-width:0}
 /* Assay's step numbers: its accent is light in dark mode, so the digits go dark there */
 .cw-viz-navy .cw-vh .n{color:var(--viz-n-navy,#fff)}
 /* Pause/Play for the cycling highlight (added by viz.js) */
@@ -501,8 +505,8 @@ a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 /* Phones: just the four numbered steps, no detail or animation */
 @media (max-width:560px){.cw-viz .cw-vb,.cw-viz .cw-pp{display:none}.cw-viz .cw-vst{animation:none;padding:12px 14px}.cw-viz .cw-vrow{gap:8px}.cw-viz .cw-vh{min-height:0;align-items:center}.cw-viz .cw-vh b{padding-top:0}}
 .vrow{display:flex;align-items:center;gap:10px;padding:9px 10px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-sm)}.vrow .dot{flex:none;width:10px;height:10px;border-radius:50%}
-.vcalc{display:flex;align-items:center;gap:8px;padding:9px 10px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-sm)}.vcalc b{color:var(--ink-4);font:700 var(--fs-13) 'DM Sans'}
-.vcalc .ln{flex:none}.chip{display:block;flex:1;height:14px;border-radius:var(--r-sm);background:var(--pc);opacity:.85}.chip.big{height:18px;flex:none;width:44%}
+.vcalc{display:flex;align-items:center;gap:8px;padding:9px 10px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-sm)}
+
 .vsum{display:flex;align-items:center;justify-content:space-between;padding:6px 10px 0;gap:10px}
 .vtl{position:relative;display:flex;flex-direction:column;gap:20px;padding-left:4px}
 .vtl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--line-3)}
