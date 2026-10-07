@@ -169,6 +169,7 @@ Still to do, outside the code:
   - The PNG values `#1979a7` and `#5e903c` were deliberately *not* used.
 - **Product screenshots** that appeared in an earlier version were removed on purpose.
 - **Dark mode is neutral charcoal, not tinted** (7 October 2026): page `#0f1114`, cards `#171a1e`, raised panels `#1c2025`, with greys that lean only slightly cool. This follows Apple's approach: neutral greys, raised surfaces lighter than the page, accent colours brightened for dark. The earlier teal-tinted palette (`#09151b`) made the whole page look blue-green. In dark mode Assay's navy is a calmer slate (`#2a3d4a`). Brand and status colours are unchanged, and light mode is unaffected.
+- **Light mode is Apple-neutral, not tinted** (7 October 2026): page `#f5f5f7`, text `#1d1d1f` (apple.com's own values), greys and borders without the earlier blue-teal cast (`#f1f6f8` page, `#0d1f28` text). The dark panels (footer, Company "What we bring") are charcoal `#1d1d1f` in light mode too, so both themes share one neutral family. Colour appears only where it means something: products, links, statuses.
 - **Legal name** "Codeworks"; governing courts Mumbai.
 
 ---
