@@ -42,7 +42,7 @@
 <script>{{ themeScript | safe }}</script>
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="{{ "/assets/css/site.css" | versioned }}">
 {#- Structured data: the company on the home page; software + breadcrumbs on product pages (see _data/schema.js). #}
 {%- set product = products | findByKey(active) %}
 {%- set ld = null %}
@@ -64,9 +64,9 @@
 {% include "partials/footer.njk" %}
 </div>
 </div>
-<script src="/assets/js/main.js" defer></script>
+<script src="{{ "/assets/js/main.js" | versioned }}" defer></script>
 {%- for s in scripts %}
-<script src="/assets/js/{{ s }}" defer></script>
+<script src="{{ ("/assets/js/" + s) | versioned }}" defer></script>
 {%- endfor %}
 </body>
 </html>
