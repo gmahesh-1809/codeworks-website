@@ -30,7 +30,7 @@ scripts: [hero.js]
       {%- for p in products %}{% set h = p.hero %}
       <div class="cw-slide{% if loop.first %} on{% endif %}" id="hs-{{ p.key }}" role="tabpanel" aria-labelledby="hs-tab-{{ p.key }}" aria-roledescription="slide"{% if not loop.first %} aria-hidden="true" inert{% endif %}>
         <div class="cw-win">
-          <div class="cw-bar"><span class="cw-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cw-wt">{{ h.title }}</span><a class="cw-wlink" href="{{ p.url }}" style="color:var(--{{ p.tone }}-text)">Explore {{ p.name }}<span class="arr" aria-hidden="true">→</span></a></div>
+          <div class="cw-bar"><span class="cw-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="cw-wt">{{ h.title }}</span><span class="vill">Illustrative</span><a class="cw-wlink" href="{{ p.url }}" style="color:var(--{{ p.tone }}-text)">Explore {{ p.name }}<span class="arr" aria-hidden="true">→</span></a></div>
           <div class="cw-seg" aria-hidden="true">{% for s in h.steps %}<i class="{{ s[1] }}"></i>{% endfor %}</div>
           <div class="cw-steps">{% for s in h.steps %}<div class="cw-step"><span class="cw-node {{ s[1] }}">0{{ loop.index }}</span><span>{{ s[0] | safe }}</span><span class="cw-pill {{ s[1] }}"><i></i>{{ status[s[1]] }}</span></div>{% endfor %}</div>
           <div class="cw-risks">{% for f in h.findings %}<div class="cw-risk"><span>{{ f[0] }}</span><b class="cw-tag {{ f[1] }}">{{ f[2] }}</b></div>{% endfor %}</div>
