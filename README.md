@@ -33,6 +33,7 @@ src/
   resources/                 /resources/  (#product-briefs, #white-papers, … select a tab)
   contact/                   /contact/    (?topic=drishti preselects a topic)
   privacy/, terms/           Markdown
+  stories/                   /stories/one-loan-told-twice/  unlisted customer-story film (copied as is, see below)
   404.html, robots.txt.njk, sitemap.xml.njk
   assets/
     css/site.css             the whole design system, one file
@@ -54,6 +55,7 @@ reference/                   the original design export, kept for visual compari
 - **Resources list:** `src/_data/nav.js` feeds the Resources links in the header, mobile menu and footer.
 - **Email address, legal details, form endpoint:** `src/_data/site.js`.
 - **Styles:** `src/assets/css/site.css`. Colours, the type scale (`--fs-…`) and corner radii (`--r-…`) are CSS variables at the top, with dark-theme colours beneath them. Reusable components extracted from inline styles (`cw-eyebrow`, `cw-h1`, `cw-card`, `cw-cta`, …) are at the end.
+- **Customer-story film** (`src/stories/one-loan-told-twice/`): an unlisted, self-contained page copied as is (not a template, not in the sitemap, `noindex`). Its source is `drishti-ai/business/decks/Drishti_AI_Story_Animatic/drishti-story.html`; to update it, copy that file over `index.html` and keep this copy's head block (robots, Content-Security-Policy, self-hosted `@font-face` rules in place of the Google Fonts links). `#short` opens the 3-minute cut.
 - **New page:** create `src/<name>/index.html` with the same front matter as an existing page. It is added to the sitemap automatically.
 
 Write internal links from the site root (`/products/`, `/assets/...`). The build adds the GitHub Pages path prefix when needed, so links work both at `username.github.io/<repo>/` and at the custom domain.

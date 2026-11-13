@@ -9,6 +9,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  // Unlisted, self-contained pages (the customer-story film): copied as they are, never run as templates,
+  // so their own scripts and styles are untouched and they stay out of the sitemap.
+  eleventyConfig.addPassthroughCopy("src/stories");
+  eleventyConfig.ignores.add("src/stories/**");
 
   // Joins rather than resolves, so a base that includes a path prefix (github.io/<repo>) is kept.
   eleventyConfig.addFilter("absoluteUrl", (path, base) => base.replace(/\/$/, "") + "/" + String(path).replace(/^\//, ""));
