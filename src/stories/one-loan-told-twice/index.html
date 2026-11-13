@@ -2,9 +2,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src blob:; base-uri 'none'; form-action 'none'">
 <!-- Unlisted: the Drishti customer-story film, for sharing with the team. Source: drishti-ai/business/decks/Drishti_AI_Story_Animatic/.
-     Fonts are self-hosted (SIL OFL, licences in fonts/) so the page makes no third-party requests. -->
+     Fonts are self-hosted (SIL OFL, licences in fonts/) so the page makes no third-party requests.
+     media-src blob: allows the silent audio the page makes itself, so iPhones play the music with the silent switch on. -->
 <style>
 @font-face { font-family: 'Inter'; font-style: normal; font-display: swap; font-weight: 100 900; src: url(fonts/inter-latin-ext-wght-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
 @font-face { font-family: 'Inter'; font-style: normal; font-display: swap; font-weight: 100 900; src: url(fonts/inter-latin-wght-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
@@ -157,15 +158,20 @@ body { margin: 0; background: var(--bg); color: var(--ink2); font-family: var(--
 @media (hover: none) and (orientation: portrait) { .tip { display: block; } }
 /* full screen where the browser has none for pages (iPhone): the player fills the window; held upright, it turns sideways */
 html.noscroll, html.noscroll body { overflow: hidden; }
-.player.fsfake { position: fixed; inset: 0; z-index: 1000; width: 100vw; height: 100dvh; margin: 0; background: var(--bg2);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0;
-  padding: max(8px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
-  --pw: min(100vw - 20px, calc((100dvh - 64px) * 16 / 9)); }
-.player.fsfake .stage, .player.fsfake .controls { width: var(--pw); }
+.player.fsfake { position: fixed; inset: 0; z-index: 1000; width: 100vw; height: 100dvh; margin: 0; padding: 0; background: #0E141A;
+  display: grid; place-items: center; --pw: min(100vw, calc(100dvh * 16 / 9)); }
+.player.fsfake .stage { grid-area: 1 / 1; width: var(--pw); border-radius: 0; border: 0; box-shadow: none; }
 .player.fsfake .tip { display: none; }
+/* the controls float over the bottom of the picture, and fade away while it plays */
+.player.fsfake .controls { grid-area: 1 / 1; z-index: 7; align-self: center; margin: 0; width: min(calc(var(--pw) - 24px), 760px);
+  transform: translateY(calc(var(--pw) * 0.28125 - 36px)); background: rgba(255, 255, 255, .9); backdrop-filter: blur(6px);
+  border-radius: 12px; padding: 6px 8px; box-shadow: 0 6px 24px rgba(16, 21, 26, .18); transition: opacity .35s ease; }
+.player.fsfake .cap { transition: transform .35s ease, background .4s; }
+.player.fsfake:not(.idle) .cap { transform: translateY(-58px); }
+.player.fsfake.idle .controls { opacity: 0; pointer-events: none; }
 @media (orientation: portrait) {
   .player.fsfake { width: 100dvh; height: 100vw; inset: auto; top: 0; left: 100vw; transform: rotate(90deg); transform-origin: top left;
-    --pw: min(100dvh - 20px, calc((100vw - 64px) * 16 / 9)); }
+    --pw: min(100dvh, calc(100vw * 16 / 9)); }
 }
 
 /* ---------- film motion ---------- */
@@ -869,14 +875,33 @@ const Sound = (() => {
     alert(t) { [[83, 0], [79, .2]].forEach(([n, dt]) => { const g = g0(t + dt, .07, .01, .5, sfxBus); g.connect(rev); const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = hz(n); o.connect(g); o.start(t + dt); o.stop(t + dt + .6); }); },
     chime(t) { [76, 79, 84].forEach((n, k) => { const g = g0(t + k * .09, .055, .005, .9, sfxBus); g.connect(rev); const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.value = hz(n); o.connect(g); o.start(t + k * .09); o.stop(t + k * .09 + 1); }); },
   };
+  // iPhone mutes web audio with the ring/silent switch unless the page is also playing a media element.
+  // A silent, looping WAV started on the user's tap moves the page into media playback, so the music is heard.
+  let mediaEl = null;
+  function mediaOn() {
+    try {
+      if (!mediaEl) {
+        const n = 8000, buf = new Uint8Array(44 + n), v = new DataView(buf.buffer);
+        const put = (o, str) => { for (let i = 0; i < str.length; i++) buf[o + i] = str.charCodeAt(i); };
+        put(0, "RIFF"); v.setUint32(4, 36 + n, true); put(8, "WAVE"); put(12, "fmt "); v.setUint32(16, 16, true);
+        v.setUint16(20, 1, true); v.setUint16(22, 1, true); v.setUint32(24, 8000, true); v.setUint32(28, 8000, true);
+        v.setUint16(32, 1, true); v.setUint16(34, 8, true); put(36, "data"); v.setUint32(40, n, true); buf.fill(128, 44);
+        mediaEl = new Audio(URL.createObjectURL(new Blob([buf], { type: "audio/wav" })));
+        mediaEl.loop = true; mediaEl.setAttribute("playsinline", ""); mediaEl.setAttribute("x-webkit-airplay", "deny");
+      }
+      const pr = mediaEl.play(); if (pr && pr.catch) pr.catch(() => {});
+    } catch {}
+  }
+  function mediaOff() { try { if (mediaEl) mediaEl.pause(); } catch {} }
   return {
     start() {
+      mediaOn();
       init(); if (ctx.state === "suspended") ctx.resume();
       if (!timer) { nextT = ctx.currentTime + .1; step = 0; barBase = 0; timer = setInterval(pump, 40); }
       mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(mus.gain.value, ctx.currentTime); mus.gain.linearRampToValueAtTime(.62, ctx.currentTime + 1.5);
     },
-    pause() { if (ctx && ctx.state === "running") ctx.suspend(); },
-    resume() { if (ctx && ctx.state === "suspended") ctx.resume(); },
+    pause() { mediaOff(); if (ctx && ctx.state === "running") ctx.suspend(); },
+    resume() { mediaOn(); if (ctx && ctx.state === "suspended") ctx.resume(); },
     mood(m) { if (m !== mood) pending = m; },
     fx(name, delay = 0) { if (ctx && ctx.state === "running" && FX[name]) FX[name](ctx.currentTime + .02 + delay); },
     fadeOut() { if (!ctx) return; mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(mus.gain.value, ctx.currentTime); mus.gain.linearRampToValueAtTime(0, ctx.currentTime + 4); },
@@ -1015,9 +1040,9 @@ function play() {
   if (!started) { started = true; seek(0); }
   playing = true; $("start").hidden = true; stage.classList.remove("paused");
   T0 = Tm; now0 = performance.now(); Sound.start(); Sound.resume();
-  cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); setPlayIcon();
+  cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); setPlayIcon(); wake();
 }
-function pause() { playing = false; stage.classList.add("paused"); Sound.pause(); cancelAnimationFrame(raf); setPlayIcon(); }
+function pause() { playing = false; stage.classList.add("paused"); Sound.pause(); cancelAnimationFrame(raf); setPlayIcon(); $("player").classList.remove("idle"); }
 function finish() {
   playing = false; cancelAnimationFrame(raf); Sound.fadeOut(); setPlayIcon();
   $("startLbl").textContent = "Watch again"; $("startSub").textContent = `${fmt(TOTAL)} · from the beginning`;
@@ -1051,7 +1076,13 @@ $("vol").value = store.get("vol", .7); Sound.vol = +$("vol").value;
 $("vol").addEventListener("input", e => { Sound.vol = +e.target.value; store.set("vol", +e.target.value); if (!Sound.on) setSound(true); });
 function setFsIcon(f) { $("fs").innerHTML = f ? ICONS.fsx : ICONS.fs; $("fs").setAttribute("aria-label", f ? "Exit full screen" : "Full screen"); setTimeout(sizeShot, 120); }
 const isFake = () => $("player").classList.contains("fsfake");
-function setFake(on) { $("player").classList.toggle("fsfake", on); document.documentElement.classList.toggle("noscroll", on); setFsIcon(on); }
+let idleT = 0;
+function wake() {
+  const p = $("player"); p.classList.remove("idle"); clearTimeout(idleT);
+  if (p.classList.contains("fsfake")) idleT = setTimeout(() => { if (playing) p.classList.add("idle"); }, 2800);
+}
+["pointerdown", "pointermove", "keydown"].forEach(ev => $("player").addEventListener(ev, wake, { passive: true }));
+function setFake(on) { $("player").classList.toggle("fsfake", on); document.documentElement.classList.toggle("noscroll", on); setFsIcon(on); wake(); }
 const nativeFS = !!(document.fullscreenEnabled && $("player").requestFullscreen);
 function fsToggle() {
   if (isFake()) return setFake(false);
