@@ -1056,10 +1056,18 @@ const nativeFS = !!(document.fullscreenEnabled && $("player").requestFullscreen)
 function fsToggle() {
   if (isFake()) return setFake(false);
   if (document.fullscreenElement) return document.exitFullscreen();
+  // iPhone has no full screen for pages; touch screens without it, or a request that fails,
+  // stalls or doesn't take effect, get the player's own full screen instead.
   if (!nativeFS) return setFake(true);
-  $("player").requestFullscreen().then(() => {
-    try { screen.orientation.lock("landscape").catch(() => {}); } catch {}   // phones that allow it turn sideways
-  }).catch(() => setFake(true));
+  let settled = false;
+  const fallback = () => { if (!settled) { settled = true; if (!document.fullscreenElement) setFake(true); } };
+  setTimeout(fallback, 900);
+  try {
+    $("player").requestFullscreen().then(() => {
+      setTimeout(fallback, 250);
+      try { screen.orientation.lock("landscape").catch(() => {}); } catch {}   // phones that allow it turn sideways
+    }, fallback);
+  } catch { fallback(); }
 }
 $("fs").addEventListener("click", fsToggle);
 document.addEventListener("fullscreenchange", () => setFsIcon(!!document.fullscreenElement));
