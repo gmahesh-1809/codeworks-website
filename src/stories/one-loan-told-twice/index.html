@@ -1,0 +1,1048 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<!-- Unlisted: the Drishti customer-story film, for sharing with the team. Source: drishti-ai/business/decks/Drishti_AI_Story_Animatic/.
+     Fonts are self-hosted (SIL OFL, licences in fonts/) so the page makes no third-party requests. -->
+<style>
+@font-face { font-family: 'Inter'; font-style: normal; font-display: swap; font-weight: 100 900; src: url(fonts/inter-latin-ext-wght-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-display: swap; font-weight: 100 900; src: url(fonts/inter-latin-wght-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-display: swap; font-weight: 300 700; src: url(fonts/space-grotesk-latin-ext-wght-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-display: swap; font-weight: 300 700; src: url(fonts/space-grotesk-latin-wght-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url(fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 600; src: url(fonts/ibm-plex-mono-latin-ext-600-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 600; src: url(fonts/ibm-plex-mono-latin-600-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+</style>
+<title>One Loan, Told Twice</title>
+<style>
+/* A short film player. Codeworks house style is light-only, so the page commits to one light look. */
+:root {
+  color-scheme: light;
+  --bg: #FFFFFF; --bg2: #F4F8FB; --rule: #DFE4E8;
+  --ink: #10151A; --ink2: #454F58; --ink3: #5F6973;
+  --blue: #1F6F9F; --blue-key: #2E90D1; --blue-ground: #16577E; --blue-bg: #E4F0F8;
+  --green: #3F6E1F; --green-key: #78BE43; --green-bg: #EAF4E1;
+  --warn: #A4501A; --warn-key: #D9822B; --warn-bg: #FBEBDD;
+  --f-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink2); font-family: var(--f-body); }
+.wrap { max-width: 1360px; margin: 0 auto; padding: 14px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); }
+.head { display: flex; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; width: var(--pw); margin: 0 auto 10px; }
+.head h1 { font-family: var(--f-display); color: var(--ink); font-size: clamp(20px, 2.1vw, 26px); letter-spacing: -.02em; margin: 0; }
+.head h1 b { color: var(--blue); font-weight: 600; }
+.head .meta { font-size: 13px; color: var(--ink3); }
+.cut { margin-left: auto; display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--bg2); }
+.cut button { font: 600 13px var(--f-body); border: 0; background: none; color: var(--ink3); padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.cut button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(16, 21, 26, .12); }
+.cut button:focus-visible { outline: 3px solid var(--blue-key); outline-offset: 1px; }
+.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+
+/* the player always fits the window: 16:9 film + one control row */
+:root { --pw: min(100%, calc((100svh - 168px) * 16 / 9)); }
+.player { width: var(--pw); margin: 0 auto; }
+.player:fullscreen { --pw: min(100vw - 24px, calc((100vh - 76px) * 16 / 9)); width: 100vw; height: 100vh; padding: 12px; background: var(--bg2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.player:fullscreen .stage, .player:fullscreen .controls { width: var(--pw); }
+
+.stage { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--bg2);
+  border: 1px solid var(--rule); box-shadow: 0 18px 50px rgba(16, 21, 26, .10); container-type: inline-size; }
+.stage > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.chip { position: absolute; top: 3%; left: 2.4%; display: flex; gap: 8px; z-index: 3; transition: opacity .4s; }
+.chip span { font-family: var(--f-mono); font-size: clamp(9px, 1.08cqw, 13px); letter-spacing: .1em; text-transform: uppercase; padding: .5em 1em; border-radius: 999px; font-weight: 600; }
+.chip .act { background: var(--ink); color: #fff; }
+.stage[data-ch="act1"] .chip .act { background: var(--warn); }
+.stage[data-ch="act2"] .chip .act { background: var(--blue); }
+.stage[data-ch="value"] .chip .act { background: var(--green); }
+.chip .when { background: rgba(255, 255, 255, .92); color: var(--ink); border: 1px solid var(--rule); }
+.stage.card .chip { opacity: 0; }
+
+/* captions sit on the film, like subtitles */
+.cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; padding: 3.2cqw 7cqw 2.1cqw; text-align: center; pointer-events: none;
+  background: linear-gradient(to top, rgba(255, 255, 255, .97) 52%, rgba(255, 255, 255, 0)); transition: background .4s; }
+.cap p { margin: 0 auto; max-width: 64ch; font-size: clamp(13px, 1.9cqw, 25px); line-height: 1.38; color: var(--ink); font-weight: 500;
+  text-wrap: balance; transition: opacity .25s ease, transform .25s ease; }
+.cap p.swap { opacity: 0; transform: translateY(6px); }
+.stage.dark .cap { background: linear-gradient(to top, rgba(8, 24, 36, .62) 50%, rgba(8, 24, 36, 0)); }
+.stage.dark .cap p { color: #fff; }
+.stage.nocap .cap { opacity: 0; }
+
+/* real Drishti screens: zoomed crop over a white veil */
+.veil { position: absolute; inset: 0; background: rgba(255, 255, 255, .9); opacity: 0; transition: opacity .5s ease; z-index: 2; pointer-events: none; }
+.stage.proof .veil { opacity: 1; }
+.stage > svg { transition: filter .5s ease; }
+.stage.proof > svg { filter: blur(4px); }
+.shot { position: absolute; inset: 9% 0 17%; margin: 0; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2cqw;
+  opacity: 0; transform: scale(.96); transition: opacity .5s ease, transform .7s cubic-bezier(.2, .7, .2, 1); pointer-events: none; }
+.stage.proof .shot { opacity: 1; transform: none; }
+.shot .callout { font-family: var(--f-display); font-weight: 700; color: var(--ink); font-size: clamp(14px, 2.4cqw, 30px); max-width: 88%; text-align: center; text-wrap: balance; letter-spacing: -.01em; }
+.shot .callout b { color: var(--warn); }
+.shot .callout.good b { color: var(--green); }
+.frame { background: #fff; border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 16px 44px rgba(16, 21, 26, .16); overflow: hidden; width: 80%; }
+.frame .bar { height: 1.8cqw; min-height: 10px; display: flex; gap: 5px; align-items: center; padding: 0 10px; border-bottom: 1px solid var(--rule); }
+.frame .bar i { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); }
+.imgwrap { position: relative; }
+.imgwrap img { display: block; width: 100%; height: auto; }
+.hl { position: absolute; border: 3px solid var(--warn-key); border-radius: 6px; animation: hl 1.3s ease .6s 2 both; }
+.hl.good { border-color: var(--green-key); }
+@keyframes hl { 50% { box-shadow: 0 0 0 7px rgba(217, 130, 43, .25); } }
+.shot figcaption { font-family: var(--f-mono); font-size: clamp(9px, 1cqw, 12px); color: var(--ink3); }
+
+/* start and end overlay */
+.start { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; border: 0; padding: 0; cursor: pointer;
+  background: rgba(244, 248, 251, .5); backdrop-filter: blur(1.5px); font: inherit; color: var(--ink); transition: opacity .4s; }
+.start .disc { width: 9cqw; height: 9cqw; min-width: 56px; min-height: 56px; border-radius: 50%; background: var(--blue); display: grid; place-items: center;
+  box-shadow: 0 10px 30px rgba(31, 111, 159, .35); margin: 0 auto 1.4cqw; transition: transform .2s; }
+.start:hover .disc { transform: scale(1.06); }
+.start .disc svg { width: 38%; height: 38%; fill: #fff; margin-left: 6%; }
+.start .lbl { font-family: var(--f-display); font-weight: 700; font-size: clamp(15px, 2cqw, 24px); }
+.start .sub { font-size: clamp(11px, 1.2cqw, 14px); color: var(--ink3); margin-top: .4em; }
+.start[hidden] { display: none; }
+.start:focus-visible { outline: 4px solid var(--blue-key); outline-offset: -4px; }
+
+.controls { display: flex; align-items: center; gap: 6px; margin-top: 10px; width: 100%; }
+.ib { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border: 1px solid var(--rule); background: #fff; border-radius: 9px; cursor: pointer; color: var(--ink); padding: 0; }
+.ib svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ib.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.ib.primary svg { fill: currentColor; stroke: none; }
+.ib:hover { border-color: var(--blue-key); }
+.ib[aria-pressed="false"] { color: var(--ink3); }
+.ib:focus-visible, .seg:focus-visible, .chap:focus-visible, input:focus-visible { outline: 3px solid var(--blue-key); outline-offset: 2px; }
+.segs { flex: 1 1 auto; display: flex; gap: 3px; min-width: 60px; height: 38px; align-items: center; }
+.seg { height: 26px; border: 0; padding: 0; background: none; cursor: pointer; position: relative; min-width: 4px; }
+.seg::before { content: ""; position: absolute; left: 0; right: 0; top: 11px; height: 4px; border-radius: 2px; background: var(--rule); }
+.seg .fill { position: absolute; left: 0; top: 11px; height: 4px; border-radius: 2px; width: 0; background: var(--ink3); }
+.seg[data-ch="act1"] .fill { background: var(--warn-key); }
+.seg[data-ch="act2"] .fill { background: var(--blue-key); }
+.seg[data-ch="value"] .fill { background: var(--green-key); }
+.seg:hover::before { background: #C9D2DA; }
+.time { font-family: var(--f-mono); font-size: 12px; color: var(--ink3); font-variant-numeric: tabular-nums; white-space: nowrap; padding: 0 4px; }
+.vol { width: 72px; accent-color: var(--blue); }
+.below { width: var(--pw); margin: 10px auto 0; }
+.chaps { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.chaps .k { font-size: 12px; color: var(--ink3); margin-right: 4px; }
+.chap { font: 600 13px var(--f-body); border: 1px solid var(--rule); background: #fff; color: var(--ink2); border-radius: 999px; padding: 6px 12px; cursor: pointer; display: inline-flex; gap: 7px; align-items: center; }
+.chap i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink3); }
+.chap[data-ch="act1"] i { background: var(--warn-key); } .chap[data-ch="act2"] i { background: var(--blue-key); } .chap[data-ch="value"] i { background: var(--green-key); }
+.chap.on { border-color: var(--ink); color: var(--ink); }
+.keys { font-size: 12px; color: var(--ink3); margin-top: 10px; }
+.keys kbd { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; background: #fff; }
+.note { margin-top: 12px; font-size: 13px; color: var(--ink3); max-width: 80ch; line-height: 1.5; }
+@media (max-width: 640px) { .vol, .time { display: none; } .ib { width: 34px; height: 34px; } }
+
+/* ---------- film motion ---------- */
+.sg.enter { animation: scenein .7s ease both; }
+.sg.leave { opacity: 0; transition: opacity .6s ease; }
+@keyframes scenein { from { opacity: 0; } }
+.cam { animation: cam var(--sd, 10s) linear both; transform-box: view-box; transform-origin: 480px 250px; }
+@keyframes cam { from { transform: scale(1); } to { transform: scale(1.04); } }
+
+.bt { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.bt.in { opacity: 1; animation-duration: .8s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); animation-delay: calc(var(--d, 0s) + var(--o, 0s)); animation-fill-mode: both; }
+.bt.in.fade { animation-name: fade; } .bt.in.rise { animation-name: rise; } .bt.in.pop { animation-name: pop; }
+.bt.in.left { animation-name: left; } .bt.in.right { animation-name: right; } .bt.in.down { animation-name: down; }
+.bt.wipe { transform-origin: left center; } .bt.in.wipe { animation-name: wipe; animation-duration: 1s; }
+.bt.grow { transform-origin: center bottom; } .bt.in.grow { animation-name: grow; }
+.bt.in.fly { animation-name: fly; animation-duration: 1.1s; }
+.bt.in.slide { animation-name: slide; animation-duration: 3.2s; animation-timing-function: cubic-bezier(.45, 0, .2, 1); }
+.bt.in.stamp { animation-name: stamp; animation-duration: .55s; animation-timing-function: cubic-bezier(.3, 1.5, .5, 1); }
+.bt.in.fall { animation: fall .9s ease-in calc(var(--d, 0s) + var(--o, 0s)) forwards; }
+.bt.draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.bt.in.draw { animation: draw 1.6s ease calc(var(--d, 0s) + var(--o, 0s)) forwards; }
+.bt.in.instant { animation: none !important; }
+.bt.in.instant.draw { stroke-dashoffset: 0; }
+.bt.in.instant.fall { opacity: 0; }
+.bt.out { animation: outfade .7s ease var(--oo, 0s) forwards !important; }
+.bt.out.instant { animation: none !important; opacity: 0; }
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes pop { from { opacity: 0; transform: scale(.6); } }
+@keyframes left { from { opacity: 0; transform: translateX(-34px); } }
+@keyframes right { from { opacity: 0; transform: translateX(34px); } }
+@keyframes down { from { opacity: 0; transform: translateY(-40px); } }
+@keyframes wipe { from { transform: scaleX(0); } }
+@keyframes grow { from { transform: scaleY(0); } }
+@keyframes fly { from { opacity: 0; transform: translate(70px, -180px) scale(1.4); } }
+@keyframes slide { from { transform: translateX(-270px); } }
+@keyframes stamp { from { opacity: 0; transform: scale(1.9); } }
+@keyframes fall { from { opacity: 1; transform: none; } to { opacity: 0; transform: translate(40px, 150px) rotate(25deg); } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes outfade { from { opacity: 1; } to { opacity: 0; } }
+.flow { stroke-dasharray: 6 8; animation: flow 1s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+.ping { animation: ping 1.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ping { from { opacity: .7; transform: scale(.7); } to { opacity: 0; transform: scale(1.7); } }
+.smoke { animation: smoke 3.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes smoke { from { opacity: .55; transform: translate(0, 0) scale(.6); } to { opacity: 0; transform: translate(16px, -56px) scale(1.5); } }
+.spin { animation: spin 3.6s linear infinite; transform-box: view-box; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.stage.paused * { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) {
+  .cam, .flow, .ping, .smoke, .spin, .hl { animation: none !important; }
+  .bt.in { animation-duration: .01s !important; }
+  .shot, .veil, .sg.leave { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Drishti.AI · customer story</span>
+    <h1>One MSME loan, <b>told twice</b></h1>
+    <span class="meta" id="meta">A short film with music · sound on</span>
+    <div class="cut" role="group" aria-label="Version"><button type="button" data-cut="full" aria-pressed="true">Full film</button><button type="button" data-cut="short" aria-pressed="false">Short cut</button></div>
+  </div>
+
+  <div class="player" id="player">
+    <div class="stage" id="stage" data-ch="open">
+      <svg id="svg" viewBox="0 0 960 540" role="img" aria-label="Story illustration">
+        <defs>
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#10151A" flood-opacity=".10"/></filter>
+          <filter id="sh2" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#10151A" flood-opacity=".12"/></filter>
+          <linearGradient id="gToday" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F5F7"/><stop offset="1" stop-color="#E3E8ED"/></linearGradient>
+          <linearGradient id="gFloorT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE2E8"/><stop offset="1" stop-color="#CDD5DD"/></linearGradient>
+          <linearGradient id="gDrishti" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAF3FA"/></linearGradient>
+          <linearGradient id="gFloorD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E5EFF7"/><stop offset="1" stop-color="#D5E4F0"/></linearGradient>
+          <linearGradient id="gOpen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E1EEF8"/></linearGradient>
+          <linearGradient id="gAct1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9611F"/><stop offset="1" stop-color="#76360F"/></linearGradient>
+          <linearGradient id="gAct2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E90D1"/><stop offset="1" stop-color="#134C70"/></linearGradient>
+          <linearGradient id="gVal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E9A30"/><stop offset="1" stop-color="#2C5414"/></linearGradient>
+          <linearGradient id="gEnd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F6F9F"/><stop offset="1" stop-color="#0E3A57"/></linearGradient>
+          <radialGradient id="vig" cx="50%" cy="45%" r="75%"><stop offset=".6" stop-color="#10151A" stop-opacity="0"/><stop offset="1" stop-color="#10151A" stop-opacity=".07"/></radialGradient>
+          <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#10151A" opacity=".07"/></pattern>
+        </defs>
+        <g class="sg" id="sgA"></g><g class="sg" id="sgB"></g>
+      </svg>
+      <div class="chip"><span class="act" id="act">Drishti.AI</span><span class="when" id="when">Start</span></div>
+      <div class="veil"></div>
+      <figure class="shot" id="shot">
+        <div class="callout" id="callout"></div>
+        <div class="frame" id="frame"><div class="bar"><i></i><i></i><i></i></div><div class="imgwrap" id="imgwrap"><img id="shotimg" alt=""></div></div>
+        <figcaption>From the Drishti demo · a different fictional borrower</figcaption>
+      </figure>
+      <div class="cap" aria-live="polite"><p id="cap"></p></div>
+      <button class="start" id="start" type="button" aria-label="Play the film">
+        <div><div class="disc"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div>
+        <div class="lbl" id="startLbl">Play the film</div><div class="sub" id="startSub">Turn your sound on</div></div>
+      </button>
+    </div>
+
+    <div class="controls">
+      <button class="ib primary" id="play" type="button" aria-label="Play"></button>
+      <button class="ib" id="prev" type="button" aria-label="Previous scene"></button>
+      <button class="ib" id="next" type="button" aria-label="Next scene"></button>
+      <div class="segs" id="segs" role="group" aria-label="Scenes"></div>
+      <span class="time" id="time">0:00</span>
+      <button class="ib" id="snd" type="button" aria-label="Music and sound" aria-pressed="true"></button>
+      <input class="vol" id="vol" type="range" min="0" max="1" step="0.05" value="0.7" aria-label="Volume">
+      <button class="ib" id="cc" type="button" aria-label="Captions" aria-pressed="true"></button>
+      <button class="ib" id="fs" type="button" aria-label="Full screen"></button>
+    </div>
+  </div>
+
+  <div class="below">
+    <div class="chaps" id="chaps"><span class="k">Chapters</span></div>
+    <div class="keys"><kbd>Space</kbd> play or pause · <kbd>←</kbd> <kbd>→</kbd> step one line · <kbd>Shift</kbd>+<kbd>←</kbd> <kbd>→</kbd> change scene · <kbd>F</kbd> full screen · <kbd>M</kbd> sound · <kbd>C</kbd> captions</div>
+    <p class="note">A fictional story: Suresh Patil, Patil Auto Components and every number here are illustrative. Screens come from the Drishti demo, which uses different fictional borrowers. "Days, not weeks" is a target to prove in a pilot, not a measured result. Pulling GST, bank and bureau data directly depends on the bank's data connections and the borrower's consent. In the demo, the Research Assistant's comparison with similar firms uses sample sector data. The music is generated in your browser, so there is no licensed track to clear.</p>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const C = { ink: "#10151A", ink2: "#454F58", ink3: "#5F6973", rule: "#DFE4E8", bg2: "#F4F8FB", blue: "#1F6F9F", key: "#2E90D1", ground: "#16577E", blueBg: "#E4F0F8",
+  green: "#3F6E1F", gkey: "#78BE43", gbg: "#EAF4E1", warn: "#A4501A", wkey: "#D9822B", wbg: "#FBEBDD", skin: "#C99A76", skin2: "#A87B5A", hair: "#26292C", grey: "#A3ABB2", gold: "#FFF1B8" };
+
+/* ---------- drawing helpers ---------- */
+let UID = 0;
+const B = (b, cls = "fade", d = 0, extra = "") => `class="bt ${cls}" data-b="${b}" style="--d:${d}s" ${extra}`;
+const T = (x, y, s, size, fill, weight = 500, anchor = "start", extra = "") =>
+  `<text x="${x}" y="${y}" font-family="Inter, Arial, sans-serif" font-size="${size}" fill="${fill}" font-weight="${weight}" text-anchor="${anchor}" ${extra}>${s}</text>`;
+const H = (x, y, s, size, fill, anchor = "start", extra = "") =>
+  `<text x="${x}" y="${y}" font-family="Space Grotesk, Arial, sans-serif" font-size="${size}" fill="${fill}" font-weight="700" text-anchor="${anchor}" letter-spacing="-0.5" ${extra}>${s}</text>`;
+const M = (x, y, s, size, fill, anchor = "start", extra = "") =>
+  `<text x="${x}" y="${y}" font-family="IBM Plex Mono, Menlo, monospace" font-size="${size}" fill="${fill}" font-weight="600" text-anchor="${anchor}" letter-spacing="1.6" ${extra}>${s}</text>`;
+const card = (x, y, w, h, o = {}) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${o.rx ?? 14}" fill="${o.fill || "#fff"}" ${o.stroke ? `stroke="${o.stroke}" stroke-width="${o.sw || 2}"` : ""} ${o.flat ? "" : 'filter="url(#sh)"'}/>`;
+const pill = (x, y, w, h, fill, text, color, size = 14) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h / 2}" fill="${fill}"/>${T(x + w / 2, y + h / 2 + size * .36, text, size, color, 700, "middle")}`;
+const shade = (hex, f = .8) => "#" + [1, 3, 5].map(i => Math.round(parseInt(hex.slice(i, i + 2), 16) * f).toString(16).padStart(2, "0")).join("");
+
+const ICON = {
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  pages: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/>',
+  alert: '<path d="M12 3.5 21.5 20h-19z"/><path d="M12 10v4.5M12 17.5v.01"/>',
+  checks: '<path d="M3.5 6.5l2 2 3.5-4M12.5 6.5h8M3.5 15.5l2 2 3.5-4M12.5 15.5h8"/>',
+  person: '<circle cx="12" cy="8" r="4"/><path d="M4.5 21c0-4.2 3.4-6.5 7.5-6.5s7.5 2.3 7.5 6.5"/>',
+  link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  shield: '<path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  record: '<rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M8.5 11h7M8.5 15h5"/>',
+  bell: '<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>',
+  chart: '<path d="M3 20h18M6.5 17v-6M11.5 17V7M16.5 17v-4"/>',
+  loop: '<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/>',
+  plug: '<path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5"/>',
+  phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+  mail: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>',
+  doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+  bank: '<path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',
+  calc: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
+};
+const icon = (name, cx, cy, color, s = 1, sw = 2) => `<g transform="translate(${cx - 12 * s} ${cy - 12 * s}) scale(${s})" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${ICON[name]}</g>`;
+const badge = (cx, cy, r, bg, fg, name) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${bg}"/>${icon(name, cx, cy, fg, r / 18)}`;
+const tick = (x, y, ok, r = 11) => ok === "wait"
+  ? `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#C3CCD4" stroke-width="2.4" stroke-dasharray="4 3"/>`
+  : ok ? `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.green}"/><path d="M${x - 5} ${y} l3.6 3.8 l6.6 -7.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`
+  : `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.wkey}"/><path d="M${x - 4} ${y - 4} l8 8 M${x + 4} ${y - 4} l-8 8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>`;
+
+// a flat person, feet at (x, y). o: s, skin, hair, mood (smile|flat|worry), look, phone, reach (left|right)
+const person = (x, y, shirt, name, o = {}) => {
+  const s = o.s || 1, skin = o.skin || C.skin, hair = o.hair || C.hair, mood = o.mood || "flat", arm = shade(shirt, .84);
+  const mouth = { smile: "M-6 -113 Q0 -107 6 -113", worry: "M-6 -110 Q0 -115 6 -110", flat: "M-5 -112 H5" }[mood];
+  const brows = mood === "worry"
+    ? `<path d="M-11 -129 L-4 -132.5 M11 -129 L4 -132.5" stroke="${C.ink}" stroke-width="2" stroke-linecap="round"/>`
+    : `<path d="M-11 -131.5 L-4 -132.5 M11 -131.5 L4 -132.5" stroke="${C.ink}" stroke-width="2" stroke-linecap="round" opacity=".55"/>`;
+  const LOOK = {
+    suresh: { front: `<path d="M-19 -124 Q-20 -143 0 -143 Q20 -143 19 -124 Q14 -135 0 -135 Q-14 -135 -19 -124Z" fill="${hair}"/><path d="M-6 -116.5 Q0 -113.5 6 -116.5" stroke="${hair}" stroke-width="3" fill="none" stroke-linecap="round"/>` },
+    priya: { back: `<path d="M-21 -122 Q-22 -146 0 -146 Q22 -146 21 -122 V-96 Q17 -92 13 -96 V-122Z M-21 -122 V-96 Q-17 -92 -13 -96 V-122Z" fill="${hair}"/>`,
+      front: `<path d="M-19 -125 Q-18 -143 0 -143 Q18 -143 19 -125 Q6 -137 -19 -125Z" fill="${hair}"/><g fill="none" stroke="${C.ink}" stroke-width="1.6"><circle cx="-6.5" cy="-123" r="5"/><circle cx="6.5" cy="-123" r="5"/><path d="M-1.5 -123 H1.5"/></g>` },
+    anjali: { back: `<circle cx="0" cy="-143" r="9" fill="${hair}"/>`, front: `<path d="M-19 -124 Q-19 -143 0 -143 Q19 -143 19 -124 Q12 -136 0 -136 Q-12 -136 -19 -124Z" fill="${hair}"/>`,
+      torso: `<path d="M-8 -99 L0 -80 L8 -99" stroke="${C.key}" stroke-width="2.5" fill="none"/><rect x="-6" y="-82" width="12" height="15" rx="2" fill="#fff"/><rect x="-3.5" y="-78" width="7" height="2" fill="${C.key}"/>` },
+    checker: { front: `<path d="M-19 -124 Q-20 -143 0 -143 Q20 -143 19 -124 Q14 -133 0 -134 Q-14 -133 -19 -124Z" fill="${C.grey}"/>` },
+    buyer: { front: `<path d="M-19 -124 Q-20 -144 2 -144 Q20 -143 19 -126 Q6 -138 -19 -124Z" fill="${hair}"/>`, torso: `<path d="M0 -99 l-4 6 4 26 4 -26z" fill="${C.ink}"/>` },
+  };
+  const look = LOOK[o.look] || LOOK.suresh;
+  let rArm = `<rect x="19.5" y="-94" width="11" height="52" rx="5.5" fill="${arm}"/><circle cx="25" cy="-40" r="5.5" fill="${skin}"/>`;
+  if (o.phone) rArm = `<g transform="rotate(165 25 -93)"><rect x="19.5" y="-93" width="11" height="40" rx="5.5" fill="${arm}"/></g><rect x="10" y="-145" width="10" height="19" rx="2.5" fill="${C.ink}"/><circle cx="15" cy="-128" r="5.5" fill="${skin}"/>`;
+  if (o.reach === "right") rArm = `<g transform="rotate(-72 25 -93)"><rect x="19.5" y="-93" width="11" height="44" rx="5.5" fill="${arm}"/></g><circle cx="67" cy="-79" r="6" fill="${skin}"/>`;
+  let lArm = `<rect x="-30.5" y="-94" width="11" height="52" rx="5.5" fill="${arm}"/><circle cx="-25" cy="-40" r="5.5" fill="${skin}"/>`;
+  if (o.reach === "left") lArm = `<g transform="rotate(72 -25 -93)"><rect x="-30.5" y="-93" width="11" height="44" rx="5.5" fill="${arm}"/></g><circle cx="-67" cy="-79" r="6" fill="${skin}"/>`;
+  const nw = name ? name.length * 6.9 + 20 : 0;
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <ellipse cx="0" cy="1" rx="30" ry="5" fill="${C.ink}" opacity=".1"/>
+    ${look.back || ""}
+    <rect x="-17" y="-40" width="14" height="38" rx="6" fill="#39424B"/><rect x="3" y="-40" width="14" height="38" rx="6" fill="#39424B"/>
+    <rect x="-20" y="-7" width="18" height="8" rx="3.5" fill="#22282E"/><rect x="2" y="-7" width="18" height="8" rx="3.5" fill="#22282E"/>
+    ${lArm}
+    <path d="M-24 -86 Q-24 -100 -10 -100 H10 Q24 -100 24 -86 V-38 Q24 -34 20 -34 H-20 Q-24 -34 -24 -38Z" fill="${shirt}"/>
+    ${look.torso || `<path d="M-7 -100 L0 -91 L7 -100" fill="none" stroke="#fff" stroke-width="2.4" opacity=".8"/>`}
+    <rect x="-5" y="-106" width="10" height="9" fill="${skin}"/>
+    <circle cx="-18.5" cy="-121" r="3.6" fill="${skin}"/><circle cx="18.5" cy="-121" r="3.6" fill="${skin}"/>
+    <circle cx="0" cy="-122" r="19" fill="${skin}"/>
+    <circle cx="-6.5" cy="-123" r="2.1" fill="${C.ink}"/><circle cx="6.5" cy="-123" r="2.1" fill="${C.ink}"/>
+    ${brows}<path d="${mouth}" stroke="${C.ink}" stroke-width="2" fill="none" stroke-linecap="round"/>
+    ${look.front || ""}
+    ${rArm}
+    ${name ? `<rect x="${-nw / 2}" y="12" width="${nw}" height="21" rx="10.5" fill="#fff" opacity=".92"/>${T(0, 27, name, 12.5, C.ink2, 600, "middle")}` : ""}
+  </g>`;
+};
+const desk = (x, y, w) => `<rect x="${x}" y="${y}" width="${w}" height="12" rx="4" fill="#C2CCD5"/><rect x="${x + 4}" y="${y + 12}" width="${w - 8}" height="4" fill="#AEB9C3"/>
+  <rect x="${x + 14}" y="${y + 16}" width="8" height="${414 - y}" fill="#B4BFC9"/><rect x="${x + w - 22}" y="${y + 16}" width="8" height="${414 - y}" fill="#B4BFC9"/>`;
+const laptop = (x, y, screen = "") => `<g><rect x="${x}" y="${y}" width="104" height="66" rx="6" fill="${C.ink}"/><rect x="${x + 5}" y="${y + 5}" width="94" height="56" rx="2" fill="#fff"/>${screen}
+  <path d="M${x - 12} ${y + 66} h128 l-6 8 h-116z" fill="${C.ink2}"/></g>`;
+const bubble = (x, y, w, h, lines, fill, color, attr, tail = "left", size = 17) => {
+  const tx = tail === "left" ? x + 28 : x + w - 28, dir = tail === "left" ? -1 : 1;
+  return `<g ${attr}><g filter="url(#sh2)"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="${fill}"/><path d="M${tx} ${y + h - 1} l${dir * 8} 18 l${-dir * 22} -18Z" fill="${fill}"/></g>
+    ${lines.map((l, i) => T(x + 18, y + 30 + i * (size + 5), l, size, color, i === 0 ? 700 : 500)).join("")}</g>`;
+};
+const sureshPanel = (x, y, line, attr, w = 260) => {
+  const id = "cp" + (++UID);
+  return `<g ${attr}>${card(x, y, w, 84)}<clipPath id="${id}"><circle cx="${x + 42}" cy="${y + 42}" r="29"/></clipPath>
+    <circle cx="${x + 42}" cy="${y + 42}" r="29" fill="${C.blueBg}"/><g clip-path="url(#${id})">${person(x + 42, y + 136, C.blue, "", { look: "suresh", mood: "smile", s: .8 })}</g>
+    ${T(x + 84, y + 34, "Suresh", 13, C.ink3, 700)}${T(x + 84, y + 58, line, 15, C.ink, 600)}</g>`;
+};
+const factory = (x, y, s, main, dark, win = "#fff") => `<g transform="translate(${x} ${y}) scale(${s})">
+  ${[0, 1, 2].map(k => `<circle class="smoke" style="animation-delay:${k * 1.2}s" cx="181" cy="-16" r="${9 + k * 2}" fill="#C9D2DA"/>`).join("")}
+  <path d="M0 100 V40 l40 -26 v26 l40 -26 v26 l40 -26 v26 l40 -26 V100Z" fill="${main}"/><rect x="170" y="-10" width="22" height="110" fill="${dark}"/>
+  ${[0, 1, 2].map(k => `<rect x="${18 + k * 48}" y="58" width="28" height="42" rx="2" fill="${win}"/>`).join("")}
+  <rect x="-20" y="100" width="232" height="7" rx="3" fill="${C.ink2}"/></g>`;
+const bgToday = (floor = true) => `<rect width="960" height="540" fill="url(#gToday)"/><rect width="960" height="420" fill="url(#dots)"/>${floor ? '<rect y="414" width="960" height="126" fill="url(#gFloorT)"/>' : ""}<rect width="960" height="540" fill="url(#vig)"/>`;
+const bgD = (floor = true) => `<rect width="960" height="540" fill="url(#gDrishti)"/><rect width="960" height="420" fill="url(#dots)"/>${floor ? '<rect y="414" width="960" height="126" fill="url(#gFloorD)"/>' : ""}<rect width="960" height="540" fill="url(#vig)"/>`;
+const titleCard = (grad, num, eyebrow, title, sub, size = 92) => `<rect width="960" height="540" fill="url(#${grad})"/>
+  <g ${B(0, "fade", 0)}>${H(930, 500, num, 440, "#fff", "end", 'opacity=".07"')}</g>
+  <g ${B(0, "rise", .2)}>${M(80, 186, eyebrow, 16, "rgba(255,255,255,.85)")}</g>
+  <g ${B(0, "rise", .45)}>${H(76, 186 + size, title, size, "#fff")}</g>
+  <rect x="80" y="${214 + size}" width="180" height="5" rx="2.5" fill="#fff" ${B(0, "wipe", .8)}/>
+  <g ${B(0, "rise", 1.05)}>${T(80, 264 + size, sub, 24, "rgba(255,255,255,.92)")}</g>`;
+const tile = (x, y, w, h, ic, title, lines, b, o = {}) => `<g ${B(b, "rise", o.d || 0)}>${card(x, y, w, h)}
+  ${badge(x + 44, y + h / 2, 26, o.bg || C.blueBg, o.fg || C.blue, ic)}
+  ${H(x + 86, y + (lines.length > 1 ? h / 2 - 14 : h / 2 - 2), title, o.ts || 21, C.ink)}
+  ${lines.map((l, i) => T(x + 86, y + (lines.length > 1 ? h / 2 + 12 : h / 2 + 24) + i * 20, l, 15, C.ink2)).join("")}
+  ${o.tag ? `<rect x="${x + w - 74}" y="${y + 12}" width="62" height="22" rx="11" fill="${C.gold}"/>${T(x + w - 43, y + 27, o.tag, 12, "#6B5200", 700, "middle")}` : ""}</g>`;
+const chevrons = (x, y, w, h, gap, active, activeFill, b, d = 0, size = 16) => ["Standard", "SMA-0", "SMA-1", "SMA-2", "NPA"].map((s, k) => {
+  const x0 = x + k * (w + gap), on = k === active;
+  return `<g ${B(b, "fade", d + k * .15)}><path d="M${x0} ${y} h${w - 14} l14 ${h / 2} l-14 ${h / 2} h${-(w - 14)} ${k ? `l14 ${-h / 2}` : ""}z" fill="${on ? activeFill : "#D3DAE0"}"/>
+    ${T(x0 + w / 2 + (k ? 4 : -4), y + h / 2 + size * .36, s, size, on ? "#fff" : C.ink2, 700, "middle")}</g>`;
+}).join("");
+
+/* ---------- the film ---------- */
+const scenes = [
+  { ch: "open", when: "Start", beats: [{ say: "A fictional borrower. A very real problem." }],
+    svg: () => `<rect width="960" height="540" fill="url(#gOpen)"/><rect width="960" height="540" fill="url(#dots)"/>
+      <g ${B(0, "rise", .1)}>${M(80, 150, "A DRISHTI.AI CUSTOMER STORY", 14, C.green)}</g>
+      <g ${B(0, "rise", .3)}>${H(76, 232, "One loan,", 78, C.ink)}</g>
+      <g ${B(0, "rise", .55)}>${H(76, 314, "told twice.", 78, C.blue)}</g>
+      <g ${B(0, "fade", .9)}>${T(80, 360, "Patil Auto Components · Pune · ₹3 crore of working capital", 19, C.ink2)}</g>
+      <g ${B(0, "rise", 1.1)}>${pill(80, 384, 150, 38, C.wbg, "Act 1 · Today", C.warn, 15)}</g>
+      <g ${B(0, "rise", 1.3)}>${pill(242, 384, 196, 38, C.blueBg, "Act 2 · With Drishti", C.blue, 15)}</g>
+      <g ${B(0, "rise", 1.5)}>${pill(450, 384, 190, 38, C.gbg, "What the bank gets", C.green, 15)}</g>
+      <g ${B(0, "pop", .4)}><circle cx="768" cy="236" r="150" fill="#fff" filter="url(#sh)"/>${factory(668, 196, 1.02, C.blue, C.ground)}</g>` },
+
+  // ---------------- ACT 1 ----------------
+  { ch: "act1", card: true, dark: true, when: "Act 1", beats: [{ say: "Act one. How an MSME loan moves through a bank today." }],
+    svg: () => titleCard("gAct1", "1", "ACT 1", "Today", "How an MSME loan moves through a bank today") },
+
+  { ch: "act1", when: "Day 1 · The order", beats: [
+      { say: "Meet Suresh Patil. He runs Patil Auto Components, a small factory in Pune." },
+      { say: "He has just won the biggest order of his life: 40,000 brake pad sets for a car maker.", sfx: "chime" },
+      { say: "To make them, he needs ₹3 crore of working capital." },
+      { say: "And his buyer will wait only two weeks." }],
+    svg: () => `${bgToday()}
+      <g ${B(0, "fade", .1)}>${factory(46, 307, 1.2, "#AEB8C1", "#97A3AE", "#DDE3E8")}${T(160, 404, "PATIL AUTO COMPONENTS", 12, "#fff", 700, "middle", 'letter-spacing="1.5"')}</g>
+      <g ${B(0, "rise", .6)}>${person(450, 430, C.blue, "Suresh Patil, owner", { look: "suresh", mood: "smile", s: 1.2 })}</g>
+      <g ${B(1, "right")}>${card(560, 236, 186, 150)}${M(580, 266, "NEW ORDER", 12, C.green)}
+        ${H(578, 316, "0", 38, C.ink, "start", 'data-count="40000"')}${T(580, 344, "brake pad sets", 15, C.ink2)}${T(580, 368, "for a car maker", 13, C.ink3)}</g>
+      ${bubble(470, 96, 236, 84, ["₹3 crore", "of working capital"], "#fff", C.ink, B(2, "pop"), "left", 19)}
+      <g ${B(3, "rise")}>${card(780, 196, 150, 196, { stroke: C.wkey })}<path d="M780 210 a14 14 0 0 1 14 -14 h122 a14 14 0 0 1 14 14 v26 h-150z" fill="${C.wkey}"/>
+        ${M(855, 223, "BUYER'S DEADLINE", 10, "#fff", "middle", 'letter-spacing="1"')}
+        <circle cx="855" cy="304" r="46" fill="none" stroke="${C.wbg}" stroke-width="7"/>
+        <circle cx="855" cy="304" r="46" fill="none" stroke="${C.wkey}" stroke-width="7" stroke-linecap="round" pathLength="1" transform="rotate(-90 855 304)" ${B(3, "draw", .3)}/>
+        ${H(855, 318, "14", 42, C.warn, "middle")}${T(855, 378, "days", 15, C.ink2, 600, "middle")}</g>` },
+
+  { ch: "act1", when: "Weeks 1–2 · Chasing papers", beats: [
+      { say: "His application goes into the bank's loan system. Anjali, his relationship manager, asks for 14 documents." },
+      { say: "Two of them are missing. Each one takes days of calls and emails.", sfx: "alert" },
+      { say: "The days slip by. Day three. Day seven. Day twelve." },
+      { say: "Two weeks are gone, and the file is only now complete." }],
+    svg: () => {
+      const docs = ["Bank statements · 12 months", "GST returns", "Audited accounts", "Stock statement", "Existing loans elsewhere", "Board resolution", "Projections"];
+      return `${bgToday()}${desk(40, 350, 300)}
+      <g ${B(0, "fade", 0)}>${person(118, 430, C.green, "Anjali, relationship manager", { look: "anjali", mood: "flat", phone: true })}</g>
+      <g ${B(0, "rise", .3)}>${laptop(210, 284, `<rect x="222" y="298" width="56" height="7" rx="2" fill="${C.rule}"/><rect x="222" y="311" width="74" height="7" rx="2" fill="${C.rule}"/><rect x="222" y="324" width="44" height="7" rx="2" fill="${C.rule}"/>`)}</g>
+      <g ${B(0, "right", .2)}>${card(520, 64, 400, 366)}${H(544, 102, "Documents requested", 21, C.ink)}${pill(842, 82, 54, 28, C.ink, "14", "#fff", 14)}
+        <line x1="544" y1="118" x2="896" y2="118" stroke="${C.rule}"/></g>
+      ${docs.map((d, k) => `<g ${B(0, "fade", .7 + k * .22)}>${tick(556, 146 + k * 38, (k === 3 || k === 5) ? "wait" : true)}${T(578, 151 + k * 38, d, 15, C.ink2)}</g>`).join("")}
+      <g ${B(0, "fade", 2.4)}>${T(544, 414, "+ 7 more, received", 14, C.ink3)}</g>
+      ${[3, 5].map((k, j) => `<g ${B(1, "pop", .3 + j * .5)}><rect x="534" y="${130 + k * 38}" width="372" height="32" rx="8" fill="${C.wbg}"/>${tick(556, 146 + k * 38, false)}${T(578, 151 + k * 38, docs[k], 15, C.warn, 700)}${pill(818, 135 + k * 38, 76, 22, C.wkey, "Missing", "#fff", 11)}</g>`).join("")}
+      <g ${B(1, "pop", .9)}>${badge(196, 206, 22, "#fff", C.warn, "phone")}</g><g ${B(1, "pop", 1.3)}>${badge(250, 236, 22, "#fff", C.warn, "mail")}</g>
+      <g ${B(1, "fade", 1.6)}>${T(224, 276, "calls · emails · reminders", 12, C.warn, 700, "middle")}</g>
+      <g ${B(2, "pop")}>${card(330, 80, 150, 170)}<path d="M330 94 a14 14 0 0 1 14 -14 h122 a14 14 0 0 1 14 14 v28 h-150z" fill="${C.wkey}"/>${M(405, 108, "DAY", 12, "#fff", "middle")}
+        <rect x="334" y="122" width="142" height="124" fill="#fff"/>${H(405, 210, "14", 60, C.warn, "middle")}</g>
+      ${[["12", 2.9], ["7", 1.9], ["3", .9]].map(([n, d]) => `<g ${B(2, "fall", d)}><rect x="334" y="122" width="142" height="124" fill="#fff" stroke="${C.rule}"/>${H(405, 210, n, 60, C.ink, "middle")}</g>`).join("")}
+      <g ${B(3, "rise")}>${T(405, 282, "Two weeks gone", 16, C.warn, 700, "middle")}${T(405, 304, "file only now complete", 13, C.ink3, 500, "middle")}</g>
+      ${[3, 5].map((k, j) => `<g ${B(3, "pop", .5 + j * .3)}><rect x="534" y="${130 + k * 38}" width="372" height="32" rx="8" fill="#fff"/>${tick(556, 146 + k * 38, true)}${T(578, 151 + k * 38, docs[k], 15, C.ink2)}${T(894, 151 + k * 38, "day 14", 12, C.warn, 700, "end")}</g>`).join("")}`;
+    } },
+
+  { ch: "act1", when: "Week 3 · Reading by hand", beats: [
+      { say: "Now Priya, the credit officer, has to read it all. More than 200 pages: bank statements, GST returns, accounts and bureau reports." },
+      { say: "On page 143 there is a clue. The P&L in the audited accounts shows 26% more revenue than the GST returns." },
+      { say: "But nobody has time to check every figure against every other, on every file. The gap goes through.", sfx: "stamp" }],
+    svg: () => `${bgToday()}${desk(40, 350, 560)}
+      <g ${B(0, "fade", 0)}>${person(110, 430, "#6B7A88", "Priya, credit officer", { look: "priya", mood: "worry" })}</g>
+      ${[["Bank", 180], ["GST", 135], ["Accounts", 160], ["Bureau", 90]].map(([l, h], i) => `<g ${B(0, "grow", .4 + i * .25)}>
+        ${Array.from({ length: Math.round(h / 9) }, (_, k) => `<rect x="${206 + i * 96}" y="${349 - (k + 1) * 9}" width="80" height="8" rx="1.5" fill="${k % 2 ? "#fff" : "#F7F8F9"}" stroke="#D4DAE0"/>`).join("")}</g>
+        <g ${B(0, "fade", .6 + i * .25)}>${T(246 + i * 96, 386, l, 12, C.ink3, 600, "middle")}</g>`).join("")}
+      <g ${B(0, "fade", .3)}>${H(60, 118, "0", 56, C.ink, "start", 'data-count="200"')}${T(62, 146, "pages, read by one person", 16, C.ink2)}</g>
+      <path d="M346 210 C 420 160 520 140 636 150" stroke="${C.wkey}" stroke-width="2.5" fill="none" stroke-dasharray="1" pathLength="1" ${B(1, "draw")}/>
+      <g ${B(1, "pop", .6)}>${card(640, 70, 290, 196, { stroke: C.wkey })}${M(662, 100, "PAGE 143", 12, C.ink3)}
+        <rect x="652" y="116" width="266" height="36" rx="6" fill="${C.wbg}"/>${T(664, 140, "GST turnover", 15, C.warn, 700)}${H(908, 141, "₹95 Cr", 19, C.warn, "end")}
+        ${T(664, 182, "P&L revenue (accounts)", 15, C.ink2)}${H(908, 183, "₹120 Cr", 19, C.ink, "end")}
+        ${pill(662, 208, 246, 34, C.wkey, "Accounts: 26% more than GST", "#fff", 14)}</g>
+      <g ${B(2, "fade")}><rect x="640" y="70" width="290" height="196" rx="14" fill="#E9EDF1" opacity=".78"/></g>
+      <g ${B(2, "stamp", .5)}><g transform="rotate(-8 785 168)"><rect x="672" y="140" width="226" height="56" rx="6" fill="#fff" stroke="${C.warn}" stroke-width="4"/>${T(785, 176, "NOT CROSS-CHECKED", 18, C.warn, 700, "middle", 'letter-spacing="1"')}</g></g>
+      <g ${B(2, "fade", 1.4)}>${T(785, 300, "The file moves on", 15, C.ink3, 600, "middle")}<path d="M720 316 h130" stroke="${C.ink3}" stroke-width="2"/><path d="M850 316 l-9 -5 v10z" fill="${C.ink3}"/></g>` },
+
+  { ch: "act1", when: "Weeks 4–5 · Waiting", beats: [
+      { say: "She types the credit memo by hand, copying numbers from the PDFs into a template." },
+      { say: "Then the file waits. First for the checker, then for the credit committee." },
+      { say: "The buyer's deadline passes. Suresh has to ask for more time." },
+      { say: "In week five, ₹3 crore is sanctioned.", sfx: "stamp" }],
+    svg: () => `${bgToday()}${desk(40, 350, 330)}
+      <g ${B(0, "fade", 0)}>${person(110, 430, "#6B7A88", "Priya", { look: "priya", mood: "flat" })}</g>
+      <g ${B(0, "rise", .2)}>${laptop(200, 284, `<rect x="212" y="296" width="80" height="6" rx="2" fill="${C.rule}"/>`)}</g>
+      <g ${B(0, "pop", .3)}>${card(250, 92, 92, 112)}${icon("doc", 296, 136, C.warn, 1.6)}${M(296, 186, "PDF", 12, C.warn, "middle")}</g>
+      ${["₹120 Cr", "₹95 Cr", "₹3 Cr"].map((n, k) => `<g ${B(0, "fly", 1 + k * .55)}><rect x="214" y="${306 + k * 13}" width="58" height="11" rx="3" fill="${C.blueBg}"/>${T(243, 315 + k * 13, n, 8.5, C.blue, 700, "middle")}</g>`).join("")}
+      <g ${B(0, "fade", 2.4)}>${T(296, 232, "copied by hand", 13, C.ink3, 600, "middle")}</g>
+      <g ${B(1, "fade")}>${card(440, 80, 200, 86)}${M(460, 110, "WAITING FOR", 11, C.ink3)}${H(460, 144, "Checker", 24, C.ink)}${icon("clock", 610, 124, C.ink3, 1.1)}
+        <path d="M646 123 h44" stroke="${C.ink3}" stroke-width="2"/><path d="M690 123 l-9 -5 v10z" fill="${C.ink3}"/>
+        ${card(700, 80, 220, 86)}${M(720, 110, "WAITING FOR", 11, C.ink3)}${H(720, 144, "Committee", 24, C.ink)}${icon("clock", 890, 124, C.ink3, 1.1)}</g>
+      <g ${B(1, "slide", .4)}><rect x="788" y="176" width="44" height="54" rx="4" fill="#fff" stroke="${C.ink3}" stroke-width="1.5"/>${[0, 1, 2].map(k => `<rect x="796" y="${188 + k * 11}" width="28" height="4" fill="${C.rule}"/>`).join("")}</g>
+      <g ${B(2, "rise")}>${card(440, 222, 186, 104, { stroke: C.wkey })}${T(533, 252, "Buyer's deadline", 14, C.ink3, 700, "middle")}${H(533, 298, "Day 14", 32, C.warn, "middle")}</g>
+      <path d="M458 288 L608 276" stroke="${C.warn}" stroke-width="4" stroke-linecap="round" pathLength="1" ${B(2, "draw", .8)}/>
+      <g ${B(2, "fade", .2)}>${person(850, 430, C.blue, "Suresh", { look: "suresh", mood: "worry", phone: true })}</g>
+      ${bubble(644, 236, 196, 80, ["One more week,", "please?"], "#fff", C.ink, B(2, "pop", 1.4), "right")}
+      <g ${B(3, "stamp")}><g transform="rotate(-6 560 384)"><rect x="440" y="350" width="240" height="70" rx="6" fill="#fff" stroke="${C.green}" stroke-width="4"/>${T(560, 380, "SANCTIONED", 21, C.green, 700, "middle", 'letter-spacing="1.5"')}${T(560, 405, "₹3 crore · week 5", 14, C.green, 700, "middle")}</g></g>` },
+
+  { ch: "act1", when: "Month 8 · Found too late", beats: [
+      { say: "Eight months later, the trouble starts.", dark: true },
+      { say: "Suresh has quietly taken two more loans from other lenders. His credit score has fallen 60 points." },
+      { say: "The bank sees none of it, until he misses payments and the account slips to SMA-2.", sfx: "alert" },
+      { say: "Looking back, the first sign was on page 143." }],
+    svg: () => `${bgToday(false)}
+      <g ${B(1, "rise")}>${card(40, 76, 410, 206)}${T(64, 110, "Suresh's credit score", 16, C.ink, 700)}
+        <line x1="70" y1="254" x2="426" y2="254" stroke="${C.rule}"/>${T(64, 138, "755", 13, C.ink3)}${T(64, 246, "695", 13, C.warn, 700)}</g>
+      <polyline points="100,134 160,140 220,148 280,176 340,212 412,244" fill="none" stroke="${C.wkey}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" ${B(1, "draw", .5)}/>
+      <g ${B(1, "pop", 2)}>${H(420, 206, "−60", 26, C.warn, "end")}</g>
+      ${[["New loan · Lender A", "₹40 lakh"], ["New loan · Lender B", "₹25 lakh"]].map(([a, b], k) => `<g ${B(1, "right", .8 + k * .6)}>${card(480, 76 + k * 104, 440, 90)}
+        <circle cx="520" cy="${121 + k * 104}" r="18" fill="${C.wbg}"/>${T(520, 129 + k * 104, "+", 24, C.warn, 700, "middle")}${T(552, 114 + k * 104, a, 17, C.ink, 700)}${T(552, 139 + k * 104, b + " · not seen by the bank", 14, C.ink2)}</g>`).join("")}
+      ${chevrons(40, 304, 170, 50, 6, -1, C.wkey, 2, 0)}
+      <g ${B(2, "pop", 1)}><path d="M568 304 h156 l14 25 l-14 25 h-156 l14 -25z" fill="${C.wkey}"/>${T(652, 335, "SMA-2", 16, "#fff", 700, "middle")}</g>
+      <g ${B(2, "fade", 1.4)}>${T(652, 378, "The bank finds out here", 14, C.warn, 700, "middle")}</g>
+      <g ${B(3, "rise")}>${card(40, 380, 480, 72, { fill: C.wbg, stroke: C.wkey })}${H(62, 412, "The first sign was on page 143", 21, C.warn)}${T(62, 438, "The P&L showed 26% more revenue than GST.", 14, C.ink)}</g>
+      <g ${B(3, "fade", .8)}>${person(842, 452, C.ground, "", { look: "checker", mood: "worry", skin: C.skin2, s: .64 })}</g>
+      ${bubble(566, 396, 236, 48, ["What did we check?"], C.ink, "#fff", B(3, "pop", 1.2), "right")}
+      <g ${B(0, "fade", 0, 'data-out="1"')}><rect width="960" height="540" fill="${C.ink}"/>${M(480, 236, "MONTH 8", 15, "#9AA3AB", "middle")}${H(480, 296, "Eight months later", 60, "#fff", "middle")}</g>` },
+
+  { ch: "act1", when: "What it cost", beats: [
+      { say: "So what did today's way of working cost?" },
+      { say: "Five weeks to a decision, with the buyer kept waiting." },
+      { say: "More than 200 pages read by hand, never checked against each other." },
+      { say: "And a warning sign missed, with a loan in trouble before anyone knew." }],
+    svg: () => `${bgToday(false)}
+      <g ${B(0, "rise")}>${M(60, 104, "ACT 1 · THE COST", 14, C.warn)}${H(58, 152, "What today's process cost", 42, C.ink)}</g>
+      ${[["clock", "5 weeks", ["to a decision, with", "the buyer kept waiting"]], ["pages", "200+ pages", ["read by hand, never", "checked against each other"]], ["alert", "SMA-2", ["is where the bank", "first saw the trouble"]]].map(([ic, big, lines], k) => {
+        const x = 60 + k * 290; return `<g ${B(k + 1, "rise")}>${card(x, 190, 270, 236)}${badge(x + 46, 240, 26, C.wbg, C.warn, ic)}
+          ${H(x + 24, 322, big, 40, C.warn)}${lines.map((l, i) => T(x + 24, 356 + i * 22, l, 16, C.ink2)).join("")}</g>`; }).join("")}` },
+
+  // ---------------- ACT 2 ----------------
+  { ch: "act2", card: true, dark: true, when: "Act 2", beats: [{ say: "Now rewind. Same borrower. Same bank. Same loan system. This time, with Drishti.", sfx: "rewind" }],
+    svg: () => titleCard("gAct2", "2", "ACT 2", "With Drishti", "Rewind. Same borrower, same bank, same loan system") },
+
+  { ch: "act2", when: "Set-up · On top of your LOS", beats: [
+      { say: "The bank keeps its loan system exactly as it is. Intake, KYC, documents and payout don't change." },
+      { say: "Drishti sits on top of it, and does the checking, the proof and the watching." },
+      { say: "Drishti reads the documents Suresh shares, like his P&L and balance sheet, and pulls GST, bank, bureau and company records directly." },
+      { say: "Then it checks each source against the others. Nobody retypes a number, and there are fewer papers to chase." }],
+    svg: () => {
+      const docs = ["P&L", "Balance sheet", "Audited accounts", "Stock statement"], pulls = ["GST returns", "Bank statements", "Credit bureau", "Company records"];
+      const grid = (x0, items, ic, col) => items.map((d, k) => `${icon(ic, x0 + (k % 2) * 180 + 10, 118 + Math.floor(k / 2) * 38, col, .78)}${T(x0 + (k % 2) * 180 + 26, 123 + Math.floor(k / 2) * 38, d, 15, C.ink2, 600)}`).join("");
+      return `${bgD(false)}
+      <g ${B(0, "rise")}>${card(150, 340, 660, 100, { fill: C.bg2, stroke: C.rule, sw: 1.5 })}${H(480, 384, "The bank's loan system (LOS)", 26, C.ink2, "middle")}${T(480, 414, "Intake · KYC · documents · payout", 16, C.ink3, 500, "middle")}
+        ${pill(700, 352, 96, 26, C.gbg, "Unchanged", C.green, 12)}</g>
+      <g ${B(1, "down")}><rect x="150" y="214" width="660" height="96" rx="14" fill="${C.blue}" filter="url(#sh)"/>${H(480, 256, "Drishti", 34, "#fff", "middle")}${T(480, 286, "Checks · proof · memo · watching after the loan", 16, "#CFE5F3", 500, "middle")}</g>
+      <g ${B(1, "fade", .7)}>${[300, 480, 660].map(x => `<path class="flow" d="M${x} 312 V338" stroke="${C.key}" stroke-width="3"/>`).join("")}</g>
+      <g ${B(2, "right")}>${card(40, 54, 400, 140)}${M(60, 84, "SHARED BY SURESH", 12, C.warn)}${pill(318, 66, 104, 24, C.blueBg, "read by Drishti", C.blue, 11)}${grid(60, docs, "doc", C.warn)}</g>
+      <g ${B(2, "left", 1.4)}>${card(470, 54, 400, 140)}${M(490, 84, "PULLED DIRECTLY", 12, C.blue)}${pill(748, 66, 104, 24, C.gbg, "with consent", C.green, 11)}${grid(490, pulls, "link", C.blue)}</g>
+      <g ${B(3, "fade")}><path class="flow" d="M240 196 L380 212" stroke="${C.key}" stroke-width="3" fill="none"/><path class="flow" d="M670 196 L580 212" stroke="${C.key}" stroke-width="3" fill="none"/></g>
+      <g ${B(3, "pop", .6)}><circle cx="480" cy="204" r="17" fill="#fff" stroke="${C.key}" stroke-width="2"/>${icon("loop", 480, 204, C.blue, .8)}</g>
+      <g ${B(3, "pop", 1.2)}>${card(842, 214, 96, 96, { fill: C.gbg, flat: true })}${T(890, 250, "Fewer", 14, C.green, 700, "middle")}${T(890, 268, "papers", 14, C.green, 700, "middle")}${T(890, 286, "to chase", 14, C.green, 700, "middle")}</g>`;
+    } },
+
+  { ch: "act2", when: "Step 1 · Every check, every file", beats: [
+      { say: "As soon as Suresh's file arrives, Drishti runs the bank's credit checks, against the bank's own lending policy." },
+      { say: "It also runs its investigation patterns. They look for signs of fraud and risk by comparing one source with another. Every check, on every file." },
+      { say: "In seconds, it finds the gap Priya had no time to find. The P&L shows 26% more revenue than GST, against a limit of 10%.", sfx: "alert" },
+      { say: "And it shows its working, so anyone can see exactly how that number was reached.",
+        shot: { src: "proof-investigation", callout: "The gap, flagged with its working: <b>26.3% against a 10% limit</b>", boxes: [[0, 70, 100, 30]] } }],
+    svg: () => {
+      const credit = ["Eligibility", "Debt service cover (DSCR)", "Current ratio", "Leverage", "Loan to value", "Credit score"];
+      const pats = ["P&L revenue vs GST turnover", "Stock statement vs balance sheet", "Funds going in circles (bank)", "Related-party dealings (MCA)", "Cheque returns (bank)", "Collateral pledged twice (CERSAI)"];
+      const rows = (list, y0, b, first) => list.map((n, k) => { const x = k % 2 ? 640 : 356, y = y0 + Math.floor(k / 2) * 32;
+        return `<g ${B(b, "fade", .5 + k * .25)}>${tick(x + 10, y - 5, first && k === 0 ? "wait" : true, 9)}${T(x + 28, y, n, 14, C.ink2)}</g>`; }).join("");
+      return `${bgD(false)}
+      <circle cx="190" cy="226" r="96" fill="none" stroke="${C.key}" stroke-width="3" class="ping"/>
+      <g ${B(0, "pop")}><circle cx="190" cy="226" r="96" fill="${C.blue}" filter="url(#sh)"/>${H(190, 222, "Every", 34, "#fff", "middle")}${H(190, 258, "check", 34, "#fff", "middle")}${T(190, 286, "on every file", 14, "#CFE5F3", 600, "middle")}</g>
+      <g ${B(0, "right", .2)}>${card(330, 56, 590, 388)}${M(356, 90, "CREDIT CHECKS · AGAINST YOUR POLICY", 12, C.blue)}</g>
+      ${rows(credit, 124, 0, false)}
+      <g ${B(1, "fade")}><line x1="356" y1="208" x2="896" y2="208" stroke="${C.rule}"/>${M(356, 238, "INVESTIGATION PATTERNS · FRAUD AND RISK", 12, C.warn)}</g>
+      ${rows(pats, 272, 1, true)}
+      <g ${B(1, "fade", 2.2)}>${T(356, 384, "+ more patterns for vehicle, gold and other loan types", 13, C.ink3)}${T(356, 410, "Thresholds are set by the bank, per product", 13, C.ink3)}</g>
+      <g ${B(2, "pop")}><rect x="344" y="254" width="284" height="30" rx="8" fill="${C.wbg}"/>${tick(366, 267, false, 9)}${T(384, 272, "P&L revenue vs GST turnover", 14, C.warn, 700)}</g>
+      <g ${B(2, "rise", .6)}>${card(40, 360, 300, 80, { stroke: C.wkey })}${T(60, 388, "P&L revenue vs GST", 14, C.ink2, 700)}${H(60, 422, "26% gap", 24, C.warn)}${T(178, 422, "limit 10%", 14, C.ink, 600)}</g>`;
+    } },
+
+  { ch: "act2", when: "Step 2 · The officer decides", beats: [
+      { say: "Priya now reviews three exceptions, not 200 pages." },
+      { say: "She asks Suresh about the gap. He can explain only part of it." },
+      { say: "She asks the Research Assistant how Suresh compares with similar firms, and what the bank's policy says. The answer comes back with its sources." },
+      { say: "So she sizes the loan on the GST-verified figures: ₹2.4 crore, on condition that Suresh shares his GST returns every month." },
+      { say: "The judgement stays with Priya. Drishti gives her the facts to make it." }],
+    svg: () => `${bgD()}${desk(40, 350, 360)}
+      <g ${B(0, "fade", 0)}>${person(110, 430, C.blue, "Priya", { look: "priya", mood: "smile" })}</g>
+      <g ${B(0, "rise", .2)}>${laptop(220, 284, [0, 1, 2].map(k => `<rect x="232" y="${296 + k * 15}" width="80" height="11" rx="2" fill="${k === 0 ? C.wbg : C.blueBg}"/>`).join(""))}</g>
+      <g ${B(0, "right", .3)}>${card(470, 64, 450, 100)}${M(494, 94, "TO REVIEW", 11, C.ink3)}${H(494, 140, "200 pages", 30, C.grey)}
+        <path d="M676 128 h40" stroke="${C.ink3}" stroke-width="2"/><path d="M716 128 l-9 -5 v10z" fill="${C.ink3}"/>${H(730, 140, "3 exceptions", 30, C.blue)}</g>
+      <path d="M490 130 L652 122" stroke="${C.warn}" stroke-width="3.5" stroke-linecap="round" pathLength="1" ${B(0, "draw", 1.3)}/>
+      ${bubble(140, 120, 276, 82, ["Why is GST lower", "than your accounts?"], C.blueBg, C.ink, B(1, "pop", 0, 'data-out="2"'), "left")}
+      ${sureshPanel(470, 182, '"I can explain part of it."', B(1, "left", 1.6), 290)}
+      <g ${B(2, "rise")}>${card(30, 64, 420, 206, { stroke: C.key, sw: 1.5 })}${badge(58, 94, 16, C.blueBg, C.blue, "chart")}${M(84, 99, "RESEARCH ASSISTANT", 12, C.blue)}
+        ${T(54, 132, "How does he compare with similar firms?", 14, C.ink3, 500, "start", 'font-style="italic"')}</g>
+      <g ${B(2, "fade", 1.4)}>${tick(64, 166, true, 9)}${T(82, 171, "Margins in line with auto-component peers", 14, C.ink, 600)}</g>
+      <g ${B(2, "fade", 2.2)}>${icon("doc", 64, 204, C.blue, .8)}${T(82, 201, "Credit policy: when sources differ,", 14, C.ink, 600)}${T(82, 221, "size on verified turnover", 14, C.ink, 600)}</g>
+      <g ${B(2, "fade", 3)}>${pill(54, 236, 130, 22, C.blueBg, "3 sources cited", C.blue, 11)}</g>
+      <g ${B(3, "rise")}>${card(470, 284, 450, 164, { stroke: C.blue })}${T(494, 314, "Recommendation", 13, C.ink3, 700)}
+        ${H(494, 360, "₹2.4 crore", 40, C.blue)}${T(494, 388, "Sized on GST-verified revenue, not ₹3 crore", 15, C.ink)}
+        ${pill(494, 404, 300, 32, C.gbg, "Condition: GST returns shared monthly", C.green, 13)}</g>
+      <g ${B(4, "pop")}>${pill(756, 296, 150, 30, C.ink, "Priya decides", "#fff", 13)}</g>` },
+
+  { ch: "act2", when: "Step 3 · The memo, with sources", beats: [
+      { say: "Drishti drafts the credit memo for her. No more copying numbers out of PDFs." },
+      { say: "Every number is linked to where it came from. Click it, and you see the source." },
+      { say: "The system does every calculation. The AI only puts the results into words, and Priya checks and signs.",
+        shot: { src: "proof-memo", callout: "The memo drafts itself, <b>every number linked to its source</b>", good: true, boxes: [[0, 26, 66, 26]] } }],
+    svg: () => {
+      const rows = [[214, "Turnover (GST)", "₹95 Cr"], [254, "Revenue (P&L)", "₹120 Cr"], [294, "Gap", "26.3%"], [374, "Recommended", "₹2.4 Cr"]];
+      const srcs = [["GST returns", "12 months, filed online", "bank"], ["Audited accounts", "P&L, page 143", "doc"], ["Drishti's calculation", "working shown, step by step", "calc"]];
+      return `${bgD(false)}
+      <g ${B(0, "rise")}>${card(70, 64, 420, 386)}${M(94, 98, "CREDIT MEMO · DRAFT", 12, C.blue)}${H(94, 132, "Patil Auto Components", 22, C.ink)}${pill(352, 80, 118, 26, C.blueBg, "Drafted for you", C.blue, 11)}</g>
+      ${[[94, 160, 330], [94, 178, 360], [94, 332, 300], [94, 350, 340], [94, 410, 260], [94, 428, 320]].map(([x, y, w], k) => `<rect x="${x}" y="${y}" width="${w}" height="7" rx="3" fill="${C.rule}" ${B(0, "wipe", .5 + k * .2)}/>`).join("")}
+      ${rows.map(([y, l, v], k) => `<g ${B(0, "fade", .8 + k * .4)}>${T(94, y, l, 15, C.ink2)}<rect x="300" y="${y - 19}" width="100" height="27" rx="13.5" fill="${C.blueBg}"/>${T(350, y, v, 14, C.blue, 700, "middle")}</g>`).join("")}
+      ${srcs.map(([a, b, ic], k) => `<g ${B(1, "right", k * .45)}>${card(600, 76 + k * 116, 320, 92)}${badge(644, 122 + k * 116, 22, C.blueBg, C.blue, ic)}${T(680, 116 + k * 116, a, 16, C.ink, 700)}${T(680, 140 + k * 116, b, 14, C.ink2)}</g>
+        <path d="M402 ${[205, 245, 285][k]} C 500 ${[205, 245, 285][k]} 520 ${122 + k * 116} 598 ${122 + k * 116}" stroke="${C.key}" stroke-width="2.5" fill="none" stroke-dasharray="1" pathLength="1" ${B(1, "draw", .2 + k * .45)}/>`).join("")}
+      <g ${B(1, "pop", 1.8)}>${icon("link", 520, 400, C.blue, 1.3)}${T(546, 406, "every number, one click to its source", 14, C.blue, 700)}</g>`;
+    } },
+
+  { ch: "act2", when: "Step 4 · Decision", beats: [
+      { say: "The checker reviews the file with the full record in front of her." },
+      { say: "Approved: ₹2.4 crore, on condition that Suresh shares his GST returns every month.", sfx: "stamp" },
+      { say: "Every value behind the decision is sourced and recorded, ready for audit.",
+        shot: { src: "proof-approved-zoom", callout: "Approved, with a full record: <b>54 values sourced, 100% coverage</b>", good: true, boxes: [[48, 2, 51, 32], [0, 52, 100, 46]] } },
+      { say: "Suresh gets his answer in days, not weeks, the target a pilot will test. A smaller loan he can actually carry, and his order is on.", sfx: "chime" }],
+    svg: () => `${bgD()}
+      <g ${B(0, "fade")}>${person(110, 430, C.ground, "Checker", { look: "checker", mood: "flat", skin: C.skin2 })}</g>
+      <g ${B(0, "right", .3)}>${card(214, 64, 350, 240)}${M(238, 98, "FULL RECORD", 12, C.blue)}</g>
+      ${["Credit checks and patterns run", "3 exceptions reviewed", "Officer's reasons recorded", "Every number sourced"].map((r, k) => `<g ${B(0, "fade", .9 + k * .4)}>${tick(252, 136 + k * 44, true)}${T(274, 141 + k * 44, r, 16, C.ink2)}</g>`).join("")}
+      <g ${B(1, "stamp")}><g transform="rotate(-6 760 124)"><rect x="630" y="86" width="260" height="78" rx="6" fill="#fff" stroke="${C.green}" stroke-width="4"/>${T(760, 122, "APPROVED", 26, C.green, 700, "middle", 'letter-spacing="2"')}${T(760, 150, "₹2.4 crore", 17, C.green, 700, "middle")}</g></g>
+      <g ${B(1, "rise", .8)}>${pill(628, 178, 264, 30, C.bg2, "Condition: GST returns shared monthly", C.ink2, 12)}</g>
+      <g ${B(3, "rise")}>${card(214, 320, 350, 80, { fill: C.blueBg, flat: true })}${H(238, 368, "Days, not weeks", 28, C.blue)}<rect x="478" y="332" width="70" height="22" rx="11" fill="${C.gold}"/>${T(513, 347, "target", 12, "#6B5200", 700, "middle")}</g>
+      <g ${B(3, "left", .4)}>${person(660, 430, C.blue, "Suresh", { look: "suresh", mood: "smile", reach: "right" })}</g>
+      <g ${B(3, "right", .4)}>${person(790, 430, "#7A8794", "Buyer", { look: "buyer", mood: "smile", reach: "left" })}</g>
+      <g ${B(3, "pop", 1.2)}>${pill(642, 222, 170, 40, C.gbg, "Order on", C.green, 17)}</g>` },
+
+  { ch: "act2", when: "Month 8 · Caught early", beats: [
+      { say: "Eight months later, Drishti is still watching." },
+      { say: "It spots the two new loans and the falling score, while the account still looks healthy.", sfx: "alert" },
+      { say: "The same early warnings show across the whole loan book, not just one account.",
+        shot: { src: "proof-warning", callout: "Early warning across the book: <b>score drops and new debt</b>", boxes: [[25, 0, 25, 100], [75, 0, 25, 100]] } },
+      { say: "Anjali calls Suresh. They rework the limit before a single payment is missed." }],
+    svg: () => `${bgD()}
+      <g ${B(0, "rise")}>${card(40, 64, 400, 220)}${M(64, 96, "WATCHING AFTER THE LOAN", 12, C.blue)}
+        ${[26, 48, 70].map(r => `<circle cx="140" cy="184" r="${r}" fill="none" stroke="${C.blueBg}" stroke-width="2"/>`).join("")}
+        <g class="spin" style="transform-origin:140px 184px"><path d="M140 184 L210 184 A70 70 0 0 0 189.5 134.5Z" fill="${C.key}" opacity=".2"/><line x1="140" y1="184" x2="210" y2="184" stroke="${C.key}" stroke-width="2"/></g>
+        <circle cx="140" cy="184" r="4" fill="${C.blue}"/>
+        ${["Credit score", "New borrowing", "GST filing", "Cheque returns", "Covenants", "Days overdue"].map((s, k) => `<circle cx="244" cy="${126 + k * 26}" r="4" fill="${C.gkey}"/>${T(256, 131 + k * 26, s, 14, C.ink2)}`).join("")}</g>
+      <g ${B(1, "pop")}><circle cx="176" cy="160" r="6" fill="${C.wkey}"/><circle cx="176" cy="160" r="10" fill="none" stroke="${C.wkey}" stroke-width="2" class="ping"/><circle cx="244" cy="152" r="4" fill="${C.wkey}"/><circle cx="244" cy="126" r="4" fill="${C.wkey}"/></g>
+      <g ${B(1, "right", .3)}>${card(480, 64, 440, 132, { stroke: C.wkey })}<circle cx="514" cy="100" r="14" fill="${C.wkey}"/>${T(514, 106, "!", 17, "#fff", 700, "middle")}${T(538, 106, "Patil Auto Components", 18, C.ink, 700)}
+        ${T(506, 144, "2 new loans elsewhere · last 90 days", 15, C.ink2)}${T(506, 172, "Credit score down 60 points", 15, C.ink2)}</g>
+      <g ${B(1, "rise", 1.2)}>${pill(480, 214, 250, 44, C.gbg, "Account: still Standard", C.green, 16)}</g>
+      <g ${B(3, "fade")}>${person(110, 430, C.green, "Anjali", { look: "anjali", mood: "flat", phone: true })}</g>
+      ${sureshPanel(176, 318, '"Yes, let\'s talk."', B(3, "left", .8), 230)}
+      <g ${B(3, "rise", 1.6)}>${card(480, 296, 440, 56, { fill: C.gbg, flat: true })}${T(700, 330, "Limit reworked before a payment is missed", 16, C.green, 700, "middle")}</g>
+      ${chevrons(480, 372, 84, 34, 5, 0, C.green, 3, 2.2, 12)}` },
+
+  // ---------------- WHAT THE BANK GETS ----------------
+  { ch: "value", card: true, dark: true, when: "What the bank gets", beats: [{ say: "So what does the bank get from all this?" }],
+    svg: () => titleCard("gVal", "3", "WHAT THE BANK GETS", "Ten gains", "From one loan story to the whole book") },
+
+  { ch: "value", when: "For every new loan", beats: [
+      { say: "First, decisions in days, not weeks, with less back and forth for the borrower." },
+      { say: "Every check runs on every file: the bank's credit checks and Drishti's investigation patterns, for every loan type." },
+      { say: "Officers spend their time on judgement. They review the exceptions, with a research assistant to answer their questions." },
+      { say: "And the credit memo drafts itself, with every number traced back to its source." }],
+    svg: () => `${bgD(false)}
+      <g ${B(0, "rise")}>${M(60, 86, "WHAT THE BANK GETS · 1 OF 2", 13, C.green)}${H(58, 124, "For every new loan", 34, C.ink)}</g>
+      ${tile(60, 148, 410, 124, "clock", "Decisions in days, not weeks", ["Less waiting, less back and", "forth for the borrower"], 0, { d: .3, tag: "target" })}
+      ${tile(490, 148, 410, 124, "checks", "Every check, on every file", ["Credit checks and investigation", "patterns, for every loan type"], 1)}
+      ${tile(60, 290, 410, 124, "person", "Time spent on judgement", ["Exceptions to review, and a", "research assistant on hand"], 2)}
+      ${tile(490, 290, 410, 124, "link", "A memo that drafts itself", ["Every number traced", "back to its source"], 3)}` },
+
+  { ch: "value", when: "For the bank and its book", beats: [
+      { say: "Every decision has clear reasons. The system calculates, the AI explains, and a person decides." },
+      { say: "There is a full record of who checked what, when and why, ready for auditors." },
+      { say: "Early warnings after the loan give the bank time to act, before an account turns bad." },
+      { say: "The bank sees risk across the whole book, by branch, product and loan type." },
+      { say: "It gets sharper over time. The results of every check are tracked, so the checks can be tuned." },
+      { say: "And it works with the loan system the bank already has. No replacement, no big-bang change." }],
+    svg: () => {
+      const t = [["shield", "Clear reasons, every time", ["System calculates, AI explains,", "a person decides"]],
+        ["record", "A full record, ready for audit", ["Who checked what,", "when and why"]],
+        ["bell", "Early warning after the loan", ["Time to act before an", "account turns bad"]],
+        ["chart", "One view of the whole book", ["By branch, product", "and loan type"]],
+        ["loop", "Gets sharper over time", ["Results of every check tracked,", "so checks can be tuned"]],
+        ["plug", "Works with your existing LOS", ["No replacement,", "no big-bang change"]]];
+      return `${bgD(false)}
+      <g ${B(0, "rise")}>${M(60, 82, "WHAT THE BANK GETS · 2 OF 2", 13, C.green)}${H(58, 118, "For the bank and its loan book", 32, C.ink)}</g>
+      ${t.map(([ic, ti, l], k) => tile(k % 2 ? 490 : 60, 136 + Math.floor(k / 2) * 98, 410, 88, ic, ti, l, k, { d: k ? 0 : .3, ts: 19, bg: C.gbg, fg: C.green })).join("")}`;
+    } },
+
+  { ch: "value", when: "Side by side", beats: [
+      { say: "Side by side, the difference is clear." },
+      { say: "Weeks became days. Two hundred pages became three exceptions." },
+      { say: "The gap was caught on day one, and the loan was sized to fit the business." },
+      { say: "And trouble was spotted while the account was still healthy." }],
+    svg: () => {
+      const rows = [["Time to decision", "5 weeks", "Days (target)"], ["Read by hand", "200+ pages", "3 exceptions"], ["P&L vs GST gap", "Missed", "Flagged on day one"], ["Loan size", "₹3 crore, too big", "₹2.4 crore, fits"], ["Trouble found", "At SMA-2", "While still Standard"]];
+      const beatOf = [1, 1, 2, 2, 3];
+      return `${bgD(false)}
+      <g ${B(0, "rise")}>${card(60, 60, 840, 396)}${M(90, 104, "SIDE BY SIDE", 12, C.ink3)}${M(390, 104, "TODAY", 13, C.warn)}${M(640, 104, "WITH DRISHTI", 13, C.blue)}
+        <rect x="620" y="76" width="260" height="364" rx="10" fill="${C.blueBg}" opacity=".55"/><line x1="90" y1="122" x2="870" y2="122" stroke="${C.rule}"/></g>
+      ${rows.map(([l, a, b], k) => { const y = 168 + k * 60;
+        return `<g ${B(beatOf[k], "fade", (k % 2) * .5)}>${T(90, y, l, 16, C.ink2, 600)}${T(390, y, a, 18, C.warn, 600)}${H(640, y + 1, b, 21, C.blue)}
+          ${k < 4 ? `<line x1="90" y1="${y + 26}" x2="870" y2="${y + 26}" stroke="${C.rule}"/>` : ""}</g>`; }).join("")}`;
+    } },
+
+  // ---------------- CLOSE ----------------
+  { ch: "close", dark: true, when: "The point", beats: [
+      { say: "Same loan system. Better decisions. A healthier loan book." },
+      { say: "The next step: a pilot with one bank and one loan product." }],
+    svg: () => `<rect width="960" height="540" fill="url(#gEnd)"/>
+      <g ${B(0, "rise", .2)}>${H(80, 160, "Same LOS.", 60, "#fff")}</g>
+      <g ${B(0, "rise", .9)}>${H(80, 232, "Better decisions.", 60, "#fff")}</g>
+      <g ${B(0, "rise", 1.6)}>${H(80, 304, "A healthier book.", 60, "#BFE0F5")}</g>
+      <g ${B(1, "rise")}><rect x="80" y="338" width="560" height="58" rx="29" fill="#fff"/>${T(110, 374, "Next: a pilot with one bank, one loan product", 20, C.ground, 700)}</g>
+      <g ${B(1, "fade", .8)}>${H(880, 112, "Drishti.AI", 26, "#fff", "end")}${T(880, 140, "Decision intelligence for your LOS", 15, "#C7E0F0", 500, "end")}</g>` },
+];
+
+/* ---------- the short cut: same scenes, beats merged into fewer, tighter lines ----------
+   Each group reveals several beats' visuals, `step` seconds apart, under one caption. Scenes not listed are left out. */
+const SHORT = {
+  "Start": { groups: [{ bis: [0], say: "One MSME loan, told twice." }] },
+  "Act 1": { groups: [{ bis: [0], say: "Act one: how it works today." }] },
+  "Day 1 · The order": { step: 1.6, groups: [{ bis: [0, 1, 2, 3], sfx: "chime", sfxAt: 1.6, say: "Suresh has won the biggest order of his life. He needs ₹3 crore of working capital, and his buyer will wait only two weeks." }] },
+  "Weeks 1–2 · Chasing papers": { step: 2.2, groups: [{ bis: [0, 1, 2, 3], sfx: "alert", sfxAt: 2.2, say: "The bank asks for 14 documents. Chasing the two missing ones takes two weeks." }] },
+  "Week 3 · Reading by hand": { step: 2.4, groups: [{ bis: [0, 1, 2], sfx: "stamp", sfxAt: 5.3, say: "Priya reads more than 200 pages by hand. On page 143, the P&L shows 26% more revenue than GST, but nobody has time to cross-check it." }] },
+  "Weeks 4–5 · Waiting": { step: 2.2, groups: [{ bis: [0, 1, 2, 3], sfx: "stamp", sfxAt: 6.6, say: "The file waits for the checker, then the committee. The buyer's deadline passes, and ₹3 crore is sanctioned in week five." }] },
+  "Month 8 · Found too late": { step: 2.4, groups: [{ bis: [0, 1, 2, 3], dark: false, sfx: "alert", sfxAt: 5.8, say: "Eight months later, Suresh has borrowed elsewhere and the account slips to SMA-2. The first sign was on page 143." }] },
+  "Act 2": { groups: [{ bis: [0], sfx: "rewind", say: "Now rewind, with Drishti." }] },
+  "Set-up · On top of your LOS": { step: 2, groups: [{ bis: [0, 1, 2, 3], say: "The loan system stays as it is. Drishti reads Suresh's documents, pulls GST, bank and bureau data directly, and checks each source against the others." }] },
+  "Step 1 · Every check, every file": { step: 2.2, groups: [
+    { bis: [0, 1, 2], sfx: "alert", sfxAt: 4.4, say: "It runs the bank's credit checks and its investigation patterns on every file, and flags the gap Priya had no time to find." },
+    { bis: [3], shot: 3, say: "And it shows exactly how that number was reached." }] },
+  "Step 2 · The officer decides": { step: 2.2, groups: [{ bis: [0, 1, 2, 3, 4], say: "Priya reviews three exceptions, not 200 pages. With the Research Assistant's help, she sizes the loan at ₹2.4 crore on GST-verified figures." }] },
+  "Step 3 · The memo, with sources": { step: 2, groups: [{ bis: [0, 1], say: "The memo drafts itself, with every number linked to its source." }] },
+  "Step 4 · Decision": { step: 2.4, groups: [{ bis: [0, 1, 3], sfx: "stamp", sfxAt: 2.4, say: "Approved, with a full record. Suresh gets his answer in days, not weeks, the target a pilot will test, and his order is on." }] },
+  "Month 8 · Caught early": { step: 2.4, groups: [{ bis: [0, 1, 3], sfx: "alert", sfxAt: 2.4, say: "Eight months later, Drishti spots the new loans while the account is still healthy. The limit is reworked before a payment is missed." }] },
+  "What the bank gets": { groups: [{ bis: [0], say: "What the bank gets." }] },
+  "For every new loan": { step: 1.6, groups: [{ bis: [0, 1, 2, 3], say: "For every loan: faster decisions, every check on every file, officers free for judgement, and a memo that drafts itself." }] },
+  "For the bank and its book": { step: 1.3, groups: [{ bis: [0, 1, 2, 3, 4, 5], say: "For the bank: clear reasons, a full audit record, early warning, one view of the book, sharper checks over time, and no change to the LOS." }] },
+  "Side by side": { step: 1.8, groups: [{ bis: [0, 1, 2, 3], say: "Side by side: weeks became days, pages became exceptions, and trouble was caught while the account was healthy." }] },
+  "The point": { step: 1.8, groups: [{ bis: [0, 1], say: "Same LOS. Better decisions. A healthier book. The next step is a pilot with one bank and one loan product." }] },
+};
+
+/* ---------- timing: each line gets time to be read, never rushed ---------- */
+const words = s => s.split(/\s+/).filter(Boolean).length;
+let film = [], beats = [], TOTAL = 0, CUT = "full";
+function build(cut) {
+  CUT = cut; film = []; beats = []; let acc = 0;
+  scenes.forEach((s, si) => {
+    let gs;
+    if (cut === "full") gs = s.beats.map((b, bi) => ({ bis: [bi], off: [0], say: b.say, sfx: b.sfx, sfxAt: 0, shot: b.shot, dark: b.dark }));
+    else {
+      const sh = SHORT[s.when]; if (!sh) return;
+      const step = sh.step || 2.2;
+      gs = sh.groups.map(g => ({ bis: g.bis, off: g.bis.map((_, j) => j * step), say: g.say, sfx: g.sfx, sfxAt: g.sfxAt || 0,
+        shot: g.shot !== undefined ? s.beats[g.shot].shot : null, dark: g.dark }));
+    }
+    const f = { s, si, fi: film.length, start: acc, k0: beats.length };
+    gs.forEach((g, gi) => {
+      const w = words(g.say), n = g.off.length, span = n > 1 ? g.off[n - 1] + 3.5 : 0;
+      const d = s.card ? (cut === "full" ? Math.max(4600, (w / 2.6 + 2.2) * 1000) : Math.max(3400, (w / 2.6 + 1.6) * 1000))
+        : Math.max(g.shot ? 8 : 4, w / 2.6 + (g.shot ? 4.2 : 1.7), span) * 1000;
+      Object.assign(g, { fi: f.fi, gi, start: acc, dur: Math.round(d) }); beats.push(g); acc += g.dur;
+    });
+    f.dur = acc - f.start; film.push(f);
+  });
+  TOTAL = acc;
+  return TOTAL;
+}
+const LENGTHS = { short: build("short"), full: build("full") };
+
+/* ---------- music and sound, made in the browser ---------- */
+const Sound = (() => {
+  let ctx = null, out, mus, sfxBus, rev, dly, noise, timer = 0, nextT = 0, step = 0, mood = "intro", pending = null, barBase = 0, on = true, vol = .7;
+  const BPM = 84, S = 60 / BPM / 4, BAR = S * 16;
+  const hz = n => 440 * Math.pow(2, (n - 69) / 12);
+  const ch = (r, n) => ({ r, n });
+  const PROG = {
+    intro: [ch(48, [55, 59, 60, 64]), ch(41, [57, 60, 64, 65]), ch(45, [55, 57, 60, 64]), ch(43, [55, 59, 62, 64])],
+    tension: [ch(45, [57, 60, 64]), ch(41, [57, 60, 65]), ch(38, [57, 62, 65]), ch(40, [56, 59, 64])],
+    lift: [ch(48, [55, 60, 64]), ch(43, [55, 59, 62]), ch(45, [57, 60, 64]), ch(41, [57, 60, 65])],
+    full: [ch(48, [55, 60, 62, 64]), ch(43, [55, 59, 62, 66]), ch(45, [55, 57, 60, 64]), ch(41, [57, 60, 64, 65])],
+    resolve: [ch(41, [57, 60, 64, 65]), ch(43, [55, 59, 62, 67]), ch(48, [55, 60, 64, 67]), ch(48, [55, 60, 64, 67])],
+  };
+  const LAY = {
+    intro: { pad: 1, cut: 1300, arp: 4, arpv: .05 },
+    tension: { pad: .9, cut: 900, pulse: true, hat: [0, 4, 8, 12], hv: .025, kick: [0], kv: .32 },
+    lift: { pad: .8, cut: 1700, arp: 2, arpv: .055, kick: [0, 8], kv: .42, hat: [2, 6, 10, 14], hv: .03, bass: true },
+    full: { pad: .85, cut: 2300, arp: 2, arpv: .06, kick: [0, 4, 8, 12], kv: .4, hat: [2, 6, 10, 14], hv: .035, clap: [4, 12], bass: true },
+    resolve: { pad: 1, cut: 1500, arp: 4, arpv: .045 },
+  };
+  const ARP = [0, 1, 2, 3, 4, 3, 2, 1];
+  function init() {
+    if (ctx) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 4;
+    out = ctx.createGain(); out.gain.value = on ? vol : 0; comp.connect(out); out.connect(ctx.destination);
+    mus = ctx.createGain(); mus.gain.value = 0; mus.connect(comp);
+    sfxBus = ctx.createGain(); sfxBus.gain.value = .9; sfxBus.connect(comp);
+    rev = ctx.createConvolver(); const len = ctx.sampleRate * 3, ir = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3); }
+    rev.buffer = ir; const rg = ctx.createGain(); rg.gain.value = .32; rev.connect(rg); rg.connect(comp);
+    dly = ctx.createDelay(1); dly.delayTime.value = S * 3; const fb = ctx.createGain(); fb.gain.value = .3; const df = ctx.createBiquadFilter(); df.frequency.value = 2400;
+    dly.connect(df); df.connect(fb); fb.connect(dly); const dg = ctx.createGain(); dg.gain.value = .35; df.connect(dg); dg.connect(comp);
+    noise = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate); const nd = noise.getChannelData(0); for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+  }
+  const g0 = (t, peak, a, d, dest) => { const g = ctx.createGain(); g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(peak, t + a); g.gain.exponentialRampToValueAtTime(.0001, t + a + d); g.connect(dest); return g; };
+  function pad(notes, t, lvl, cut) {
+    const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = cut; f.Q.value = .4;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.028 * lvl, t + 1); g.gain.setValueAtTime(.028 * lvl, t + BAR - .2); g.gain.linearRampToValueAtTime(0, t + BAR + 1.6);
+    f.connect(g); g.connect(mus); g.connect(rev);
+    notes.forEach(n => [-7, 6].forEach(dt => { const o = ctx.createOscillator(); o.type = "sawtooth"; o.frequency.value = hz(n); o.detune.value = dt; o.connect(f); o.start(t); o.stop(t + BAR + 1.7); }));
+  }
+  function pluck(n, t, v) {
+    const g = g0(t, v, .005, .55, mus); g.connect(dly); g.connect(rev);
+    const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.value = hz(n); o.connect(g); o.start(t); o.stop(t + .7);
+    const o2 = ctx.createOscillator(); o2.type = "sine"; o2.frequency.value = hz(n + 12); const g2 = g0(t, v * .35, .005, .3, mus); o2.connect(g2); o2.start(t); o2.stop(t + .4);
+  }
+  function pulse(n, t) {
+    const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.setValueAtTime(700, t); f.frequency.exponentialRampToValueAtTime(180, t + .18);
+    const g = g0(t, .07, .005, .2, mus); f.connect(g);
+    const o = ctx.createOscillator(); o.type = "sawtooth"; o.frequency.value = hz(n); o.connect(f); o.start(t); o.stop(t + .3);
+  }
+  function bass(n, t, d) {
+    const g = ctx.createGain(); g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(.15, t + .02); g.gain.setValueAtTime(.15, t + d * .7); g.gain.exponentialRampToValueAtTime(.0001, t + d); g.connect(mus);
+    const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = hz(n); o.connect(g); o.start(t); o.stop(t + d + .05);
+    const o2 = ctx.createOscillator(); o2.type = "triangle"; o2.frequency.value = hz(n + 12); const g2 = ctx.createGain(); g2.gain.value = .25; o2.connect(g2); g2.connect(g); o2.start(t); o2.stop(t + d + .05);
+  }
+  function kick(t, v, dest = mus) {
+    const o = ctx.createOscillator(); o.frequency.setValueAtTime(115, t); o.frequency.exponentialRampToValueAtTime(42, t + .14);
+    const g = g0(t, v, .004, .36, dest); o.connect(g); o.start(t); o.stop(t + .45);
+  }
+  function nz(t, v, type, freq, d, dest = mus, q = .8) {
+    const s = ctx.createBufferSource(); s.buffer = noise; const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q;
+    const g = g0(t, v, .002, d, dest); s.connect(f); f.connect(g); s.start(t); s.stop(t + d + .05); return { f, g };
+  }
+  function sched(st, t) {
+    const s16 = st % 16;
+    if (s16 === 0 && pending) { mood = pending; pending = null; barBase = Math.floor(st / 16); }
+    const L = LAY[mood], bar = Math.floor(st / 16) - barBase, c = PROG[mood][((bar % 4) + 4) % 4];
+    if (s16 === 0) pad(c.n, t, L.pad, L.cut);
+    if (L.bass && (s16 === 0 || s16 === 10)) bass(c.r - 12, t, s16 === 0 ? S * 9 : S * 5);
+    if (L.pulse && st % 2 === 0) pulse(c.r - 12 + (s16 === 8 ? 12 : 0), t);
+    if (L.arp && st % L.arp === 0) { const k = ARP[(st / L.arp) % ARP.length], n = c.n[k % c.n.length] + 12 * (1 + Math.floor(k / c.n.length)); pluck(n, t, L.arpv * (s16 % 4 === 0 ? 1 : .7)); }
+    if (L.kick && L.kick.includes(s16)) kick(t, L.kv);
+    if (L.hat && L.hat.includes(s16)) nz(t, L.hv, "highpass", 8000, .05);
+    if (L.clap && L.clap.includes(s16)) { nz(t, .07, "bandpass", 1500, .12); nz(t + .012, .05, "bandpass", 1700, .1); }
+  }
+  function pump() { while (nextT < ctx.currentTime + .3) { sched(step, nextT); nextT += S; step++; } }
+  const FX = {
+    whoosh(t) { const { f } = nz(t, .1, "bandpass", 400, .7, sfxBus, 1.2); f.frequency.setValueAtTime(300, t); f.frequency.exponentialRampToValueAtTime(3200, t + .55); },
+    rewind(t) { for (let k = 0; k < 3; k++) { const { f } = nz(t + k * .18, .08, "bandpass", 2400, .22, sfxBus, 2); f.frequency.setValueAtTime(3200, t + k * .18); f.frequency.exponentialRampToValueAtTime(600, t + k * .18 + .2); } },
+    stamp(t) { kick(t, .8, sfxBus); nz(t, .25, "lowpass", 1400, .09, sfxBus); },
+    alert(t) { [[83, 0], [79, .2]].forEach(([n, dt]) => { const g = g0(t + dt, .07, .01, .5, sfxBus); g.connect(rev); const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = hz(n); o.connect(g); o.start(t + dt); o.stop(t + dt + .6); }); },
+    chime(t) { [76, 79, 84].forEach((n, k) => { const g = g0(t + k * .09, .055, .005, .9, sfxBus); g.connect(rev); const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.value = hz(n); o.connect(g); o.start(t + k * .09); o.stop(t + k * .09 + 1); }); },
+  };
+  return {
+    start() {
+      init(); if (ctx.state === "suspended") ctx.resume();
+      if (!timer) { nextT = ctx.currentTime + .1; step = 0; barBase = 0; timer = setInterval(pump, 40); }
+      mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(mus.gain.value, ctx.currentTime); mus.gain.linearRampToValueAtTime(.62, ctx.currentTime + 1.5);
+    },
+    pause() { if (ctx && ctx.state === "running") ctx.suspend(); },
+    resume() { if (ctx && ctx.state === "suspended") ctx.resume(); },
+    mood(m) { if (m !== mood) pending = m; },
+    fx(name, delay = 0) { if (ctx && ctx.state === "running" && FX[name]) FX[name](ctx.currentTime + .02 + delay); },
+    fadeOut() { if (!ctx) return; mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(mus.gain.value, ctx.currentTime); mus.gain.linearRampToValueAtTime(0, ctx.currentTime + 4); },
+    set on(v) { on = v; if (out) out.gain.setTargetAtTime(v ? vol : 0, ctx.currentTime, .1); },
+    get on() { return on; },
+    get state() { return ctx ? ctx.state + " · " + mood : "not started"; },
+    set vol(v) { vol = v; if (out && on) out.gain.setTargetAtTime(v, ctx.currentTime, .05); },
+  };
+})();
+
+/* ---------- player ---------- */
+const $ = id => document.getElementById(id);
+const stage = $("stage"), groups = [$("sgA"), $("sgB")], segs = $("segs"), capEl = $("cap");
+const MOOD = { open: "intro", act1: "tension", act2: "lift", value: "full", close: "resolve" };
+const CHAP = { open: "Drishti.AI", act1: "Act 1 · Today", act2: "Act 2 · With Drishti", value: "What the bank gets", close: "Drishti.AI" };
+const ICONS = {
+  play: '<svg viewBox="0 0 24 24"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>', pause: '<svg viewBox="0 0 24 24"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>',
+  replay: '<svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2.4"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v5h5"/></svg>',
+  prev: '<svg viewBox="0 0 24 24"><path d="M18 6l-8 6 8 6zM6 6v12"/></svg>', next: '<svg viewBox="0 0 24 24"><path d="M6 6l8 6-8 6zM18 6v12"/></svg>',
+  snd: '<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
+  mute: '<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>',
+  cc: '<svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M10.5 10.2a2.4 2.4 0 1 0 0 3.6M17 10.2a2.4 2.4 0 1 0 0 3.6"/></svg>',
+  fs: '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>', fsx: '<svg viewBox="0 0 24 24"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>',
+};
+$("prev").innerHTML = ICONS.prev; $("next").innerHTML = ICONS.next; $("cc").innerHTML = ICONS.cc; $("fs").innerHTML = ICONS.fs;
+const store = { get(k, d) { try { const v = localStorage.getItem("drishti-film-" + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("drishti-film-" + k, JSON.stringify(v)); } catch {} } };
+
+let T0 = 0, now0 = 0, Tm = 0, playing = false, raf = 0, cur = 0, curSi = -1, curK = -1, clr = 0, started = false;
+const fmt = ms => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+
+let fills = [];
+function buildSegs() {
+  segs.innerHTML = "";
+  film.forEach((f, k) => {
+    const b = document.createElement("button");
+    b.className = "seg"; b.type = "button"; b.dataset.ch = f.s.ch; b.style.flex = `${f.dur} 1 0`;
+    b.title = `${CHAP[f.s.ch]} · ${f.s.when}`; b.setAttribute("aria-label", `Scene ${k + 1}: ${f.s.when}`);
+    b.innerHTML = '<span class="fill"></span>';
+    b.addEventListener("click", () => seek(f.start));
+    segs.appendChild(b);
+  });
+  fills = [...segs.children].map(b => b.firstChild);
+}
+const chapList = [["open", "Opening"], ["act1", "Act 1 · Today"], ["act2", "Act 2 · With Drishti"], ["value", "What the bank gets"], ["close", "Close"]];
+const chapBtns = chapList.map(([ch, label]) => {
+  const b = document.createElement("button"); b.className = "chap"; b.type = "button"; b.dataset.ch = ch; b.innerHTML = `<i></i>${label}`;
+  b.addEventListener("click", () => { const f = film.find(x => x.s.ch === ch); if (!f) return; seek(f.start); if (!playing) play(); });
+  $("chaps").appendChild(b); return b;
+});
+const mins = ms => Math.round(ms / 60000);
+document.querySelector('.cut [data-cut="full"]').textContent = `Full film · ${mins(LENGTHS.full)} min`;
+document.querySelector('.cut [data-cut="short"]').textContent = `Short cut · ${mins(LENGTHS.short)} min`;
+function setMeta() { $("meta").textContent = `About ${mins(TOTAL)} minutes · music and captions · press F for full screen`; }
+
+function countUp(el, instant, extra = 0) {
+  const target = +el.dataset.count, f = n => Math.round(n).toLocaleString("en-IN");
+  if (instant) { el.textContent = f(target); return; }
+  const t0 = performance.now(), dur = 1500, delay = 250 + extra;
+  const tickN = now => { const p = Math.min(1, Math.max(0, (now - t0 - delay) / dur)); el.textContent = f(target * (1 - Math.pow(1 - p, 3))); if (p < 1 && el.isConnected) requestAnimationFrame(tickN); };
+  requestAnimationFrame(tickN);
+}
+function setCaption(text) {
+  capEl.classList.add("swap");
+  setTimeout(() => { capEl.textContent = text; capEl.classList.remove("swap"); }, 200);
+}
+function sizeShot() {
+  const img = $("shotimg"); if (!img.naturalWidth) return;
+  const r = img.naturalWidth / img.naturalHeight, W = stage.clientWidth, Hh = stage.clientHeight;
+  $("frame").style.width = Math.min(W * .9, Hh * .5 * r) + "px";
+}
+$("shotimg").addEventListener("load", sizeShot);
+new ResizeObserver(sizeShot).observe(stage);
+function showShot(sh) {
+  if (sh) {
+    const img = $("shotimg"); img.src = "shots/" + sh.src + ".jpg"; img.alt = sh.callout.replace(/<[^>]+>/g, "");
+    $("callout").innerHTML = sh.callout; $("callout").className = "callout" + (sh.good ? " good" : "");
+    $("imgwrap").querySelectorAll(".hl").forEach(n => n.remove());
+    sh.boxes.forEach(([l, t, w, h]) => { const d = document.createElement("div"); d.className = "hl" + (sh.good ? " good" : "");
+      Object.assign(d.style, { left: l + "%", top: t + "%", width: w + "%", height: h + "%" }); $("imgwrap").appendChild(d); });
+  }
+  stage.classList.toggle("proof", !!sh);
+}
+function renderScene(fi, offset) {
+  const f = film[fi], s = f.s, old = groups[cur]; cur ^= 1; const g = groups[cur];
+  g.innerHTML = `<g class="cam" style="--sd:${f.dur}ms;animation-delay:${-offset}ms">${s.svg()}</g>`;
+  g.parentNode.appendChild(g);
+  g.classList.remove("leave"); g.classList.add("enter"); old.classList.remove("enter"); old.classList.add("leave");
+  clearTimeout(clr); clr = setTimeout(() => { old.innerHTML = ""; old.classList.remove("leave"); }, 700);
+  stage.dataset.ch = s.ch; stage.classList.toggle("card", !!s.card);
+  $("act").textContent = CHAP[s.ch]; $("when").textContent = s.when;
+  chapBtns.forEach(b => b.classList.toggle("on", b.dataset.ch === s.ch));
+  Sound.mood(MOOD[s.ch]);
+  if (playing && fi > 0 && !beats[f.k0].sfx) Sound.fx("whoosh");
+  curSi = fi; curK = f.k0 - 1;
+}
+function applyBeat(b, instant) {
+  const g = groups[cur];
+  b.bis.forEach((bi, j) => {
+    const o = instant ? 0 : b.off[j];
+    g.querySelectorAll(`[data-b="${bi}"]`).forEach(el => {
+      el.classList.add("in"); if (instant) el.classList.add("instant"); else if (o) el.style.setProperty("--o", o + "s");
+      el.querySelectorAll("[data-count]").forEach(c => countUp(c, instant, o * 1000));
+    });
+    g.querySelectorAll(`[data-out="${bi}"]`).forEach(el => { el.classList.add("out"); if (instant) el.classList.add("instant"); else if (o) el.style.setProperty("--oo", o + "s"); });
+  });
+  if (!instant) {
+    setCaption(b.say);
+    stage.classList.toggle("dark", !!(b.dark ?? film[b.fi].s.dark));
+    showShot(b.shot);
+    if (playing && b.sfx) Sound.fx(b.sfx, b.sfxAt);
+  }
+}
+function beatAt(t) { for (let j = 0; j < beats.length; j++) if (t < beats[j].start + beats[j].dur) return j; return beats.length - 1; }
+function sync(t, jump) {
+  const k = beatAt(t), b = beats[k];
+  if (b.fi !== curSi || (jump && k <= curK)) renderScene(b.fi, t - film[b.fi].start);
+  for (let j = curK + 1; j <= k; j++) applyBeat(beats[j], j < k);
+  curK = k;
+}
+function ui() {
+  film.forEach((f, k) => { fills[k].style.width = Math.max(0, Math.min(100, (Tm - f.start) / f.dur * 100)) + "%"; });
+  $("time").textContent = `${fmt(Tm)} / ${fmt(TOTAL)}`;
+}
+function frame(now) {
+  if (!playing) return;
+  Tm = T0 + (now - now0);
+  if (Tm >= TOTAL) { Tm = TOTAL; ui(); return finish(); }
+  sync(Tm); ui();
+  raf = requestAnimationFrame(frame);
+}
+function setPlayIcon() { const b = $("play"); const end = Tm >= TOTAL; b.innerHTML = playing ? ICONS.pause : end ? ICONS.replay : ICONS.play; b.setAttribute("aria-label", playing ? "Pause" : end ? "Play again" : "Play"); }
+function play() {
+  if (Tm >= TOTAL) { Tm = 0; seek(0); }
+  if (!started) { started = true; seek(0); }
+  playing = true; $("start").hidden = true; stage.classList.remove("paused");
+  T0 = Tm; now0 = performance.now(); Sound.start(); Sound.resume();
+  cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); setPlayIcon();
+}
+function pause() { playing = false; stage.classList.add("paused"); Sound.pause(); cancelAnimationFrame(raf); setPlayIcon(); }
+function finish() {
+  playing = false; cancelAnimationFrame(raf); Sound.fadeOut(); setPlayIcon();
+  $("startLbl").textContent = "Watch again"; $("startSub").textContent = `${fmt(TOTAL)} · from the beginning`;
+  setTimeout(() => { if (!playing) $("start").hidden = false; }, 3500);
+}
+function seek(t) {
+  Tm = Math.max(0, Math.min(TOTAL - 1, t)); stage.classList.remove("paused");
+  sync(Tm, true); T0 = Tm; now0 = performance.now(); ui(); setPlayIcon();
+}
+const sceneIdx = () => beats[beatAt(Tm)].fi;
+function stepBeat(dir) {
+  const k = beatAt(Tm);
+  if (dir > 0) return seek(beats[Math.min(beats.length - 1, k + 1)].start);
+  seek(Tm - beats[k].start > 1500 ? beats[k].start : beats[Math.max(0, k - 1)].start);
+}
+function stepScene(dir) {
+  const si = sceneIdx();
+  if (dir > 0) return seek(film[Math.min(film.length - 1, si + 1)].start);
+  seek(Tm - film[si].start > 2000 ? film[si].start : film[Math.max(0, si - 1)].start);
+}
+
+$("play").addEventListener("click", () => playing ? pause() : play());
+$("start").addEventListener("click", play);
+$("prev").addEventListener("click", () => stepScene(-1));
+$("next").addEventListener("click", () => stepScene(1));
+function setSound(v) { Sound.on = v; $("snd").innerHTML = v ? ICONS.snd : ICONS.mute; $("snd").setAttribute("aria-pressed", v); store.set("sound", v); }
+function setCC(v) { stage.classList.toggle("nocap", !v); $("cc").setAttribute("aria-pressed", v); store.set("cc", v); }
+$("snd").addEventListener("click", () => setSound(!Sound.on));
+$("cc").addEventListener("click", () => setCC(stage.classList.contains("nocap")));
+$("vol").value = store.get("vol", .7); Sound.vol = +$("vol").value;
+$("vol").addEventListener("input", e => { Sound.vol = +e.target.value; store.set("vol", +e.target.value); if (!Sound.on) setSound(true); });
+const fsToggle = () => document.fullscreenElement ? document.exitFullscreen() : $("player").requestFullscreen && $("player").requestFullscreen();
+$("fs").addEventListener("click", fsToggle);
+document.addEventListener("fullscreenchange", () => { const f = !!document.fullscreenElement; $("fs").innerHTML = f ? ICONS.fsx : ICONS.fs; $("fs").setAttribute("aria-label", f ? "Exit full screen" : "Full screen"); setTimeout(sizeShot, 100); });
+document.addEventListener("keydown", e => {
+  if (e.target.matches && e.target.matches("input")) return;
+  if (e.target.closest && e.target.closest("button") && (e.key === " " || e.key === "Enter")) return;
+  const k = e.key.toLowerCase();
+  if (e.key === " ") { e.preventDefault(); playing ? pause() : play(); }
+  else if (e.key === "ArrowRight") { e.preventDefault(); e.shiftKey ? stepScene(1) : stepBeat(1); }
+  else if (e.key === "ArrowLeft") { e.preventDefault(); e.shiftKey ? stepScene(-1) : stepBeat(-1); }
+  else if (k === "f") fsToggle();
+  else if (k === "m") setSound(!Sound.on);
+  else if (k === "c") setCC(stage.classList.contains("nocap"));
+});
+
+function setCut(c, first) {
+  if (!first) pause();
+  build(c); buildSegs(); setMeta();
+  document.querySelectorAll(".cut button").forEach(b => b.setAttribute("aria-pressed", b.dataset.cut === c));
+  curSi = -1; curK = -1; started = false; Tm = 0;
+  sync(0, true); ui(); setPlayIcon();
+  $("startLbl").textContent = c === "short" ? "Play the short cut" : "Play the film";
+  $("startSub").textContent = `${fmt(TOTAL)} · turn your sound on`;
+  $("start").hidden = false;
+  store.set("cut", c);
+  try { history.replaceState(null, "", c === "short" ? "#short" : location.pathname + location.search); } catch {}
+}
+document.querySelectorAll(".cut button").forEach(b => b.addEventListener("click", () => { if (b.dataset.cut !== CUT || playing || Tm > 0) setCut(b.dataset.cut); }));
+
+setSound(store.get("sound", true)); setCC(store.get("cc", true));
+setCut(location.hash === "#short" ? "short" : store.get("cut", "full"), true);
+window.__film = { get film() { return film; }, get beats() { return beats; }, get TOTAL() { return TOTAL; }, LENGTHS, setCut, seek: t => seek(t), state: () => ({ Tm, playing, curSi, curK, cut: CUT, audio: Sound.state }) };
+})();
+</script>

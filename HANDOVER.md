@@ -180,6 +180,8 @@ Still to do, outside the code:
 
 ## 5. Things to know (gotchas)
 
+- **Unlisted pages under `src/stories/`** (13 November 2026: the Drishti customer-story film) are copied as they are by a passthrough rule and ignored as templates, so they never get the site layout, nav, sitemap entry or the site-wide Content Security Policy. Each carries its own `noindex` and CSP, and self-hosts its fonts so the page makes no third-party requests, in line with the Privacy Policy. Share the link directly; nothing on the site links to it.
+
 - **Search engine extras:**
   - Product preview images (`src/assets/images/og-<key>.png`) are generated from `products.js` by `npm run og-images`. Rerun it and commit the PNGs after changing a product's name, label or tagline. Other pages use `og-default.png`.
   - Structured data is built in `src/_data/schema.js` and output by `base.njk`. Check changes with Google's [Rich Results Test](https://search.google.com/test/rich-results).
