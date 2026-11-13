@@ -44,7 +44,7 @@ body { margin: 0; background: var(--bg); color: var(--ink2); font-family: var(--
 
 /* the player always fits the window: 16:9 film + one control row */
 :root { --pw: min(100%, calc((100svh - 168px) * 16 / 9)); }
-.player { width: var(--pw); margin: 0 auto; }
+.player { width: var(--pw); margin: 0 auto; container-type: inline-size; }
 .player:fullscreen { --pw: min(100vw - 24px, calc((100vh - 76px) * 16 / 9)); width: 100vw; height: 100vh; padding: 12px; background: var(--bg2);
   display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .player:fullscreen .stage, .player:fullscreen .controls { width: var(--pw); }
@@ -133,7 +133,40 @@ body { margin: 0; background: var(--bg); color: var(--ink2); font-family: var(--
 .keys { font-size: 12px; color: var(--ink3); margin-top: 10px; }
 .keys kbd { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; background: #fff; }
 .note { margin-top: 12px; font-size: 13px; color: var(--ink3); max-width: 80ch; line-height: 1.5; }
-@media (max-width: 640px) { .vol, .time { display: none; } .ib { width: 34px; height: 34px; } }
+@media (max-width: 640px) { .ib { width: 34px; height: 34px; } }
+/* narrow player (phones): progress bar on its own row above the buttons, time pushed right */
+@media (min-height: 521px) {
+  @container (max-width: 640px) {
+    .controls { flex-wrap: wrap; row-gap: 6px; }
+    .segs { order: -1; flex: 1 1 100%; height: 22px; }
+    .time { margin-left: auto; }
+    .vol { display: none; }
+  }
+}
+/* short screens (a phone held sideways): give the height to the film */
+@media (max-height: 520px) {
+  :root { --pw: min(100%, calc((100svh - 132px) * 16 / 9)); }
+  .wrap { padding-top: 8px; }
+  #prev, #next, .vol { display: none; }
+  .head { margin-bottom: 6px; }
+  .head .eyebrow, .head .meta { display: none; }
+}
+/* touch screens: no keyboard hints */
+@media (hover: none) { .keys { display: none; } }
+.tip { display: none; font-size: 13px; color: var(--ink3); margin: 0 0 8px; }
+@media (hover: none) and (orientation: portrait) { .tip { display: block; } }
+/* full screen where the browser has none for pages (iPhone): the player fills the window; held upright, it turns sideways */
+html.noscroll, html.noscroll body { overflow: hidden; }
+.player.fsfake { position: fixed; inset: 0; z-index: 1000; width: 100vw; height: 100dvh; margin: 0; background: var(--bg2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0;
+  padding: max(8px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+  --pw: min(100vw - 20px, calc((100dvh - 64px) * 16 / 9)); }
+.player.fsfake .stage, .player.fsfake .controls { width: var(--pw); }
+.player.fsfake .tip { display: none; }
+@media (orientation: portrait) {
+  .player.fsfake { width: 100dvh; height: 100vw; inset: auto; top: 0; left: 100vw; transform: rotate(90deg); transform-origin: top left;
+    --pw: min(100dvh - 20px, calc((100vw - 64px) * 16 / 9)); }
+}
 
 /* ---------- film motion ---------- */
 .sg.enter { animation: scenein .7s ease both; }
@@ -198,6 +231,7 @@ body { margin: 0; background: var(--bg); color: var(--ink2); font-family: var(--
   </div>
 
   <div class="player" id="player">
+    <p class="tip">Tip: tap the full-screen button at the bottom right for a bigger picture.</p>
     <div class="stage" id="stage" data-ch="open">
       <svg id="svg" viewBox="0 0 960 540" role="img" aria-label="Story illustration">
         <defs>
@@ -771,6 +805,8 @@ const Sound = (() => {
   const ARP = [0, 1, 2, 3, 4, 3, 2, 1];
   function init() {
     if (ctx) return;
+    // iPhone: play as media, so the ring/silent switch doesn't mute the music (Safari 16.4+)
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch {}
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 4;
     out = ctx.createGain(); out.gain.value = on ? vol : 0; comp.connect(out); out.connect(ctx.destination);
@@ -894,7 +930,8 @@ const chapBtns = chapList.map(([ch, label]) => {
 const mins = ms => Math.round(ms / 60000);
 document.querySelector('.cut [data-cut="full"]').textContent = `Full film · ${mins(LENGTHS.full)} min`;
 document.querySelector('.cut [data-cut="short"]').textContent = `Short cut · ${mins(LENGTHS.short)} min`;
-function setMeta() { $("meta").textContent = `About ${mins(TOTAL)} minutes · music and captions · press F for full screen`; }
+const touch = matchMedia("(hover: none)").matches;
+function setMeta() { $("meta").textContent = `About ${mins(TOTAL)} minutes · music and captions · ${touch ? "best in full screen" : "press F for full screen"}`; }
 
 function countUp(el, instant, extra = 0) {
   const target = +el.dataset.count, f = n => Math.round(n).toLocaleString("en-IN");
@@ -1012,9 +1049,20 @@ $("snd").addEventListener("click", () => setSound(!Sound.on));
 $("cc").addEventListener("click", () => setCC(stage.classList.contains("nocap")));
 $("vol").value = store.get("vol", .7); Sound.vol = +$("vol").value;
 $("vol").addEventListener("input", e => { Sound.vol = +e.target.value; store.set("vol", +e.target.value); if (!Sound.on) setSound(true); });
-const fsToggle = () => document.fullscreenElement ? document.exitFullscreen() : $("player").requestFullscreen && $("player").requestFullscreen();
+function setFsIcon(f) { $("fs").innerHTML = f ? ICONS.fsx : ICONS.fs; $("fs").setAttribute("aria-label", f ? "Exit full screen" : "Full screen"); setTimeout(sizeShot, 120); }
+const isFake = () => $("player").classList.contains("fsfake");
+function setFake(on) { $("player").classList.toggle("fsfake", on); document.documentElement.classList.toggle("noscroll", on); setFsIcon(on); }
+const nativeFS = !!(document.fullscreenEnabled && $("player").requestFullscreen);
+function fsToggle() {
+  if (isFake()) return setFake(false);
+  if (document.fullscreenElement) return document.exitFullscreen();
+  if (!nativeFS) return setFake(true);
+  $("player").requestFullscreen().then(() => {
+    try { screen.orientation.lock("landscape").catch(() => {}); } catch {}   // phones that allow it turn sideways
+  }).catch(() => setFake(true));
+}
 $("fs").addEventListener("click", fsToggle);
-document.addEventListener("fullscreenchange", () => { const f = !!document.fullscreenElement; $("fs").innerHTML = f ? ICONS.fsx : ICONS.fs; $("fs").setAttribute("aria-label", f ? "Exit full screen" : "Full screen"); setTimeout(sizeShot, 100); });
+document.addEventListener("fullscreenchange", () => setFsIcon(!!document.fullscreenElement));
 document.addEventListener("keydown", e => {
   if (e.target.matches && e.target.matches("input")) return;
   if (e.target.closest && e.target.closest("button") && (e.key === " " || e.key === "Enter")) return;
@@ -1023,6 +1071,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "ArrowRight") { e.preventDefault(); e.shiftKey ? stepScene(1) : stepBeat(1); }
   else if (e.key === "ArrowLeft") { e.preventDefault(); e.shiftKey ? stepScene(-1) : stepBeat(-1); }
   else if (k === "f") fsToggle();
+  else if (e.key === "Escape" && isFake()) setFake(false);
   else if (k === "m") setSound(!Sound.on);
   else if (k === "c") setCC(stage.classList.contains("nocap"));
 });
